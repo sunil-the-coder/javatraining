@@ -1,7 +1,17 @@
-public class Test
+class Student
 {
 	public static void main(String[] args)
 	{
+		System.out.println("student main called");
+	}
+}
+
+public class Test
+{
+
+	public static void main(String[] args)
+	{
+		System.out.println("Test main called");
 		//SCP -> literals -> String Constant Pool
 		String s1 = "sunil";
 		String s3 = "sunil";
