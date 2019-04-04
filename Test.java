@@ -9,6 +9,11 @@ class Student
 	public boolean equals(Object obj) {
 		System.out.println("Student equals() called");
 
+		if(this == obj) 
+			return true;
+
+		System.out.println("After ==");
+
 		if(obj == null)
 			return false;
 
@@ -27,7 +32,7 @@ class Student
 		Student s1 = new Student(10);
 		Student s2 = new Student(20);
 
-		boolean f = s1.equals(null);
+		boolean f = s1.equals(s1);
 
 		System.out.println("Result:"+f);
 
