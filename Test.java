@@ -7,22 +7,17 @@ class Student
 	}
 
 	public boolean equals(Object obj) {
+
 		System.out.println("Student equals() called");
 
 		if(this == obj) 
 			return true;
 
-		System.out.println("After ==");
-
-		if(obj == null)
-			return false;
-
-		//1. Identify the object properties for the object which are unique.
-
-		Student s2 = (Student)obj;
-
-		if(this.id == s2.id)	
-			return true;	
+		if(obj != null && obj instanceof Student) {
+			Student s2 = (Student)obj;
+			if(this.id == s2.id)	
+				return true;	
+		}
 		
 		return false;
 	}
@@ -32,7 +27,9 @@ class Student
 		Student s1 = new Student(10);
 		Student s2 = new Student(20);
 
-		boolean f = s1.equals(s1);
+		String s3 = new String("sunil");
+
+		boolean f = s1.equals(s3);
 
 		System.out.println("Result:"+f);
 
