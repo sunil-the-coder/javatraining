@@ -63,10 +63,10 @@ public class Test
 
 	public static void main(String[] args)
 	{
-		A a = new B();
-		a.disp();
-		//a.show();
 
+		int a = 10;
+		a = a == 11 ||  ++a;
+		System.out.println(a);
 	}
 }
 
