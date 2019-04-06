@@ -1,5 +1,7 @@
 package com.psl.example.client;
 
+import java.util.Scanner;
+
 //import com.psl.example.Student;
 
 class Student {
@@ -20,6 +22,26 @@ class Student {
 public class Test {
 
 	public static void main(String[] args) {
+		
+		
+		Student s = new Student();
+		Student s = new Student();
+		Student s = new Student();
+		Student s = new Student();
+		
+		
+		
+		
+		int count = dispObjectCount();
+		
+		
+		
+		
+		
+		Scanner scan = new Scanner(System.in);
+		int no = scan.nextInt();
+		String name = scan.nextLine();
+		
 		
 		//Array of objects
 		Student[] studs = new Student[5];
