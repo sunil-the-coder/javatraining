@@ -1,0 +1,21 @@
+Push your changes to your repository
+
+
+
+Push your changes to your repo:
+
+1. Go to your repo directory
+
+2. Do whatever changes. create files/folder etc..
+
+3. git add .
+
+4. git status -> It is just used to verify the status of your repo on local ( Not compulsary )
+
+5. git commit -m "added code for finding minium and maximum" 
+
+6. git push -u origin master ( first time push ) 
+	-> Send local repo contents to remote repository ( github.com )
+
+
+7. Repeat from step - 2
