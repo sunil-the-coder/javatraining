@@ -1,7 +1,5 @@
 package com.psl.example.client;
 
-import java.util.Scanner;
-
 class Student {
 
 	private int id;
@@ -17,8 +15,8 @@ class Student {
 		data += 2;
 	}
 
-	public void disp() {
-		System.out.println("ID:" + id + ",Name:" + name + ",Data:" + data);
+	public String toString() {
+		return "ID:" + id + ",Name:" + name + ",Data:" + data;
 	}
 }
 
@@ -28,15 +26,16 @@ public class Test {
 
 		Student s1 = new Student(10,"sunil");
 		s1.addData();
-		s1.disp();
+		System.out.println(s1.toString());
 		
 		Student s2 = new Student(11,"anil");
 		s2.addData();
-		s2.disp();
+		System.out.println(s2);
+		
 		
 		Student s3 = new Student(12,"ganesh");
 		s3.addData();
-		s3.disp();
+		System.out.println(s3);
 		
 		
 	}
