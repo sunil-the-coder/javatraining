@@ -1,68 +1,25 @@
 package com.psl.example.client;
 
-class Student {
-
-	public int id;
-	private String name;
-
-	public Student() {
-	}
-
-	public Student(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-
-}
-
-class A {
-
-	int a = 10;
-	int b;
-
-	A(int a) {
-		this(a, 20);
-	}
-
-	A(int a, int b) {
-		this.a = a;
-		this.b = b;
-	}
-
-	A(String str) {
-
-	}
-
-	public void disp() {
-		// a/b
-	}
-
-}
-
-class B extends A {
-	int c;
-
-	public B(int a, int b, int c) {
-		// super("ABC");
-		super(a, b);
-		this.c = c;
-	}
-
-	public B(int c) {
-		this(10, 20, 30);
-	}
-
-	public void disp() {
-		super.disp();
-	}
-}
+import com.psl.example.Car;
+import com.psl.example.Date;
+import com.psl.example.Engine;
+import com.psl.example.Student;
 
 public class Test {
 
 	public static void main(String[] args) {
+		/*
+		 * Date dob = new Date(20, 4, 2000); dob.plusDays(4);
+		 * 
+		 * Student stud = new Student(10, "Sunil", "268296"); stud.setDate(dob);
+		 * 
+		 * System.out.println(stud);
+		 */
 
-		A a = new A(10);
-		
-		
+		Engine engine = new Engine("Abc");
+
+		Car car = new Car("Ferrari",engine);
+		//car.setEngine(engine);
+		car.drive();
 	}
 }
