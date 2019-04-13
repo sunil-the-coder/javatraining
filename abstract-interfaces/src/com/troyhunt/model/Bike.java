@@ -1,6 +1,6 @@
 package com.troyhunt.model;
 
-public class Bike implements Vehicle {
+public class Bike implements Vehicle, RemoteControllable {
 
 	@Override
 	public void applyBreaks() {
@@ -11,5 +11,10 @@ public class Bike implements Vehicle {
 	public void applyHorns() {
 
 		System.out.println("Applying bike horns");
+	}
+
+	@Override
+	public void controlUsingRemote() {
+		System.out.println("Controlling bike using remote");
 	}
 }

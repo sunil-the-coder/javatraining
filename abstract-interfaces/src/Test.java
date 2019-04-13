@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import com.troyhunt.model.Bike;
 import com.troyhunt.model.Car;
+import com.troyhunt.model.RemoteControllable;
 import com.troyhunt.model.Vehicle;
 
 public class Test {
@@ -10,9 +11,16 @@ public class Test {
 	public static void doOperation(Vehicle vehicle) {
 		vehicle.applyBreaks();
 		vehicle.applyHorns();
+
+		if (vehicle instanceof RemoteControllable) {
+			RemoteControllable remote = (RemoteControllable) vehicle;
+			remote.controlUsingRemote();
+		}
+
 	}
 
 	public static void main(String[] args) {
+		
 
 		Scanner scan = new Scanner(System.in);
 
