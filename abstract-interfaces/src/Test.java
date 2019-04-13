@@ -1,18 +1,20 @@
 
-abstract class A {
-	// abstract/blank method
-	public abstract void disp();
-	
-	//non-abstract
-	public void show() {
-		System.out.println("A show");
-	}
+interface A {
+	int data = 10; // public static final data = 10;
+	void disp();
+	void show();
 }
 
-class B extends A {
+class B implements A {
 
+	@Override
 	public void disp() {
 		System.out.println("B disp");
+	}
+
+	@Override
+	public void show() {
+		System.out.println("B show");
 	}
 }
 
