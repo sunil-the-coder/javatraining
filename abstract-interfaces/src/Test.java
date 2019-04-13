@@ -6,7 +6,7 @@ import com.troyhunt.model.Vehicle;
 
 public class Test {
 
-	//Loosly coupled code
+	// Loosly coupled code
 	public static void doOperation(Vehicle vehicle) {
 		vehicle.applyBreaks();
 		vehicle.applyHorns();
@@ -14,10 +14,6 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		
-		doOperation(new Bike());
-		doOperation(new Car());
-		
 		Scanner scan = new Scanner(System.in);
 
 		while (true) {
@@ -29,24 +25,18 @@ public class Test {
 			System.out.println("Enter choice:");
 			int choice = scan.nextInt();
 
-			Vehicle vehicle = null;
-
 			switch (choice) {
 
 			case 1:
-				vehicle = new Car();
+				doOperation(new Car());
 				break;
 			case 2:
-				vehicle = new Bike();
+				doOperation(new Bike());
 				break;
 			default:
 				scan.close();
-
 				System.exit(0);
 			}
-
-			vehicle.applyBreaks();
-			vehicle.applyHorns();
 
 		}
 	}
