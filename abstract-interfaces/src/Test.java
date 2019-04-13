@@ -1,29 +1,53 @@
+import java.util.Scanner;
 
-interface A {
-	int data = 10; // public static final data = 10;
-	void disp();
-	void show();
-}
-
-class B implements A {
-
-	@Override
-	public void disp() {
-		System.out.println("B disp");
-	}
-
-	@Override
-	public void show() {
-		System.out.println("B show");
-	}
-}
+import com.troyhunt.model.Bike;
+import com.troyhunt.model.Car;
+import com.troyhunt.model.Vehicle;
 
 public class Test {
 
+	//Loosly coupled code
+	public static void doOperation(Vehicle vehicle) {
+		vehicle.applyBreaks();
+		vehicle.applyHorns();
+	}
+
 	public static void main(String[] args) {
 
-		A a = new B();
-		a.disp();
-		a.show();
+		
+		doOperation(new Bike());
+		doOperation(new Car());
+		
+		Scanner scan = new Scanner(System.in);
+
+		while (true) {
+
+			System.out.println("1. Car");
+			System.out.println("2. Bike");
+			System.out.println("3. Exit");
+
+			System.out.println("Enter choice:");
+			int choice = scan.nextInt();
+
+			Vehicle vehicle = null;
+
+			switch (choice) {
+
+			case 1:
+				vehicle = new Car();
+				break;
+			case 2:
+				vehicle = new Bike();
+				break;
+			default:
+				scan.close();
+
+				System.exit(0);
+			}
+
+			vehicle.applyBreaks();
+			vehicle.applyHorns();
+
+		}
 	}
 }
