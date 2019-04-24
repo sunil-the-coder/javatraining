@@ -16,11 +16,9 @@ public class Test {
 			RemoteControllable remote = (RemoteControllable) vehicle;
 			remote.controlUsingRemote();
 		}
-
 	}
 
 	public static void main(String[] args) {
-		
 
 		Scanner scan = new Scanner(System.in);
 
