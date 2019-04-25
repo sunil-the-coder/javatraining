@@ -1,28 +1,35 @@
 package com.psl.example.client;
 
+import java.io.IOException;
+
+class InsuffientBalanceException extends Exception {
+
+	public InsuffientBalanceException(String message) {
+		super(message);
+	}
+}
+
 public class Test {
 
-	public static void f2() {
-		System.out.println("f2()");
-	}
+	public static void transact(int balance) throws InsuffientBalanceException {
+		if (balance < 1000) {
+			throw new InsuffientBalanceException("Balance is not sufficient");
+		} else {
+			balance = balance - 500;
+		}
 
-	public static void f1() {
-		f2();
+		System.out.println("Balance:" + balance);
 	}
 
 	public static void main(String[] args) {
 
-		System.out.println("1");
-		System.out.println("2");
+		int balance = 900;
 
 		try {
-			int ans = 10 / 0;
-			System.out.println("Ans is:" + ans);
-		} catch (ArithmeticException e) {
-			//e.printStackTrace();
-			System.out.println("Divider must not be zero.");
+			transact(balance);
+		} catch (InsuffientBalanceException e) {
+			System.out.println(e.getMessage());
 		}
-		System.out.println("3");
-		System.out.println("4");
+
 	}
 }
