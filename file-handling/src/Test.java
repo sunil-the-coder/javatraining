@@ -1,23 +1,21 @@
 import java.io.File;
-import java.util.Date;
 
 public class Test {
 
 	public static void main(String[] args) {
 
-		//D:\\data\\nobel.txt
-		File f = new File("/home/sunil/");
-		
-		System.out.println("canRead:"+f.canRead());
-		System.out.println("canExecute:"+f.canExecute());
-		System.out.println("Size:"+f.length());
-		
-		Date  date = new Date(f.lastModified());
-		System.out.println("Last Modified At:"+date);
-		System.out.println("isFile:"+f.isFile());
-		System.out.println("Parent File:"+f.getParentFile());
-		
-		//f.delete();
-		
+		File f = new File("/home/sunil/unix");
+
+		String[] fileNames = f.list();
+		for (String file : fileNames)
+			System.out.println(file);
+
+		File[] files = f.listFiles();
+		for (File f1 : files) {
+			if (f1.getName().endsWith(".java")) {
+				f1.delete();
+			}
+			System.out.println(f1.getAbsolutePath());
+		}
 	}
 }
