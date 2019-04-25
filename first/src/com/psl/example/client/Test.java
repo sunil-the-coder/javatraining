@@ -1,7 +1,5 @@
 package com.psl.example.client;
 
-import java.io.IOException;
-
 class InsuffientBalanceException extends Exception {
 
 	public InsuffientBalanceException(String message) {
