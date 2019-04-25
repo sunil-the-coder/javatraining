@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FilenameFilter;
 
 public class Test {
 
@@ -10,12 +11,25 @@ public class Test {
 		for (String file : fileNames)
 			System.out.println(file);
 
-		File[] files = f.listFiles();
+		JavaFileFilter javaFilter = new JavaFileFilter();
+		//TxtFileFilter txtFilter = new TxtFileFilter();
+		
+		//File[] files = f.listFiles(javaFilter);
+		
+		//Using java 8 lambda expression
+		File[] files = f.listFiles((dir,name)->name.endsWith(".txt"));
+		
 		for (File f1 : files) {
-			if (f1.getName().endsWith(".java")) {
-				f1.delete();
-			}
 			System.out.println(f1.getAbsolutePath());
+			//f1.delete();
 		}
+	}
+}
+
+
+class JavaFileFilter implements FilenameFilter {
+	@Override
+	public boolean accept(File dir, String name) {
+		return name.endsWith(".java");
 	}
 }
