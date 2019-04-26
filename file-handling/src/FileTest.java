@@ -11,30 +11,38 @@ public class FileTest {
 
 		String fileName = "/home/sunil/first.sh";
 		readFromFile(fileName);
-		//writeToFile(fileName);
+		// writeToFile(fileName);
 	}
 
 	private static void readFromFile(String fileName) {
-
-		try {			
-			Reader reader = new FileReader(fileName);
+		Reader reader = null;
+		try {
+			reader = new FileReader(fileName);
 			int ch;
-			while((ch = reader.read()) >= 0)
-				System.out.print((char)ch);
-			
+			while ((ch = reader.read()) >= 0)
+				System.out.print((char) ch);
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (reader != null)
+					reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		
-		try {			
+
+		try {
 			InputStream is = new FileInputStream(fileName);
 			int ch;
-			while((ch = is.read()) >= 0)
-				System.out.print((byte)ch);
-			
+			while ((ch = is.read()) >= 0)
+				System.out.print((byte) ch);
+
+			is.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
