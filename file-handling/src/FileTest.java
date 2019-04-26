@@ -1,9 +1,7 @@
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
 
@@ -12,8 +10,45 @@ public class FileTest {
 	public static void main(String[] args) {
 
 		String fileName = "/home/sunil/demo.txt";
-		writeToFile(fileName);
-		readFromFile(fileName);
+//		writeToFile(fileName);
+	//	readFromFile(fileName);
+
+		final String srcFile = "/home/sunil/first.sh";
+		final String destFile = "/home/sunil/second.sh";
+
+		copy(srcFile, destFile);
+	}
+
+	private static void copy(String srcFile, String destFile) {
+
+		Reader reader = null;
+		Writer writer = null;
+
+		try {
+			reader = new FileReader(srcFile);
+			writer = new FileWriter(destFile);
+
+			int value;
+			while ((value = reader.read()) >= 0)
+				writer.write(value);
+			
+			System.out.println("Copy Done.");
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null)
+					writer.close();
+				if (reader != null)
+					reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 	private static void writeToFile(String fileName) {
