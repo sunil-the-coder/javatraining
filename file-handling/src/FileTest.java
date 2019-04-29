@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -30,14 +31,14 @@ public class FileTest {
 
 		}
 
-		String fileName = "/home/sunil/demo.txt";
+		String fileName = "/home/sunil/test.cpp";
 //		writeToFile(fileName);
-		// readFromFile(fileName);
+		 readFromFile(fileName);
 
 		final String srcFile = "/home/sunil/ubuntu-18.04.1-desktop-amd64.iso";
 		final String destFile = "/home/sunil/data/ubuntu-18.04.1-desktop-amd64.iso";
 
-		copy(srcFile, destFile);
+//		copy(srcFile, destFile);
 	}
 
 	private static void copy(String srcFile, String destFile) {
@@ -71,10 +72,12 @@ public class FileTest {
 	}
 
 	private static void readFromFile(String fileName) {
-		try (Reader reader = new FileReader(fileName);) {
-			int ch;
-			while ((ch = reader.read()) >= 0)
-				System.out.print((char) ch);
+		try (BufferedReader reader = 
+				new BufferedReader(new FileReader(fileName));) {
+			String line = "";
+			
+			while ((line = reader.readLine()) != null)
+				System.out.println(line);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
