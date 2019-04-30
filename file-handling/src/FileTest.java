@@ -1,32 +1,35 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 
-class MyResource implements AutoCloseable {
-	public void write() {
-		System.out.println("myresource write....");
+class Student implements Serializable {
+	private int id;
+	private String name;
+	private double height;
+
+	public Student(int id, String name, double height) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.height = height;
 	}
 
 	@Override
-	public void close() {
-		System.out.println("myresource closed.");
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", height=" + height + "]";
 	}
+
 }
 
 public class FileTest {
 
 	public static void main(String[] args) {
-
-		try (MyResource resource = new MyResource();) {
-			System.out.println("Resource opened...");
-		} catch (Exception e) {
-
-		}
 
 		String fileName = "/home/sunil/studentdata.dat";
 		writeToFile(fileName);
@@ -59,10 +62,9 @@ public class FileTest {
 
 	private static void writeToFile(String fileName) {
 
-		try (DataOutputStream writer = new DataOutputStream(new FileOutputStream(fileName))) {
-			writer.writeInt(10);
-			writer.writeUTF("Sunil Patil");
-			writer.writeDouble(6.1);
+		try (ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(fileName))) {
+			Student student = new Student(10, "sunil patil", 6.1);
+			writer.writeObject(student);
 			writer.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -70,16 +72,15 @@ public class FileTest {
 	}
 
 	private static void readFromFile(String fileName) {
-		try (DataInputStream dis = new DataInputStream(new FileInputStream(fileName));) {
-
-			int no = dis.readInt();
-			String name = dis.readUTF();
-			double height = dis.readDouble();
-			System.out.println("ID:" + no + ",Name:" + name + ",Height:" + height);
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName));) {
+			Student stud = (Student) ois.readObject();
+			System.out.println(stud);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
