@@ -1,14 +1,11 @@
-import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
 
 class MyResource implements AutoCloseable {
 	public void write() {
@@ -31,9 +28,9 @@ public class FileTest {
 
 		}
 
-		String fileName = "/home/sunil/test.cpp";
-//		writeToFile(fileName);
-		 readFromFile(fileName);
+		String fileName = "/home/sunil/studentdata.dat";
+		writeToFile(fileName);
+		readFromFile(fileName);
 
 		final String srcFile = "/home/sunil/ubuntu-18.04.1-desktop-amd64.iso";
 		final String destFile = "/home/sunil/data/ubuntu-18.04.1-desktop-amd64.iso";
@@ -46,10 +43,10 @@ public class FileTest {
 		try (InputStream is = new FileInputStream(srcFile); OutputStream os = new FileOutputStream(destFile);) {
 			int totalReads;
 			System.out.println("Copying started....");
-			
+
 			byte[] data = new byte[2 * 1024];
 			while ((totalReads = is.read(data)) >= 0)
-				os.write(data,0,totalReads);
+				os.write(data, 0, totalReads);
 
 			System.out.println("Copy Done.");
 
@@ -62,22 +59,23 @@ public class FileTest {
 
 	private static void writeToFile(String fileName) {
 
-		try (Writer writer = new FileWriter(fileName)) {
-			writer.write("Welcome to file handling");
-			writer.flush();// move contents from buffer to actual hard disk
+		try (DataOutputStream writer = new DataOutputStream(new FileOutputStream(fileName))) {
+			writer.writeInt(10);
+			writer.writeUTF("Sunil Patil");
+			writer.writeDouble(6.1);
+			writer.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private static void readFromFile(String fileName) {
-		try (BufferedReader reader = 
-				new BufferedReader(new FileReader(fileName));) {
-			String line = "";
-			
-			while ((line = reader.readLine()) != null)
-				System.out.println(line);
+		try (DataInputStream dis = new DataInputStream(new FileInputStream(fileName));) {
+
+			int no = dis.readInt();
+			String name = dis.readUTF();
+			double height = dis.readDouble();
+			System.out.println("ID:" + no + ",Name:" + name + ",Height:" + height);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
