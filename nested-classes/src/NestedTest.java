@@ -1,7 +1,7 @@
 
 class Outer {
 
-	class Inner {
+	static class Inner {
 		public void disp() {
 			System.out.println("inner disp called..");
 		}
@@ -15,17 +15,11 @@ class Outer {
 public class NestedTest {
 
 	public static void main(String[] args) {
-		Outer outer = new Outer();
-		outer.disp();
-		
-		//1. Creating inner class object ( non-static nested class )
-		Outer.Inner inner = outer.new Inner();
+
+		// 1. Creating static nested class object
+		//( Only Inner class object will be created)
+		Outer.Inner inner = new Outer.Inner();
 		inner.disp();
-		
-		//2. Directly creating inner with outer object 
-		//(Both objects will be created)
-		Outer.Inner obj = new Outer().new Inner(); 
-		obj.disp();
-		
+
 	}
 }
