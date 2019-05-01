@@ -39,8 +39,6 @@ public class NestedTest {
 				System.out.println("Anonymous called");
 			}
 		};
-
 		ref.show();
-
 	}
 }
