@@ -9,9 +9,15 @@ import java.io.OutputStream;
 import java.io.Serializable;
 
 class Student implements Serializable {
+
+	//Solves the incompatibility issue which might occur at runtime due to
+	//changes in class structure & byte stream structure.
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 	private String name;
 	private double height;
+	private String mobile;
 
 	public Student(int id, String name, double height) {
 		super();
@@ -22,7 +28,7 @@ class Student implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", height=" + height + "]";
+		return "Student [id=" + id + ", name=" + name + ", height=" + height + ", mobile=" + mobile + "]";
 	}
 
 }
@@ -32,7 +38,7 @@ public class FileTest {
 	public static void main(String[] args) {
 
 		String fileName = "/home/sunil/studentdata.dat";
-		writeToFile(fileName);
+		// writeToFile(fileName);
 		readFromFile(fileName);
 
 		final String srcFile = "/home/sunil/ubuntu-18.04.1-desktop-amd64.iso";
