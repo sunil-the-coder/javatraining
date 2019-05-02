@@ -13,7 +13,7 @@ class Employee implements Cloneable {
 	@Override
 	protected Employee clone() throws CloneNotSupportedException {
 		Employee emp = (Employee) super.clone();
-		emp.setDept(new Department(emp.getDept().getId(), emp.getDept().getDeptName()));
+		emp.setDept(emp.getDept().clone());
 		return emp;
 	}
 
@@ -32,7 +32,7 @@ class Employee implements Cloneable {
 
 }
 
-class Department {
+class Department implements Cloneable {
 	private int id;
 	private String deptName;
 
@@ -58,6 +58,11 @@ class Department {
 		this.deptName = deptName;
 	}
 
+	@Override
+	protected Department clone() throws CloneNotSupportedException {
+		return (Department)super.clone();
+	}
+	
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", deptName=" + deptName + "]";
