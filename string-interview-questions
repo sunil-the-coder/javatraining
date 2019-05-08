@@ -41,6 +41,16 @@ index: 5
 
 Output: NobelForJava
 
+10. Input -> 5su6n43il
+	Output -> 5+6+4+3 = 18
+
+11. Find 3rd largest number from array.
+
+i/p -> [3,7,4,10,67,4,23,89]
+o/p->  23
+
+
+ 
 
 
 
