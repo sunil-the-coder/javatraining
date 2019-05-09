@@ -1,7 +1,7 @@
 package com.itp.training;
 
-import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 class A {
 	@Override
@@ -14,19 +14,12 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		Set c = new LinkedHashSet();
+		Set c = new TreeSet();
 		c.add(10);
-		c.add("SUNIL");
-		c.add(10.5);
-		c.add(new A());
-		c.add("BLUE");
-		c.add("BLUE");
-		c.add("BLUE");
-		c.add("BLUE");
-		c.add("BLUE");
-		c.add("BLUE");
-		c.add("BLUE");
-		
+		c.add(10);
+		c.add(5);
+		c.add(4);
+
 		System.out.println("Size:" + c.size());
 		System.out.println(c);
 
