@@ -1,5 +1,7 @@
 package com.troyhunt.main;
 
+import java.util.TreeSet;
+
 import com.troyhunt.model.Employee;
 import com.troyhunt.model.Manager;
 
@@ -7,6 +9,9 @@ public class EmpTest {
 
 	public static void main(String[] args) {
 
+		
+		TreeSet<E>
+		
 		Employee[] managers = new Employee[3];
 
 		managers[0] = new Manager(1, "ABC", "Health", 850000, 4000);
