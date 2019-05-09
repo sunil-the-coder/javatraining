@@ -19,5 +19,12 @@ public class Application {
 		
 		Object obj = nameMap.get(12);
 		System.out.println(obj);
+		
+		System.out.println("20->"+nameMap.get(20));
+		
+		System.out.println("20->"+nameMap.getOrDefault(20, "SATISH"));
+		
+		
+		
 	}
 }
