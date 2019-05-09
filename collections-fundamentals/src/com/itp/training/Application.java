@@ -20,7 +20,10 @@ public class Application {
 		//nameMap.put(null,"AKSHAY");
 		nameMap.put(14, "MANDAL");
 		
-		System.out.println(nameMap);
+		
+		nameMap.forEach((k, v) -> System.out.println(k + "|"+v));
+		
+//		System.out.println(nameMap);
 		
 		Object obj = nameMap.get(12);
 		System.out.println(obj);
