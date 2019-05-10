@@ -1,9 +1,10 @@
 package com.itp.training;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
-class Student {
+class Student implements Comparable<Student> {
 	private int id;
 	private String name;
 
@@ -29,61 +30,93 @@ class Student {
 		return false;
 	}
 
+	@Override
+	public int compareTo(Student s2) {
+		// this ->current object, s2 -> second object.
+		int res = this.id - s2.id;
+		if(res == 0) {
+			return this.name.compareTo(s2.name);
+		}
+		
+		return res;
+		
+		/*
+		 * if (this.id > s2.id) return -1;// ASC else if(this.id < s2.id) return 1;
+		 * //DESC return 0;
+		 * 
+		 * return this.name.compareTo(s2.name);
+		 */	}
+
 }
 
 public class Application {
 
 	public static int getSum(List<Integer> numbers) {
 		int total = 0;
-		
-		for(Integer data : numbers) {
+		for (Integer data : numbers) {
 			total += data;
 		}
-		
 		return total;
 	}
-	
+
 	public static void main(String[] args) {
-		
-		List<Integer> numbers = new ArrayList<Integer>();
-		numbers.add(10);
-		numbers.add(20);
-		numbers.add(30);
 
-		int total = getSum(numbers);
-		
-		System.out.println("Total:"+total);
-		
-		
-		
-/*		List students = new ArrayList();
-
-		students.add(new Student(10, "SUNIL"));
-		students.add(new Student(11, "ANIL"));
-		students.add(new Student(12, "GANESH"));
-
-		// students.remove(1);
-		students.remove(new Student(12, "GANESH"));
-
-		students.forEach((e) -> System.out.println(e));
-
-		List names = new ArrayList();
-
+		SortedSet<String> names = new TreeSet();
 		names.add("SUNIL");
 		names.add("ANIL");
 		names.add("GANESH");
 
-			names.remove("ANIL");
+		SortedSet<Integer> numbers = new TreeSet();
+		numbers.add(20);
+		numbers.add(10);
+		numbers.add(30);
+
+		SortedSet<Student> students = new TreeSet();
+		students.add(new Student(12, "SUNIL"));
+		students.add(new Student(11, "ANIL"));
+		students.add(new Student(10, "GANESH"));
+		students.add(new Student(12, "AKSHAY"));
+		
+		// new Student(12,"SUNIL").compareTo(new Student(11,"ANIL"))
 
 		System.out.println(names);
+		System.out.println(numbers);
+		System.out.println(students);
 
-*/
+		/*
+		 * List<Integer> numbers = new ArrayList();
+		 * 
+		 * numbers.add(10); numbers.add(20); numbers.add(30);
+		 * 
+		 * int total = getSum(numbers);
+		 * 
+		 * System.out.println("Total:"+total);
+		 */
+
+		/*
+		 * List students = new ArrayList();
+		 * 
+		 * students.add(new Student(10, "SUNIL")); students.add(new Student(11,
+		 * "ANIL")); students.add(new Student(12, "GANESH"));
+		 * 
+		 * // students.remove(1); students.remove(new Student(12, "GANESH"));
+		 * 
+		 * students.forEach((e) -> System.out.println(e));
+		 * 
+		 * List names = new ArrayList();
+		 * 
+		 * names.add("SUNIL"); names.add("ANIL"); names.add("GANESH");
+		 * 
+		 * names.remove("ANIL");
+		 * 
+		 * System.out.println(names);
+		 * 
+		 */
 		/*
 		 * String s = "ANIL"; if("ANIL".equals("ANIL")) { System.out.println("Equal");
 		 * }else System.out.println("Not Equals");
 		 */
-		
-	
+
 		/*
 		 * Map nameMap = new TreeMap();
 		 * 
