@@ -27,6 +27,7 @@ class Student implements Comparable<Student> {
 
 	@Override
 	public boolean equals(Object obj) {
+		if(this == obj) return true;
 		if (obj != null && obj instanceof Student) {
 			Student s = (Student) obj;
 			if (this.id == s.id && this.name.equals(s.name)) {
@@ -51,19 +52,6 @@ class Student implements Comparable<Student> {
 
 }
 
-class AgeComparator implements Comparator<Student> {
-	@Override
-	public int compare(Student s1, Student s2) {
-		return s1.getAge() - s2.getAge();
-	}
-}
-
-class NameComparator implements Comparator<Student> {
-	@Override
-	public int compare(Student s1, Student s2) {
-		return s1.getName().compareTo(s2.getName());
-	}
-}
 
 public class Application {
 
@@ -77,6 +65,16 @@ public class Application {
 
 	public static void main(String[] args) {
 
+
+	
+		/*
+		 * class NameComparator implements Comparator<Student> {
+		 * 
+		 * @Override public int compare(Student s1, Student s2) { return
+		 * s1.getName().compareTo(s2.getName()); } }
+		 */
+		
+		
 		SortedSet<String> names = new TreeSet();
 		names.add("SUNIL");
 		names.add("ANIL");
@@ -117,14 +115,24 @@ public class Application {
 		
 		students.forEach(s -> System.out.println(s));
 
-		Collections.sort(students, new AgeComparator());
+		//Functional Programming using lambda expression
+		Collections.sort(students, (s1,s2) -> 
+			s1.getAge() - s2.getAge());
 
 		System.out.println("After sorting by Age:");
 		
 		students.forEach(s -> System.out.println(s));
+		
+		/*
+		 * Collections.sort(students, new Comparator<Student>() {
+		 * 
+		 * @Override public int compare(Student o1, Student o2) { return
+		 * o1.getName().compareTo(o2.getName()); } });
+		 */
 
-		Collections.sort(students, new NameComparator());
-
+		Collections.sort(students, (o1,o2)-> 
+			o1.getName().compareTo(o2.getName()));
+		
 		System.out.println("After sorting by Name:");
 		
 		students.forEach(s -> System.out.println(s));
