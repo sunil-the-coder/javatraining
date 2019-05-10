@@ -33,9 +33,30 @@ class Student {
 
 public class Application {
 
+	public static int getSum(List<Integer> numbers) {
+		int total = 0;
+		
+		for(Integer data : numbers) {
+			total += data;
+		}
+		
+		return total;
+	}
+	
 	public static void main(String[] args) {
+		
+		List<Integer> numbers = new ArrayList<Integer>();
+		numbers.add(10);
+		numbers.add(20);
+		numbers.add(30);
 
-		List students = new ArrayList();
+		int total = getSum(numbers);
+		
+		System.out.println("Total:"+total);
+		
+		
+		
+/*		List students = new ArrayList();
 
 		students.add(new Student(10, "SUNIL"));
 		students.add(new Student(11, "ANIL"));
@@ -52,10 +73,17 @@ public class Application {
 		names.add("ANIL");
 		names.add("GANESH");
 
-		names.remove("ANIL");
+			names.remove("ANIL");
 
 		System.out.println(names);
 
+*/
+		/*
+		 * String s = "ANIL"; if("ANIL".equals("ANIL")) { System.out.println("Equal");
+		 * }else System.out.println("Not Equals");
+		 */
+		
+	
 		/*
 		 * Map nameMap = new TreeMap();
 		 * 
