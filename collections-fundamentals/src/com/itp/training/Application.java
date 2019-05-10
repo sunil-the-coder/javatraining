@@ -1,5 +1,9 @@
 package com.itp.training;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -7,16 +11,18 @@ import java.util.TreeSet;
 class Student implements Comparable<Student> {
 	private int id;
 	private String name;
+	private int age;
 
-	public Student(int id, String name) {
+	public Student(int id, String name, int age) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.age = age;
 	}
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + "]";
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + "]";
 	}
 
 	@Override
@@ -32,21 +38,31 @@ class Student implements Comparable<Student> {
 
 	@Override
 	public int compareTo(Student s2) {
-		// this ->current object, s2 -> second object.
-		int res = this.id - s2.id;
-		if(res == 0) {
-			return this.name.compareTo(s2.name);
-		}
-		
-		return res;
-		
-		/*
-		 * if (this.id > s2.id) return -1;// ASC else if(this.id < s2.id) return 1;
-		 * //DESC return 0;
-		 * 
-		 * return this.name.compareTo(s2.name);
-		 */	}
+		return this.id - s2.id;
+	}
 
+	public int getAge() {
+		return age;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+}
+
+class AgeComparator implements Comparator<Student> {
+	@Override
+	public int compare(Student s1, Student s2) {
+		return s1.getAge() - s2.getAge();
+	}
+}
+
+class NameComparator implements Comparator<Student> {
+	@Override
+	public int compare(Student s1, Student s2) {
+		return s1.getName().compareTo(s2.getName());
+	}
 }
 
 public class Application {
@@ -71,17 +87,47 @@ public class Application {
 		numbers.add(10);
 		numbers.add(30);
 
-		SortedSet<Student> students = new TreeSet();
-		students.add(new Student(12, "SUNIL"));
-		students.add(new Student(11, "ANIL"));
-		students.add(new Student(10, "GANESH"));
-		students.add(new Student(12, "AKSHAY"));
-		
+		/*
+		 * SortedSet<Student> students = new TreeSet(); students.add(new Student(12,
+		 * "SUNIL")); students.add(new Student(11, "ANIL")); students.add(new
+		 * Student(10, "GANESH")); students.add(new Student(13, "AKSHAY"));
+		 */
 		// new Student(12,"SUNIL").compareTo(new Student(11,"ANIL"))
 
 		System.out.println(names);
 		System.out.println(numbers);
-		System.out.println(students);
+		// System.out.println(students);
+
+		List<Student> students = new LinkedList();
+		students.add(new Student(12, "SUNIL", 25));
+		students.add(new Student(11, "ANIL", 32));
+		students.add(new Student(10, "GANESH", 24));
+		students.add(new Student(13, "AKSHAY", 26));
+
+		List<String> studNames = Arrays.asList("SUNIL", "GANESH", "SATISH");
+
+		Collections.sort(studNames);
+
+		System.out.println(studNames);
+
+		// It uses student class compareTo method for default sorting
+		Collections.sort(students);
+
+		System.out.println("After sorting by ID - Natural Order:");
+		
+		students.forEach(s -> System.out.println(s));
+
+		Collections.sort(students, new AgeComparator());
+
+		System.out.println("After sorting by Age:");
+		
+		students.forEach(s -> System.out.println(s));
+
+		Collections.sort(students, new NameComparator());
+
+		System.out.println("After sorting by Name:");
+		
+		students.forEach(s -> System.out.println(s));
 
 		/*
 		 * List<Integer> numbers = new ArrayList();
