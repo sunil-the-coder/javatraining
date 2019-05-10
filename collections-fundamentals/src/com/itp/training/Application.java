@@ -1,8 +1,7 @@
 package com.itp.training;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedSet;
@@ -102,8 +101,21 @@ public class Application {
 		students.add(new Student(10, "GANESH", 24));
 		students.add(new Student(13, "AKSHAY", 26));
 
-		List<String> studNames = Arrays.asList("SUNIL", "GANESH", "SATISH");
-
+		List<String> studNames = new LinkedList();//Arrays.asList("SUNIL", "GANESH", "SATISH");
+		studNames.add("SUNIL");
+		studNames.add("GANESH");
+		studNames.add("SATISH");
+		
+		Iterator<String> itr = studNames.iterator();
+		while(itr.hasNext()) {
+			//return actual element
+			String data = itr.next();
+			if(data.equals("GANESH"))
+				itr.remove(); //Remove current element from list collection.
+		}
+		
+		
+		
 		Collections.sort(studNames);
 
 		System.out.println(studNames);
