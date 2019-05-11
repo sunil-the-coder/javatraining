@@ -1,6 +1,6 @@
 package com.itp.training;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 class Student implements Comparable<Student> {
@@ -59,9 +59,9 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		Map<Student, Integer> map = new Hashtable();
+		Map<Student, Integer> map = new HashMap();
 
-		map.put(new Student(1, "SUNIL", 27), 100);
+		map.put(null, 100);
 		map.put(new Student(3, "ANIL", 25), 200);
 		Integer oldValue = map.put(new Student(3, "GANESH", 23), 300);
 
