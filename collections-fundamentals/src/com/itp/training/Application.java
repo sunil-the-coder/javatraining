@@ -1,11 +1,7 @@
 package com.itp.training;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Hashtable;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 class Student implements Comparable<Student> {
 	private int id;
@@ -30,11 +26,18 @@ class Student implements Comparable<Student> {
 			return true;
 		if (obj != null && obj instanceof Student) {
 			Student s = (Student) obj;
-			if (this.id == s.id && this.name.equals(s.name)) {
+			if (this.id == s.id && this.name.equals(s.name) ) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		//prime numbers
+		int sHash =name.hashCode();
+		return id + sHash;
 	}
 
 	@Override
@@ -55,35 +58,17 @@ class Student implements Comparable<Student> {
 public class Application {
 
 	public static void main(String[] args) {
-		Map<Integer, String> map = new HashMap();
-		map.put(10, "ABC");
-		map.put(11, "PQR");
-		map.put(12, "XYZ");
 
-		System.out.println(map);
+		Map<Student, Integer> map = new Hashtable();
 
-		map.forEach((k, v) -> System.out.println(k + "|" + v));
+		map.put(new Student(1, "SUNIL", 27), 100);
+		map.put(new Student(3, "ANIL", 25), 200);
+		Integer oldValue = map.put(new Student(3, "GANESH", 23), 300);
 
-		System.out.println("----------------------------------");
-		Collection<String> values = map.values();
-		for (String s : values)
-			System.out.println(s);
-
-		System.out.println("-------------------------------------");
-		Set<Integer> keys = map.keySet();
-		Iterator<Integer> itr = keys.iterator();
-		while (itr.hasNext()) {
-			Integer key = itr.next();
-			System.out.println(key);
-		}
-
-		System.out.println("------------------------------------");
-		Set<Entry<Integer, String>> entries = map.entrySet();
-		Iterator<Entry<Integer, String>> entryItr = entries.iterator();
-		while (entryItr.hasNext()) {
-			Map.Entry<Integer, String> entry = entryItr.next();
-			System.out.println(entry.getKey() + " | " + entry.getValue());
-		}
+		System.out.println("Old value:"+oldValue);
+		//System.out.println(map);
+		
+		System.out.println(map.get(new Student(3, "ANIL", 25)));
 
 	}
 }
