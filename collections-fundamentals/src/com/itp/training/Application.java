@@ -1,7 +1,7 @@
 package com.itp.training;
 
+import java.io.OutputStream;
 import java.io.Reader;
-import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -66,9 +66,9 @@ public class Application {
 		props.setProperty("server.port", "1900");
 		props.setProperty("app.name", "movie-service");
 
-		try (Writer writer = 
-				Files.newBufferedWriter(Paths.get("config.properties"))) {
-			props.store(writer, "Application Settings");
+		try (OutputStream writer = 
+				Files.newOutputStream(Paths.get("config.xml"))) {
+			props.storeToXML(writer, "Application Settings");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -80,6 +80,8 @@ public class Application {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 		
 		String port = appProps.getProperty("server.port");
 		System.out.println(port);
