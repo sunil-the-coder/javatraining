@@ -1,5 +1,6 @@
 package com.itp.training;
 
+import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -71,6 +72,18 @@ public class Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		Properties appProps = new Properties();
+		try (Reader reader = 
+				Files.newBufferedReader(Paths.get("config.properties"))) {
+			appProps.load(reader);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		String port = appProps.getProperty("server.port");
+		System.out.println(port);
+		
 
 		/*
 		 * Map<Student, Integer> map = new HashMap();
