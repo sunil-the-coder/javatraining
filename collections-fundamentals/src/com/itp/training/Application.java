@@ -4,6 +4,9 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 class Student implements Comparable<Student> {
@@ -61,31 +64,49 @@ class Student implements Comparable<Student> {
 public class Application {
 
 	public static void main(String[] args) {
+		
+		
+		List<String> list = new LinkedList();
+		list.add("SUNIL");
+		list.add("AKSHAY");
+		list.add("AKASH");
 
-		Properties props = new Properties();
-		props.setProperty("server.port", "1900");
-		props.setProperty("app.name", "movie-service");
-
-		try (OutputStream writer = 
-				Files.newOutputStream(Paths.get("config.xml"))) {
-			props.storeToXML(writer, "Application Settings");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println(list);
 		
-		Properties appProps = new Properties();
-		try (Reader reader = 
-				Files.newBufferedReader(Paths.get("config.properties"))) {
-			appProps.load(reader);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		//Collections.shuffle(list);
+		//System.out.println(list);
+	
+		int number = Collections.binarySearch(list, "AKSHAY");
+		System.out.println(number);
+		
+		String min = Collections.min(list);
+		System.out.println(min);
 		
 		
+		StringBuilder str = new StringBuilder("demo");
+		str.reverse();
 		
-		String port = appProps.getProperty("server.port");
-		System.out.println(port);
+		System.out.println(str);
 		
+		Collections.reverse(list);
+		System.out.println(list);
+		
+		/*
+		 * Properties props = new Properties(); props.setProperty("server.port",
+		 * "1900"); props.setProperty("app.name", "movie-service");
+		 * 
+		 * try (OutputStream writer = Files.newOutputStream(Paths.get("config.xml"))) {
+		 * props.storeToXML(writer, "Application Settings"); } catch (Exception e) {
+		 * e.printStackTrace(); }
+		 * 
+		 * Properties appProps = new Properties(); try (Reader reader =
+		 * Files.newBufferedReader(Paths.get("config.properties"))) {
+		 * appProps.load(reader); }catch(Exception e) { e.printStackTrace(); }
+		 * 
+		 * 
+		 * 
+		 * String port = appProps.getProperty("server.port"); System.out.println(port);
+		 */		
 
 		/*
 		 * Map<Student, Integer> map = new HashMap();
