@@ -1,7 +1,6 @@
 package com.itp.movie.service;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ import com.itp.movie.model.Movie;
 public class MovieService {
 
 	// Movie In memory database
-	private Map<String, List<Movie>> moviesMap = new HashMap();
+	private Map<String, List<Movie>> moviesMap = new HashMap<>();
 
 	public void addMovie(String category, Movie movie) {
 		// store movie in the memory
@@ -38,7 +37,8 @@ public class MovieService {
 		 * m1.getRating(); } });
 		 */
 
-		Collections.sort(moviesMap.get(category), (m1, m2) -> m2.getRating() - m1.getRating());
+		Collections.sort(moviesMap.get(category),
+				(m1, m2) -> m2.getRating() - m1.getRating());
 
 		return moviesMap.get(category);
 	}
