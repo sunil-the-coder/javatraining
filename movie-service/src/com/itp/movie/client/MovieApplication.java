@@ -22,28 +22,29 @@ public class MovieApplication {
 		Movie m3 = new Movie(3, "DDLJ", 5, LocalDate.of(1995, 10, 5),
 				Arrays.asList("Shahrukh", "Kajol", "Amrish Puri"));
 
+		Movie m4 = new Movie(4, "Action jackson", 3, LocalDate.now(), Arrays.asList("Ajay", "Yami"));
+		
 		MovieService movieService = new MovieService();
-		movieService.addMovie(m1);
-		movieService.addMovie(m2);
-		movieService.addMovie(m3);
-
+		movieService.addMovie("Action",m1);
+		movieService.addMovie("Drama",m2);
+		movieService.addMovie("Romantic",m3);
+		movieService.addMovie("Action",m4);
+		
 		// 2. Retrieve movies
 
-		List<Movie> movies = movieService.getAllMovies();
+		List<Movie> movies = movieService.getAllMovies("Action");
 		movies.stream().forEach(m -> System.out.println(m.getName() + "|" + m.getRating()));
 
-		System.out.println("********* Movies By Rating **********");
-		List<Movie> moviesByRating = movieService.getMoviesByRating(4);
-		moviesByRating.stream().forEach(m -> System.out.println(m.getName()));
-
-		try {
-			movieService.updateMovie(100, 5);
-		} catch (InvalidMovieException e) {
-			e.printStackTrace();
-		}
-
-		movies = movieService.getAllMovies();
-		movies.stream().forEach(m -> System.out.println(m.getName() + "|" + m.getRating()));
-
+		/*
+		 * System.out.println("********* Movies By Rating **********"); List<Movie>
+		 * moviesByRating = movieService.getMoviesByRating(4);
+		 * moviesByRating.stream().forEach(m -> System.out.println(m.getName()));
+		 * 
+		 * try { movieService.updateMovie(100, 5); } catch (InvalidMovieException e) {
+		 * e.printStackTrace(); }
+		 * 
+		 * movies = movieService.getAllMovies(); movies.stream().forEach(m ->
+		 * System.out.println(m.getName() + "|" + m.getRating()));
+		 */
 	}
 }
