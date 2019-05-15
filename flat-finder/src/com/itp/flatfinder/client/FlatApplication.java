@@ -22,9 +22,9 @@ public class FlatApplication {
 		flats.add(new Flat("C", 11000, 4, 20, 1500));
 
 		Map<String, Integer> costParams = new HashMap();
-		costParams.put(TOTAL_WORKING_DAYS, 20);
-		costParams.put(DISTANCE_COST, 10);
-		costParams.put(TRAVEL_COST, 5);
+		costParams.put(TOTAL_WORKING_DAYS.toString(), 20);
+		costParams.put(DISTANCE_COST.toString(), 10);
+		costParams.put(TRAVEL_COST.toString(), 5);
 
 		calculateTotalCost(flats, costParams);
 

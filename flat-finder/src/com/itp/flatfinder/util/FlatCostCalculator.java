@@ -8,7 +8,8 @@ import static com.itp.flatfinder.model.Keys.*;
 
 public class FlatCostCalculator {
 
-	public static void calculateTotalCost(List<Flat> flats, Map<String, Integer> costParams) {
+	public static void calculateTotalCost(List<Flat> flats, 
+			Map<String, Integer> costParams) {
 		flats.parallelStream().forEach(f -> {
 			int totalCost = 0;
 			totalCost += f.getRentPerMonth();
@@ -20,10 +21,10 @@ public class FlatCostCalculator {
 	}
 
 	private static int getTravelCost(Map<String, Integer> costParams, Flat f) {
-		return (f.getTravelTime() * costParams.get(TRAVEL_COST)) * costParams.get(TOTAL_WORKING_DAYS);
+		return (f.getTravelTime() * costParams.get(TRAVEL_COST.toString())) * costParams.get(TOTAL_WORKING_DAYS.toString());
 	}
 
 	private static int getDistanceCost(Map<String, Integer> costParams, Flat flat) {
-		return (flat.getDistance() * costParams.get(DISTANCE_COST)) * costParams.get(TOTAL_WORKING_DAYS);
+		return (flat.getDistance() * costParams.get(DISTANCE_COST.toString())) * costParams.get(TOTAL_WORKING_DAYS.toString());
 	}
 }
