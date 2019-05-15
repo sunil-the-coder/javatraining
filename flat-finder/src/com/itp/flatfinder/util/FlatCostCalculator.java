@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.itp.flatfinder.model.Flat;
+import com.itp.flatfinder.model.Keys;
 
 public class FlatCostCalculator {
 
-	public static void calculateTotalCost(List<Flat> flats, 
-			Map<String,Integer> costParams) {
+	public static void calculateTotalCost(List<Flat> flats, Map<String, Integer> costParams) {
 		flats.parallelStream().forEach(f -> {
 			int totalCost = 0;
 			totalCost += f.getRentPerMonth();
@@ -20,10 +20,10 @@ public class FlatCostCalculator {
 	}
 
 	private static int getTravelCost(Map<String, Integer> costParams, Flat f) {
-		return (f.getTravelTime() * costParams.get("travelCost")) * costParams.get("totalWorkingDays");
+		return (f.getTravelTime() * costParams.get(Keys.TRAVEL_COST)) * costParams.get(Keys.TOTAL_WORKING_DAYS);
 	}
 
 	private static int getDistanceCost(Map<String, Integer> costParams, Flat flat) {
-		return (flat.getDistance() * costParams.get("distanceCost")) * costParams.get("totalWorkingDays");
+		return (flat.getDistance() * costParams.get(Keys.DISTANCE_COST)) * costParams.get(Keys.TOTAL_WORKING_DAYS);
 	}
 }
