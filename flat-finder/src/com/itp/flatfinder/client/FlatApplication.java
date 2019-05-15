@@ -21,7 +21,6 @@ public class FlatApplication {
 		costParams.put("totalWorkingDays",20);
 		costParams.put("distanceCost",10);
 		costParams.put("travelCost",5);
-		costParams.put("travelCost",5);
 		
 		FlatCostCalculator.calculateTotalCost(flats, costParams);
 		

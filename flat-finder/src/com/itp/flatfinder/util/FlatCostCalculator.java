@@ -7,16 +7,23 @@ import com.itp.flatfinder.model.Flat;
 
 public class FlatCostCalculator {
 
-	// Call by Value & Call by Ref in java.
 	public static void calculateTotalCost(List<Flat> flats, 
 			Map<String,Integer> costParams) {
 		flats.parallelStream().forEach(f -> {
 			int totalCost = 0;
 			totalCost += f.getRentPerMonth();
-			totalCost += (f.getDistance() * costParams.get("distanceCost")) * costParams.get("totalWorkingDays");
-			totalCost += (f.getTravelTime() * costParams.get("travelCost")) * costParams.get("totalWorkingDays");
+			totalCost += getDistanceCost(costParams, f);
+			totalCost += getTravelCost(costParams, f);
 			totalCost -= f.getLocationAdvantage();
 			f.setTotalCost(totalCost);
 		});
+	}
+
+	private static int getTravelCost(Map<String, Integer> costParams, Flat f) {
+		return (f.getTravelTime() * costParams.get("travelCost")) * costParams.get("totalWorkingDays");
+	}
+
+	private static int getDistanceCost(Map<String, Integer> costParams, Flat flat) {
+		return (flat.getDistance() * costParams.get("distanceCost")) * costParams.get("totalWorkingDays");
 	}
 }
