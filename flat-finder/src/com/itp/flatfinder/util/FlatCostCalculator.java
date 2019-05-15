@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.itp.flatfinder.model.Flat;
-import com.itp.flatfinder.model.Keys;
+import static com.itp.flatfinder.model.Keys.*;
 
 public class FlatCostCalculator {
 
@@ -20,10 +20,10 @@ public class FlatCostCalculator {
 	}
 
 	private static int getTravelCost(Map<String, Integer> costParams, Flat f) {
-		return (f.getTravelTime() * costParams.get(Keys.TRAVEL_COST)) * costParams.get(Keys.TOTAL_WORKING_DAYS);
+		return (f.getTravelTime() * costParams.get(TRAVEL_COST)) * costParams.get(TOTAL_WORKING_DAYS);
 	}
 
 	private static int getDistanceCost(Map<String, Integer> costParams, Flat flat) {
-		return (flat.getDistance() * costParams.get(Keys.DISTANCE_COST)) * costParams.get(Keys.TOTAL_WORKING_DAYS);
+		return (flat.getDistance() * costParams.get(DISTANCE_COST)) * costParams.get(TOTAL_WORKING_DAYS);
 	}
 }

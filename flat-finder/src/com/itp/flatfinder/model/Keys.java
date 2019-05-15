@@ -1,7 +1,7 @@
 package com.itp.flatfinder.model;
 
-public class Keys {
-	public final static String TOTAL_WORKING_DAYS = "totalWorkingDays";
-	public final static String DISTANCE_COST = "distanceCost";
-	public final static String TRAVEL_COST = "travelCost";
+public interface Keys {
+	String TOTAL_WORKING_DAYS = "totalWorkingDays";
+	String DISTANCE_COST = "distanceCost";
+	String TRAVEL_COST = "travelCost";
 }
