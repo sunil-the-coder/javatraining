@@ -1,9 +1,11 @@
 package com.itp.movie.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +22,7 @@ public class MovieService {
 	public void addMovie(String category, Movie movie) {
 		// store movie in the memory
 		List<Movie> movies = moviesMap.get(category);
-		if(movies == null || movies.size() <= 0) {
+		if (movies == null || movies.size() <= 0) {
 			movies = new LinkedList<>();
 		}
 		movies.add(movie);
@@ -37,8 +39,7 @@ public class MovieService {
 		 * m1.getRating(); } });
 		 */
 
-		Collections.sort(moviesMap.get(category),
-				(m1, m2) -> m2.getRating() - m1.getRating());
+		Collections.sort(moviesMap.get(category), (m1, m2) -> m2.getRating() - m1.getRating());
 
 		return moviesMap.get(category);
 	}
@@ -85,23 +86,97 @@ public class MovieService {
 		return movie;
 	}
 
-	public List<Movie> getMoviesByRelaseDates() {
+	public List<Movie> getMoviesByRelaseDates(String category) {
 		// return movies - first movie must be latest one
-		return null;
+		List<Movie> movies = moviesMap.get(category);
+
+		Collections.sort(movies, new Comparator<Movie>() {
+			@Override
+			public int compare(Movie m1, Movie m2) {
+				return m1.getReleaseDate().compareTo(m2.getReleaseDate());
+			}
+		});
+
+		return movies;
 	}
 
 	public void delete(int movieId) {
 		// delete the movie from movies
+		Set<String> categories = moviesMap.keySet();
+
+		// Iterate over map keys(categories) & get the movies
+		for (String category : categories) {
+
+			// Retrieve movies by given category
+			List<Movie> catMovies = moviesMap.get(category);
+
+			Iterator<Movie> itr = catMovies.iterator();
+
+			while (itr.hasNext()) {
+				Movie m = itr.next();
+
+				// remove element by list once id matched
+				if (m.getId() == movieId)
+					itr.remove();
+			}
+
+		}
+
 	}
 
 	public List<Movie> getMoviesByActor(String actorName) {
-		// matching actor names movies must be returned.
-		return null;
+
+		Set<String> categories = moviesMap.keySet();
+
+		List<Movie> moviesByActorsList = new ArrayList();
+
+		// Iterate over map keys(categories) & get the movies
+		for (String category : categories) {
+
+			// Retrieve movies by given category
+			List<Movie> catMovies = moviesMap.get(category);
+
+			Iterator<Movie> itr = catMovies.iterator();
+
+			while (itr.hasNext()) {
+				Movie m = itr.next();
+				m.getActors().forEach((name) -> {
+					if (name.equalsIgnoreCase(actorName)) {
+						moviesByActorsList.add(m);
+					}
+				});
+			}
+		}
+
+		return moviesByActorsList;
 	}
 
 	public List<Movie> getMoviesByDateRange(LocalDate start, LocalDate end) {
-		// return movies which are released between given dates.
-		return null;
+
+		Set<String> categories = moviesMap.keySet();
+
+		List<Movie> moviesByDateRange = new ArrayList<>();
+
+		// Iterate over map keys(categories) & get the movies
+		for (String category : categories) {
+
+			// Retrieve movies by given category
+			List<Movie> catMovies = moviesMap.get(category);
+
+			Iterator<Movie> itr = catMovies.iterator();
+
+			while (itr.hasNext()) {
+				Movie m = itr.next();
+				if(m.getReleaseDate().isAfter(start) 
+						&& m.getReleaseDate().isBefore(end))
+				{
+					moviesByDateRange.add(m);
+				}
+			}
+		}
+
+		return moviesByDateRange;
+
 	}
 
 }
