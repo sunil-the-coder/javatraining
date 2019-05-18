@@ -1,6 +1,6 @@
 package com.itp.threads;
 
-class Odd extends Thread {
+class Odd implements Runnable {
 	
 	@Override
 	public void run() {
@@ -30,13 +30,22 @@ public class ThreadTest {
 
 	public static void main(String[] args) {
 
+		//1. Launching threads which implements Runnable
 		Odd odd = new Odd();
-		odd.start(); //It will ask thread scheduler to start the execution of thread
-		
-		//odd.printOddNumbers();
+		Thread oddThread = new Thread(odd);
+		oddThread.start(); //It will ask thread scheduler to start the execution of thread
 
+		//2. By using extends Thread
 		Even even = new Even();
 		even.start();
-		//even.printEvenNumbers();
 	}
 }
+
+
+
+
+
+
+
+
+
