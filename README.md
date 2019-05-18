@@ -3,7 +3,7 @@
 
 Steps to take latest codebase 
 
-1. git clone https://github.com/sunil-linux/javatraining.git
+1. git clone https://github.com/sunil-the-coder/javatraining.git
 
 2. cd javatraining
 
