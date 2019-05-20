@@ -35,6 +35,17 @@ public class ThreadTest {
 		Thread oddThread = new Thread(odd);
 		oddThread.start(); //It will ask thread scheduler to start the execution of thread
 
+		 // Current thread will wait until complete 
+		//execution of thread on which join is called
+		
+		try {
+			System.out.println("Waiting...");
+			oddThread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
 		//2. By using extends Thread
 		Even even = new Even();
 		even.start();
