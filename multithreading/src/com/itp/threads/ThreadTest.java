@@ -1,12 +1,13 @@
 package com.itp.threads;
 
 class Odd implements Runnable {
-	
+
 	@Override
 	public void run() {
-		//Thread logic
-			printOddNumbers();
+		// Thread logic
+		printOddNumbers();
 	}
+
 	public void printOddNumbers() {
 		for (int i = 1; i <= 100; i += 2)
 			System.out.println("Odd:" + i);
@@ -14,12 +15,12 @@ class Odd implements Runnable {
 }
 
 class Even extends Thread {
-	
+
 	@Override
 	public void run() {
 		printEvenNumbers();
 	}
-	
+
 	public void printEvenNumbers() {
 		for (int i = 2; i <= 100; i += 2)
 			System.out.println("Even:" + i);
@@ -29,34 +30,14 @@ class Even extends Thread {
 public class ThreadTest {
 
 	public static void main(String[] args) {
-
-		//1. Launching threads which implements Runnable
-		Odd odd = new Odd();
-		Thread oddThread = new Thread(odd);
-		oddThread.start(); //It will ask thread scheduler to start the execution of thread
-
-		 // Current thread will wait until complete 
-		//execution of thread on which join is called
 		
-		try {
-			System.out.println("Waiting...");
-			oddThread.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Thread currentThread = Thread.currentThread();
+		currentThread.setName("sunil");
+		currentThread.setPriority(Thread.MAX_PRIORITY);
 		
+		System.out.println(currentThread);
 		
-		//2. By using extends Thread
-		Even even = new Even();
-		even.start();
+		System.out.println("Main method end");
+		
 	}
 }
-
-
-
-
-
-
-
-
-
