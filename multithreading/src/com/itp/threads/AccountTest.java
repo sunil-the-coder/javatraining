@@ -11,7 +11,8 @@ class DepositThread implements Runnable {
 
 	@Override
 	public void run() {
-		account.deposit(500);
+		for(int i = 1; i <= 5; i++)
+			account.deposit(500);
 	}
 }
 
@@ -26,7 +27,8 @@ class WithdrawThread implements Runnable {
 
 	@Override
 	public void run() {
-		account.withdraw(500);
+		for(int i = 1; i <= 5; i++)
+			account.withdraw(500);
 	}
 }
 

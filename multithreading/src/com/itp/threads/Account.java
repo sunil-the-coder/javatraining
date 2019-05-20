@@ -9,12 +9,12 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public void deposit(int amount) {
+	public synchronized void deposit(int amount) {
 		this.balance += amount;
 		System.out.println("After Deposit:" + this.balance);
 	}
 
-	public void withdraw(int amount) {
+	public synchronized void withdraw(int amount) {
 		if (this.balance < amount) {
 			System.out.println("Insufficient Balance to withraw");
 		}
