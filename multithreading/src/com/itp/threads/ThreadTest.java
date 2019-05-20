@@ -9,8 +9,14 @@ class Odd implements Runnable {
 	}
 
 	public void printOddNumbers() {
-		for (int i = 1; i <= 100; i += 2)
+		for (int i = 1; i <= 100; i += 2) {
 			System.out.println("Odd:" + i);
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
 
@@ -23,8 +29,14 @@ class Even extends Thread {
 	}
 
 	public void printEvenNumbers() {
-		for (int i = 2; i <= 100; i += 2)
+		for (int i = 2; i <= 100; i += 2) {
 			System.out.println("Even:" + i);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
 
