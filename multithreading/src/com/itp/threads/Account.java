@@ -9,8 +9,10 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public synchronized void deposit(int amount) {
-		this.balance += amount;
+	public void deposit(int amount) {
+		synchronized (this) {
+			this.balance += amount;			
+		}
 		System.out.println("After Deposit:" + this.balance);
 	}
 
@@ -19,7 +21,10 @@ public class Account {
 			System.out.println("Insufficient Balance to withraw");
 		}
 
-		this.balance -= amount;
+		synchronized (this) {
+			this.balance -= amount;			
+		}
+		
 		System.out.println("After Withdraw:" + this.balance);
 	}
 
