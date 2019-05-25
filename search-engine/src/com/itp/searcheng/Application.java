@@ -23,25 +23,14 @@ public class Application {
 			File[] files = dir.listFiles(new FilenameFilter() {
 				@Override
 				public boolean accept(File arg0, String fname) {
-					return fname.endsWith(".java");
+					return fname.endsWith(".txt");
 				}
 			});
 
 			// 2. Search given content in each and every file.
 			for (File file : files) {
-				System.out.println("Searching into " + file.getAbsolutePath());
-				try (BufferedReader br = Files.newBufferedReader(Paths.get(file.getAbsolutePath()))) {
-					String line = "";
-					int count = 1;
-					while ((line = br.readLine()) != null) {
-						if (line.indexOf(args[1]) >= 0) {
-							System.out.println(count+":"+line);
-						}
-						count++;
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				Thread t = new Thread(new SearchEngine(file, args[1]));
+				t.start();
 			}
 		}
 
