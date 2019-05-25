@@ -1,0 +1,231 @@
+Thread PoolSize = No of processors * 2
+
+Connection pool:
+	dbcp
+	tomcat dbcp
+	Hikari pool ( Fastest pool library ) - Default pool 
+			implementation in spring boot 2
+
+
+
+Runnable				Callable
+
+1. Don't return values after	1. It can return the value after
+execution of thread.			execution.
+
+
+How to Use it:
+
+2. implements Runnable {}	2. implements Callable<returnType>
+
+3. public void run() {}		3. public <returnType> call() {}
+
+4. You can launch threads	4. You have to submit callable using
+using new Thread(runnableobj)	executorService submit() method.
+
+5. No need to wait for return values
+				5. We have to wait for return values
+				for this we can Future object.
+
+
+
+Future -> Used for callable thread to retrieve values from thread execution.
+
+
+future.get() -> Blocking method. It will wait till complete
+	execution of callable thread.
+
+
+
+
+
+single catch with multiple exceptions:
+
+catch (InterruptedException | ExecutionException e) {
+	//responsibile for both exeception handling	
+} 
+
+
+input:sunil,patil,shevate,pandharpur
+output: sunil/patil/shevate
+
+
+Types of threads:
+
+1. Worker thread
+	By default in java every thread is worker thread.
+
+	JVM waits till complete execution of any worker thread which
+are running on system.
+
+2. Daemon thread
+
+	To create daemon thread we have to call setDaemon(true)
+
+Thread t = new Thread(new Task());
+t.setDaemon(true); // It will act as the daemon thread.
+t.start()
+
+	JVM wont wait till complete execution of daemon.
+
+	Mostly used in case of background threads.
+
+	Example: Garbage Collector is daemon thread.
+
+
+
+
+Thread lifecycle:
+
+threading exceptions: ( java.lang)
+	IllegalThreadStateException
+
+database programming: ( jdbc) ( java.sql and javax.sql )
+	SQLException
+
+iterator:( java.util)
+	ConccurrentModificationExecption
+
+Network programming: ( java.net)
+	SocketException
+
+Servlets:( javax.http.servlets )
+
+	ServletException
+
+
+
+Threading Common Interview Questions:
+
+1. Types of threads
+2. Different ways to achieve multithreading in java & which one to prefer and why ?
+3. Thread lifecycle
+4. Synchronization block & keyword ( locking ) - object & class level. Which one to use & why ?
+
+5. Thread communication ( Example ) - wait(), notify() and notifyAll()
+
+	Example: Print odd & even numbers in sequence (1,2,3,4...)
+
+6. Why wait(), notify(), notifyAll() present in Object class and not in Thread class ?
+
+7. wait() & sleep & join - difference
+
+8. Diff between thread & proecss ?
+
+9. Why use threading ? what are the advantages of it ?
+
+10. volatile keyword:
+
+	class Account{
+		//Ensure any write will happen before any read.
+		//Mutual locking with multiple thread.
+		//The state of this variable always be consistent.
+		private volatile int balance;
+	} 
+
+only used for instance variables. 
+
+11. Producer & Consumer Problem. - BlockingQueue(Array, List)
+
+12. Write a program to create deadlock in java ?
+
+13. volatile vs synchronized
+
+14. Calling wait() without synchronized. What happens ?
+
+15. What will happen if we override start method?
+
+16. What will happen if we don’t override run method?
+
+17. Can we acquire lock on class ?
+
+	a. static method synchronization - class level locking
+
+	b. synchronized(Account.class) {
+
+	} 
+
+
+18. Difference between object lock and class lock?
+
+19. What do you mean by thread starvation?
+
+thread does not enough CPU for its execution
+
+20. How you can handle uncaught runtime exception generated in run method?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://dzone.com/articles/threads-top-80-interview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TODO:
+
+1. Thread lifecycle
+2. Thread types
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
