@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Application {
 
@@ -14,11 +16,8 @@ public class Application {
 			System.out.println("Usage: java Application <searchDir> <searchString>");
 			System.exit(1);
 		} else {
-			// System.out.println(args[0]);
-			// System.out.println(args[1]);
 
 			// 1. Retrieve all java files from given directory.
-
 			File dir = new File(args[0]);
 			File[] files = dir.listFiles(new FilenameFilter() {
 				@Override
@@ -28,10 +27,13 @@ public class Application {
 			});
 
 			// 2. Search given content in each and every file.
+			ExecutorService service = Executors.newFixedThreadPool(8);
+			
 			for (File file : files) {
-				Thread t = new Thread(new SearchEngine(file, args[1]));
-				t.start();
+				service.submit(new SearchEngine(file, args[1]));
 			}
+			
+			service.shutdown();
 		}
 
 	}
