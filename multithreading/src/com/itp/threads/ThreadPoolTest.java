@@ -1,5 +1,7 @@
 package com.itp.threads;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -23,9 +25,9 @@ class Task implements Runnable {
 }
 
 class StringSplitter implements Callable<String> {
+
 	@Override
 	public String call() throws Exception {
-		Thread.sleep(1000);
 		return "Dummy String";
 	}
 }
@@ -44,14 +46,20 @@ public class ThreadPoolTest {
 		// Prepare service based on thread model.
 		ExecutorService executorService = Executors.newFixedThreadPool(processors * 2);
 
+		List<Future<String>> futures = new ArrayList();
+
 		// Submit any Runnable / Callable task
-		Future<String> future = executorService.
-				submit(new StringSplitter());
+		for (int i = 1; i <= 10; i++) {
+			Future<String> future = executorService.submit(new StringSplitter());
+			futures.add(future);
+		}
 
 		try {
 			System.out.println("Waiting for result....");
-			String result = future.get();
-			System.out.println("result:"+result);
+			for (Future<String> future : futures) {
+				String result = future.get();
+				System.out.println("result:" + result);
+			}
 
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
