@@ -20,11 +20,17 @@ public class MappingTest {
 
 		keywords.stream().forEach(keyword-> {
 			char key = keyword.charAt(0);
+			
 			SortedSet<String> matchingWords = mappings.get(key);
+			
+			//If there is no existing mapping, prepare new set
 			if(matchingWords == null)
 				matchingWords = new TreeSet<String>();
 			
+			//Add keyword to existing or new set
 			matchingWords.add(keyword);
+			
+			//Add new mapping or override existing if required.
 			mappings.put(key,matchingWords);
 		});
 
