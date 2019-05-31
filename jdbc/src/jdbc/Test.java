@@ -18,9 +18,10 @@ public class Test {
 
 			Statement stmt = conn.createStatement();
 
-			String sname = "anil";
+			String sname = args[0];
+			int sid = 1;
 			ResultSet rs = stmt.executeQuery(
-					"select * from student  where name='"+sname+"'");
+					"select * from student  where name='"+sname+"' and id="+sid+"");
 
 			// iterate over the result
 			while (rs.next()) {
