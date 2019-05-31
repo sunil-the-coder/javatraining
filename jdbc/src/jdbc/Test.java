@@ -2,9 +2,9 @@ package jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Test {
 
@@ -13,16 +13,18 @@ public class Test {
 		try {
 			// Class.forName("com.mysql.jdbc.Driver");
 
-			Connection conn = DriverManager.
-					getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
 
-			Statement stmt = conn.createStatement();
+			// Statement stmt = conn.createStatement();
 
 			String sname = args[0];
 			int sid = 1;
-			ResultSet rs = stmt.executeQuery(
-					"select * from student  where name='"+sname+"' and id="+sid+"");
 
+			PreparedStatement ps = conn.prepareStatement("select * from student  where name=? and id=?");
+			ps.setString(1, sname);
+			ps.setInt(2, sid);
+
+			ResultSet rs = ps.executeQuery();
 			// iterate over the result
 			while (rs.next()) {
 				int id = rs.getInt("id");
@@ -32,7 +34,7 @@ public class Test {
 			}
 
 			rs.close();
-			stmt.close();
+			ps.close();
 			conn.close();
 
 		} catch (SQLException e) {
