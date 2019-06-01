@@ -10,11 +10,13 @@ public class Test {
 	public static void main(String[] args) {
 
 		String deleteQuery = "delete from student where id=?";
+		String updateQuery ="";
 
 		try (Connection conn = DriverManager.
 				getConnection("jdbc:mysql://localhost:3306/nobel", 
 						"sunil", "sunil@123");
-				PreparedStatement ps = conn.prepareStatement(deleteQuery);) {
+				PreparedStatement ps = conn.prepareStatement(deleteQuery);
+				PreparedStatement psUpdate = conn.prepareStatement(updateQuery);) {
 
 			ps.setInt(1, 3);
 
