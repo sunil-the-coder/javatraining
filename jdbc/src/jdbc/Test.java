@@ -15,25 +15,30 @@ public class Test {
 
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
 
-			// Statement stmt = conn.createStatement();
+			// "select * from student where name=? and id=?"
+			String insertQuery = "insert into student values(?,?,?)";
 
-			String sname = args[0];
-			int sid = 1;
+			PreparedStatement ps = conn.prepareStatement(insertQuery);
+			ps.setInt(1, 3);
+			ps.setString(2, "Akshay");
+			ps.setString(3, "236262");
 
-			PreparedStatement ps = conn.prepareStatement("select * from student  where name=? and id=?");
-			ps.setString(1, sname);
-			ps.setInt(2, sid);
-
-			ResultSet rs = ps.executeQuery();
-			// iterate over the result
-			while (rs.next()) {
-				int id = rs.getInt("id");
-				String name = rs.getString(2);
-				String phone = rs.getString("phone");
-				System.out.println(id + "\t" + name + "\t" + phone);
+			
+			int res = ps.executeUpdate();
+			if(res >= 1) {
+				System.out.println("Insertion done");
+			}else {
+				System.out.println("Insertion Failed");
 			}
-
-			rs.close();
+			
+			
+			/*
+			 * ResultSet rs = ps.executeQuery(); // iterate over the result while
+			 * (rs.next()) { int id = rs.getInt("id"); String name = rs.getString(2); String
+			 * phone = rs.getString("phone"); System.out.println(id + "\t" + name + "\t" +
+			 * phone); }
+			 */
+			//rs.close();
 			ps.close();
 			conn.close();
 
