@@ -18,17 +18,18 @@ public class Test {
 			// "select * from student where name=? and id=?"
 			String insertQuery = "insert into student values(?,?,?)";
 
-			PreparedStatement ps = conn.prepareStatement(insertQuery);
-			ps.setInt(1, 3);
-			ps.setString(2, "Akshay");
-			ps.setString(3, "236262");
-
+			String updateQuery = "update student set phone=? where id=?";
+			
+			PreparedStatement ps = conn.prepareStatement(updateQuery);
+			ps.setString(1, "90897965");
+			ps.setInt(2, 1);
+			
 			
 			int res = ps.executeUpdate();
 			if(res >= 1) {
-				System.out.println("Insertion done");
+				System.out.println("Updation done");
 			}else {
-				System.out.println("Insertion Failed");
+				System.out.println("Updation Failed");
 			}
 			
 			
