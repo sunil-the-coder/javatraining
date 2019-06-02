@@ -12,12 +12,14 @@ import com.itp.model.Book;
 
 public class BookDaoImpl implements BookDao {
 
+	private Connection conn = DBConnection.getConnection();
+
 	@Override
 	public void save(Book book) {
 		// insert book record into database
 		String query = "insert into book(bname,author,price,publishedDate) values(?,?,?,?)";
 
-		try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
+		try (PreparedStatement ps = conn.prepareStatement(query)) {
 
 			ps.setString(1, book.getBname());
 			ps.setString(2, book.getAuthor());
@@ -36,9 +38,7 @@ public class BookDaoImpl implements BookDao {
 	public Book findById(int id) {
 		Book book = null;
 		String query = "select * from book where id=" + id;
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement(query);
-				ResultSet rs = ps.executeQuery();) {
+		try (PreparedStatement ps = conn.prepareStatement(query); ResultSet rs = ps.executeQuery();) {
 
 			if (rs.next()) {
 				book = getPopulatedBook(rs);
@@ -65,9 +65,7 @@ public class BookDaoImpl implements BookDao {
 		List<Book> books = new ArrayList<>();
 
 		String query = "select * from book";
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement(query);
-				ResultSet rs = ps.executeQuery();) {
+		try (PreparedStatement ps = conn.prepareStatement(query); ResultSet rs = ps.executeQuery();) {
 			while (rs.next()) {
 				Book book = getPopulatedBook(rs);
 				books.add(book);
@@ -84,8 +82,7 @@ public class BookDaoImpl implements BookDao {
 	public void update(Book book) {
 		String query = "update book set bname=?, author=?,price=?,publishedDate=?  where id=?";
 
-		try (Connection conn = DBConnection.getConnection(); 
-				PreparedStatement ps = conn.prepareStatement(query)) {
+		try (PreparedStatement ps = conn.prepareStatement(query)) {
 
 			ps.setString(1, book.getBname());
 			ps.setString(2, book.getAuthor());

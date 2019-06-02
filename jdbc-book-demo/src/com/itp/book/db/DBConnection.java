@@ -5,14 +5,26 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
+	
+	private static Connection conn;
 
-	public static Connection getConnection() {
-		Connection conn = null;
+	public static synchronized Connection getConnection() {
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+			if (conn == null) {
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return conn;
+	}
+	
+	public static void close() {
+		try {
+			if(conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
