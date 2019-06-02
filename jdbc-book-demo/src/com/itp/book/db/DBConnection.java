@@ -11,7 +11,9 @@ public class DBConnection {
 	public static synchronized Connection getConnection() {
 		try {
 			if (conn == null) {
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+				conn = DriverManager.
+						getConnection("jdbc:mysql://localhost:3306/nobel?rewriteBatchedStatements=true",
+								"sunil", "sunil@123");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
