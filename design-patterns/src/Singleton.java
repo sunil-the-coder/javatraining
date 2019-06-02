@@ -1,13 +1,14 @@
 
-//Non-Thread safe singleton
 public class Singleton {
 
 	private static Singleton singleton; // default value is null
 
 	private Singleton() {
+		System.out.println("Object created");
 	}
 
-	public static Singleton getInstance() {
+	//Thread safe singleton
+	public static synchronized Singleton getInstance() {
 		if (singleton == null)
 			singleton = new Singleton();
 		return singleton;
