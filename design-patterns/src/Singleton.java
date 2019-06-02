@@ -1,7 +1,8 @@
 
 public class Singleton {
 
-	private static Singleton singleton; // default value is null
+	//Eager singleton
+	private static Singleton singleton = new Singleton();
 
 	private Singleton() {
 		System.out.println("Object created");
@@ -9,11 +10,12 @@ public class Singleton {
 
 	// Thread safe singleton
 	public static Singleton getInstance() {
-		synchronized (Singleton.class) {
-			if (singleton == null)
-				singleton = new Singleton();
-		}
-
+		
+		//lazy singleton
+		/*
+		 * //class level locking synchronized (Singleton.class) { if (singleton == null)
+		 * singleton = new Singleton(); }
+		 */
 		return singleton;
 	}
 }
