@@ -10,10 +10,11 @@ public class BulkUpdateApplication {
 	public static void main(String[] args) {
 
 		String query = "insert into static_data values(?,?)";
+		
 		try (Connection conn = DBConnection.getConnection()) {
 			PreparedStatement psInsert = conn.prepareStatement(query);
 			long startTime = System.currentTimeMillis();
-			for(int i = 1; i <= 1000; i++) {
+			for(int i = 1; i <= 10; i++) {
 				psInsert.setInt(1, i);
 				psInsert.setString(2, "Name"+i);
 				psInsert.addBatch();
