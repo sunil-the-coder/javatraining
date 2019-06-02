@@ -7,10 +7,13 @@ public class Singleton {
 		System.out.println("Object created");
 	}
 
-	//Thread safe singleton
-	public static synchronized Singleton getInstance() {
-		if (singleton == null)
-			singleton = new Singleton();
+	// Thread safe singleton
+	public static Singleton getInstance() {
+		synchronized (Singleton.class) {
+			if (singleton == null)
+				singleton = new Singleton();
+		}
+
 		return singleton;
 	}
 }
