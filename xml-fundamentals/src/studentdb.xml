@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE studentdb SYSTEM "studentdb.dtd" >
+<studentdb>
+	<student>
+		<id>1</id>		
+		<name>sunil</name>
+		<email>sunil@gmail.com</email>
+		<email>sunilpatil@gmail.com</email>
+	</student>
+	<student>
+		<id>2</id>
+		<name>ganesh</name>
+		<phone>527895</phone>			
+	</student>
+	<student>
+		<id>3</id>
+		<name>anil</name>
+	</student>
+</studentdb>
