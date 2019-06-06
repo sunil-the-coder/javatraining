@@ -4,3 +4,4 @@
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT email (#PCDATA)>
 <!ELEMENT phone (#PCDATA)>
+<!ATTLIST student fname #CDATA required>

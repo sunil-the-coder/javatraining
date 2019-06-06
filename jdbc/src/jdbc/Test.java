@@ -12,11 +12,17 @@ public class Test {
 		String deleteQuery = "delete from student where id=?";
 		String updateQuery ="";
 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		
 		try (Connection conn = DriverManager.
 				getConnection("jdbc:mysql://localhost:3306/nobel", 
 						"sunil", "sunil@123");
 				PreparedStatement ps = conn.prepareStatement(deleteQuery);
-				PreparedStatement psUpdate = conn.prepareStatement(updateQuery);) {
+				) {
 
 			ps.setInt(1, 3);
 

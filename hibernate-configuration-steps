@@ -1,0 +1,21 @@
+
+
+
+One time step for adding dtd files to eclipse workspace:
+
+1. Window->Preferences-> XML Catalog -> User specified entry -> Add
+	Location: actual file system path
+	Key: Value from config dtd file
+	web address: value from config dtd file.
+
+2. Same steps from 1 for mapping file.
+
+
+
+Steps:
+
+1. Add hibernate libraries along with db library to build path.
+2. Prepare java object which maps to database table.
+3. Prepare hibernate.cfg.xml file to src folder & udpate db configuration.
+4. 
+
