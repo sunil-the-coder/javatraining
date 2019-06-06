@@ -17,5 +17,41 @@ Steps:
 1. Add hibernate libraries along with db library to build path.
 2. Prepare java object which maps to database table.
 3. Prepare hibernate.cfg.xml file to src folder & udpate db configuration.
-4. 
+4. Prepare hibernate.hbm.xml & provide its mapping.
+5. write Hibernate initilaization class which loads hibernate configuration & do its operation.
+
+
+
+SessionFactory:
+	Global object which provides configuraiton for your database, connections, sessions etc.
+
+Hibernate:  
+	Wrapper written on the top of existing jdbc code which simplifies database interaction.
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
-	<class table="student" name="com.hibernate.model.Student">
+	<class table="studentinfo" name="com.hibernate.model.Student">
 		<id name="id" column="id" type="java.lang.Integer">
 			<generator class="increment"></generator>
 		</id>
 		<property name="name"  column="name" type="java.lang.String"></property>
-		<property name="mobile"  column="phone" type="java.lang.String"></property>
+		<property name="mobile"  column="mobile" type="java.lang.String"></property>
 	</class>
 </hibernate-mapping>

@@ -8,6 +8,8 @@
   <property name="connection.password">sunil@123</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.show_sql">true</property>
-  <mapping resource="hibernate.hbm.xml"/>
+  <property name="hibernate.hbm2ddl.auto">create</property>
+  <!-- <mapping resource="hibernate.hbm.xml"/> -->
+  <mapping class="com.hibernate.model.Student"/>
   </session-factory>
 </hibernate-configuration>

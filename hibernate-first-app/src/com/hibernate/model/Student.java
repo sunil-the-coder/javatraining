@@ -1,9 +1,22 @@
 package com.hibernate.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="studentdemo")
+@Entity
 public class Student {
 
+	@Id
+	@GeneratedValue
 	private int id;
+	
 	private String name;
+	
+	@Column(name = "phone")
 	private String mobile;
 
 	public Student() {
