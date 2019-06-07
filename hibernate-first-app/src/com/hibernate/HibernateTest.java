@@ -16,8 +16,13 @@ public class HibernateTest {
 
 		
 		// HQL
+		Query query = session.createQuery("from Person where mobile=:mobile");
+		//query.setParameter(0, "29602");
 		
-		Query query = session.createQuery("from Person");
+		//Named parameter binding
+		query.setParameter("mobile", "29602");
+		
+		
 		List<Person> persons = (List<Person>)query.list();
 		
 		if(persons != null && persons.size() >= 1) {
