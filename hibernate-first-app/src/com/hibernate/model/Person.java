@@ -6,16 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="person")
+@Table(name = "person")
 @Entity
 public class Person {
 
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
 	private String name;
-	
+
 	@Column(name = "phone")
 	private String mobile;
 
@@ -51,6 +51,11 @@ public class Person {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + "]";
 	}
 
 }

@@ -8,7 +8,7 @@
   <property name="connection.password">sunil@123</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.show_sql">true</property>
-  <property name="hibernate.hbm2ddl.auto">create</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
   <!-- <mapping resource="hibernate.hbm.xml"/> -->
   <mapping class="com.hibernate.model.Person"/>
   </session-factory>
