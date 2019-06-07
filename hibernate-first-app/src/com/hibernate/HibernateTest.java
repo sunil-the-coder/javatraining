@@ -28,18 +28,21 @@ public class HibernateTest {
 //		session.save(p3);
 //		
 		
-		Person p = new Person();
-		p.setId(1);
+		//Person p = new Person();
+		//p.setId(1);
 		
-		session.delete(p);
+		//session.delete(p);
 		
 		//select *from person where id =2;
-	//	Person person = (Person)session.get(Person.class, 100);
+		Person person = (Person)session.get(Person.class, 2);
+		person.setName("Akshay Mane");
 		//Person person = (Person)session.get(Person.class, 2);
 		//System.out.println(person.getId());
 		
 		//person = (Person)session.load(Person.class, 2);
 		//System.out.println(person.getId());
+		
+		session.update(person);
 		
 		tx.commit();
 
