@@ -1,55 +1,30 @@
 package com.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import com.hibernate.model.Person;
 
 public class HibernateTest {
 
 	public static void main(String[] args) {
-
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-
-		// 3. Obtain new session for any operation from sessionFactory
 		Session session = sessionFactory.openSession();
 
-		// 4. Insert/Update/Delete - Start the transaction
-		Transaction tx = session.beginTransaction();
-
-		// 5. Save the object
-//		Person p1 = new Person("Mandal", "902692");
-//		Person p2 = new Person("Akshay", "2425");
-//		Person p3 = new Person("Swapnil", "29602");
-//		
-//		session.save(p1);
-//		session.save(p2);
-//		session.save(p3);
-//		
 		
-		//Person p = new Person();
-		//p.setId(1);
+		// HQL
 		
-		//session.delete(p);
+		Query query = session.createQuery("from Person");
+		List<Person> persons = (List<Person>)query.list();
 		
-		//select *from person where id =2;
-		Person person = (Person)session.get(Person.class, 2);
-		person.setName("Akshay Mane");
-		//Person person = (Person)session.get(Person.class, 2);
-		//System.out.println(person.getId());
+		if(persons != null && persons.size() >= 1) {
+			persons.stream().forEach(p->System.out.println(p));
+		}
 		
-		//person = (Person)session.load(Person.class, 2);
-		//System.out.println(person.getId());
-		
-		session.update(person);
-		
-		tx.commit();
-
-	//	System.out.println("Person information is Updated.");
-
 		session.close();
-
 		sessionFactory.close();
 	}
 
