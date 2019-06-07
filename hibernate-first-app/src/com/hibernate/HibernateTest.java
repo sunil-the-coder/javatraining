@@ -11,13 +11,7 @@ public class HibernateTest {
 
 	public static void main(String[] args) {
 
-		// 1. load configuration into memory
-
-		Configuration config = new Configuration();
-		config.configure("hibernate.cfg.xml");
-
-		// 2. Build session factory from configuration.
-		SessionFactory sessionFactory = config.buildSessionFactory();
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
 		// 3. Obtain new session for any operation from sessionFactory
 		Session session = sessionFactory.openSession();
