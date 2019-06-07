@@ -3,9 +3,8 @@ package com.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
-import com.hibernate.model.Student;
+import com.hibernate.model.Person;
 
 public class HibernateTest {
 
@@ -20,13 +19,17 @@ public class HibernateTest {
 		Transaction tx = session.beginTransaction();
 
 		// 5. Save the object
-		Student student = new Student(100, "Mandal", "902692");
-
-		session.save(student);
-
+		Person p1 = new Person("Mandal", "902692");
+		Person p2 = new Person("Akshay", "2425");
+		Person p3 = new Person("Swapnil", "29602");
+		
+		session.save(p1);
+		session.save(p2);
+		session.save(p3);
+		
 		tx.commit();
 
-		System.out.println("Student information is Updated.");
+		System.out.println("Person information is Updated.");
 
 		session.close();
 

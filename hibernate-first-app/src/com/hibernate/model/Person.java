@@ -6,9 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="studentdemo")
+@Table(name="person")
 @Entity
-public class Student {
+public class Person {
 
 	@Id
 	@GeneratedValue
@@ -19,13 +19,12 @@ public class Student {
 	@Column(name = "phone")
 	private String mobile;
 
-	public Student() {
+	public Person() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(int id, String name, String mobile) {
+	public Person(String name, String mobile) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.mobile = mobile;
 	}
