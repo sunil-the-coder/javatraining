@@ -1,10 +1,16 @@
 package com.hibernate.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
@@ -30,14 +36,18 @@ public class Person {
 	private String mobile;
 
 	@Embedded
-	private Address address;
+	@ElementCollection
+	@JoinTable(name="person_addresses",joinColumns = @JoinColumn(name="person_id"))
+	private List<Address> addresses = new LinkedList<>();
 
-	public Address getAddress() {
-		return address;
+
+
+	public List<Address> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
 	public Person() {
@@ -76,7 +86,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + ", address=" + address + "]";
+		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + ", addresses=" + addresses + "]";
 	}
 
 }

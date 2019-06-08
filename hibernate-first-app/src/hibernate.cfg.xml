@@ -3,12 +3,12 @@
 <hibernate-configuration>
   <session-factory>
   <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-  <property name="connection.url">jdbc:mysql://localhost:3306/nobel</property>
+  <property name="connection.url">jdbc:mysql://localhost:3306/hib_test</property>
   <property name="connection.username">sunil</property>
   <property name="connection.password">sunil@123</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.show_sql">true</property>
-  <property name="hibernate.hbm2ddl.auto">update</property>
+  <property name="hibernate.hbm2ddl.auto">create</property>
   <!-- <mapping resource="hibernate.hbm.xml"/> -->
   <mapping class="com.hibernate.model.Person"/>
   </session-factory>

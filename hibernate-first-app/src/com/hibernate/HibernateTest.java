@@ -19,9 +19,10 @@ public class HibernateTest {
 		session.beginTransaction();
 		
 		Person person = new Person("Komal","526262");
-		person.setAddress(new Address("dange chowk", 413033, "pune"));
+		person.getAddresses().add(new Address("dange chowk", 413033, "pune"));
+		person.getAddresses().add(new Address("kharadi", 413032, "Wagholi"));
 		
-	//	session.save(person);
+		session.save(person);
 	
 		session.getTransaction().commit();	
 

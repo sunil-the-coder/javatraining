@@ -61,6 +61,87 @@ For better performance optimization for some of the queries at database level we
 
 
 
+
+
+1) Using @ElementCollection
+	** drop database & create new databse.
+
+
+mysql> show tables;
++------------------+
+| Tables_in_nobel  |
++------------------+
+| Person_addresses |
+| book             |
+| person           |
+| static_data      |
+| static_dummy     |
+| student          |
+| studentdemo      |
+| studentinfo      |
++------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from person;
++----+--------+-------+
+| id | phone  | name  |
++----+--------+-------+
+|  1 | 526262 | Komal |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from Person_addresses;
++-----------+---------+---------+-------------+
+| Person_id | city    | pincode | street      |
++-----------+---------+---------+-------------+
+|         1 | pune    |  413033 | dange chowk |
+|         1 | Wagholi |  413032 | kharadi     |
++-----------+---------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+### After changing table & column names
+
+
+mysql> select * from person;
++----+--------+-------+
+| id | phone  | name  |
++----+--------+-------+
+|  1 | 526262 | Komal |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from person_addresses;
++-----------+---------+---------+-------------+
+| person_id | city    | pincode | street      |
++-----------+---------+---------+-------------+
+|         1 | pune    |  413033 | dange chowk |
+|         1 | Wagholi |  413032 | kharadi     |
++-----------+---------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
