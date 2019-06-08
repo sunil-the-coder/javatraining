@@ -9,6 +9,11 @@ public class Address {
 	private int pincode;
 	private String city;
 
+	@Override
+	public String toString() {
+		return " [street=" + street + ", pincode=" + pincode + ", city=" + city + "]";
+	}
+
 	public Address() {
 		// TODO Auto-generated constructor stub
 	}

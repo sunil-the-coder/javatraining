@@ -52,6 +52,17 @@ For better performance optimization for some of the queries at database level we
 
 
 
+@Embeddable & @Embedded :
+
+	Reuse the set of common object properties for mulitple entities in hibernate.
+
+
+@EmbeddedId -> To create composite key from set of properties.
+
+
+
+	
+
 
 
 
