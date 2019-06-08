@@ -133,6 +133,67 @@ mysql>
 
 
 
+########## Relationships with Entities #################
+
+1-1, 1-M, M-1, M-M
+
+Unidirection ( person - vehicle )
+
+Bidirection ( person-vehicle and vehicle-person)
+
+
+#### One to One Mappin ##########
+
+
+
+mysql> show tables;
++--------------------+
+| Tables_in_hib_test |
++--------------------+
+| person             |
+| vehicle            |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person;
++----+--------+-------+------------+
+| id | phone  | name  | vehicle_id |
++----+--------+-------+------------+
+|  1 | 526262 | Komal |          1 |
++----+--------+-------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | Jupiter |
++----+---------+
+1 row in set (0.01 sec)
+
+mysql> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

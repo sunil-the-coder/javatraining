@@ -1,27 +1,12 @@
 package com.hibernate.model;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@NamedQueries(value = { @NamedQuery(name = "allPersons", query = "from Person"),
-		@NamedQuery(name = "personsByMobile", query = "from Person where mobile=:mobile") })
-
-@NamedNativeQueries(value = {
-		@NamedNativeQuery(name = "getAllPersons", query = "select * from person", resultClass = Person.class) })
 @Table(name = "person")
 @Entity
 public class Person {
@@ -35,19 +20,15 @@ public class Person {
 	@Column(name = "phone")
 	private String mobile;
 
-	@Embedded
-	@ElementCollection
-	@JoinTable(name="person_addresses",joinColumns = @JoinColumn(name="person_id"))
-	private List<Address> addresses = new LinkedList<>();
+	@OneToOne
+	private Vehicle vehicle;
 
-
-
-	public List<Address> getAddresses() {
-		return addresses;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
 	public Person() {
@@ -86,7 +67,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + ", addresses=" + addresses + "]";
+		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + ", vehicle=" + vehicle + "]";
 	}
 
 }

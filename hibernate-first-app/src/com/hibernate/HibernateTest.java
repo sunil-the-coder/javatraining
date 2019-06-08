@@ -6,8 +6,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.hibernate.model.Address;
 import com.hibernate.model.Person;
+import com.hibernate.model.Vehicle;
 
 public class HibernateTest {
 	
@@ -19,15 +19,18 @@ public class HibernateTest {
 		session.beginTransaction();
 		
 		Person person = new Person("Komal","526262");
-		person.getAddresses().add(new Address("dange chowk", 413033, "pune"));
-		person.getAddresses().add(new Address("kharadi", 413032, "Wagholi"));
+		Vehicle vehicle = new Vehicle("Jupiter");
+
+		//one-to-one mapping
+		person.setVehicle(vehicle);
 		
+		session.save(vehicle);
 		session.save(person);
-	
+		
 		session.getTransaction().commit();	
 
 		//SQL Query
-		Query query = session.getNamedQuery("getAllPersons");
+		Query query = session.createQuery("from Person");
 		List<Person> persons = (List<Person>)query.list();
 		
 		if(persons != null && persons.size() >= 1) {
