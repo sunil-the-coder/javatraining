@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.hibernate.model.Address;
 import com.hibernate.model.Person;
 
 public class HibernateTest {
@@ -14,23 +15,24 @@ public class HibernateTest {
 		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
+		
+		session.beginTransaction();
+		
+		Person person = new Person("Komal","526262");
+		person.setAddress(new Address("dange chowk", 413033, "pune"));
+		
+		session.save(person);
+	
+		session.getTransaction().commit();	
 
-		Query query = session.getNamedQuery("allPersons");
+		//SQL Query
+		Query query = session.getNamedQuery("getAllPersons");
 		List<Person> persons = (List<Person>)query.list();
 		
 		if(persons != null && persons.size() >= 1) {
 			persons.stream().forEach(p->System.out.println(p));
 		}
 	
-		System.out.println("-------------------------------------");
-		query = session.getNamedQuery("personsByMobile");
-		query.setParameter("mobile", "29602");
-		
-		persons = (List<Person>)query.list();
-		if(persons != null && persons.size() >= 1) {
-			persons.stream().forEach(p->System.out.println(p));
-		}
-
 		
 		session.close();
 		sessionFactory.close();

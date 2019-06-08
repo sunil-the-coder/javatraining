@@ -34,7 +34,29 @@ Named Queries & Named Native Query:
 
 Grouping queries related to single entity in the entity class.
 
-Mostly they are defined on the top of the class.
+Mostly they are defined on the top of the entity class.
+
+@NamedQueries({
+	@NamedQuery(name="",query=""),
+	@NamedQuery(name="",query="")
+})
+
+
+@NamedNativeQueries({
+	@NamedNativeQuery(name="",query="")
+})
+
+
+For better performance optimization for some of the queries at database level we can use sql queries with hibernate.
+
+
+
+
+
+
+
+
+
 
 
 
