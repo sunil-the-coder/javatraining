@@ -4,7 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+@NamedQueries(value = {
+		@NamedQuery(name = "allPersons",query = "from Person"),
+		@NamedQuery(name = "personsByMobile",query = "from Person where mobile=:mobile")
+})
 
 @Table(name = "person")
 @Entity

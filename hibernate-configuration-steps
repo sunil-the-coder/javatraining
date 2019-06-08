@@ -28,6 +28,20 @@ SessionFactory:
 Hibernate:  
 	Wrapper written on the top of existing jdbc code which simplifies database interaction.
 
+
+Named Queries & Named Native Query:
+
+
+Grouping queries related to single entity in the entity class.
+
+Mostly they are defined on the top of the class.
+
+
+
+
+
+
+
 	
 
 
