@@ -1,9 +1,13 @@
 package com.hibernate.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,15 +24,15 @@ public class Person {
 	@Column(name = "phone")
 	private String mobile;
 
-	@OneToOne
-	private Vehicle vehicle;
+	@OneToMany(mappedBy = "person")
+	private List<Vehicle> vehicles = new LinkedList<>();
 
-	public Vehicle getVehicle() {
-		return vehicle;
+	public List<Vehicle> getVehicles() {
+		return vehicles;
 	}
 
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
+	public void setVehicles(List<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
 
 	public Person() {
@@ -67,7 +71,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + ", vehicle=" + vehicle + "]";
+		return "Person [id=" + id + ", name=" + name + ", mobile=" + mobile + ", vehicles=" + vehicles + "]";
 	}
 
 }

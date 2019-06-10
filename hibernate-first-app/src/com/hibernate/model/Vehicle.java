@@ -3,6 +3,7 @@ package com.hibernate.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,17 @@ public class Vehicle {
 	private Long id;
 
 	private String name;
+
+	@ManyToOne
+	private Person person;
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
 	public Vehicle() {
 		// TODO Auto-generated constructor stub

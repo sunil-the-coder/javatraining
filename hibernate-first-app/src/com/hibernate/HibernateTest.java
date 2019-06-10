@@ -19,12 +19,21 @@ public class HibernateTest {
 		session.beginTransaction();
 		
 		Person person = new Person("Komal","526262");
-		Vehicle vehicle = new Vehicle("Jupiter");
-
-		//one-to-one mapping
-		person.setVehicle(vehicle);
+		Vehicle jupitor = new Vehicle("Jupiter");
+		Vehicle activa = new Vehicle("Activa");
 		
-		session.save(vehicle);
+		jupitor.setPerson(person);
+		activa.setPerson(person);
+		
+		//one-to-one mapping
+		person.getVehicles().add(jupitor);
+		person.getVehicles().add(activa);
+		
+		//save the child first
+		session.save(jupitor);
+		session.save(activa);
+		
+		//then parent
 		session.save(person);
 		
 		session.getTransaction().commit();	
