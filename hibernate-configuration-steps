@@ -260,6 +260,109 @@ constraint to the other table.
 
 
 
+fetch = FetchType.EAGER / LAZY ( By default lazy loading )
+
+LAZY -> It will wait till client tells to retrieve child entities from parent object.
+
+EAGER -> Load everything including child entities even if client doesn't require.
+
+
+@OneToMany(cascade =CascadeType.ALL)
+
+
+
+1) Hibernate Inheritance
+2) Caching (1st & 2nd level)
+
+3) States of hibernate entities:
+
+
+	
+
+States of hibernate Entity:
+
+1) Transient State:
+
+	Person p = new Person(1,"sunil");
+
+An object which is not associated with hibernate session and does not represent a row in the database and can be gargage collected if require.
+
+There is no identifier assigned by hibernate.
+
+Any newly create object with new keyword bydefault is transient state.
+
+
+2) Persistent:
+
+An object that is associated with the hibernate session is called as Persistent object. When the object is in persistent state, then it represent one row of the database and consists of an identifier value. You can make a transient instance persistent by associating it with a Session.
+
+	//move object from transient/detached state to persistent state
+	session.save(person);
+	session.saveOrUpdate(person);
+
+
+
+3) Detached State:
+
+Object which is just removed from hibernate session is called as detached object.
+
+When the object is in detached sate then it contain identity but you can’t do persistence operation with that identity.
+
+Any changes made to the detached objects are not saved to the database. The detached object can be reattached to the new session and save to the database using update, saveOrUpdate and merge methods.
+
+
+	session.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

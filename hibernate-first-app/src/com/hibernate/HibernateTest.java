@@ -18,7 +18,10 @@ public class HibernateTest {
 		
 		session.beginTransaction();
 		
+		//Transient statue
 		Person person = new Person("Komal","526262");
+		
+		
 		Vehicle jupitor = new Vehicle("Jupiter");
 		Vehicle activa = new Vehicle("Activa");
 		
