@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Table(name = "person")
@@ -15,7 +16,8 @@ import javax.persistence.Table;
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "person_id_seq",sequenceName = "PERSON_ID_DB_SEQ")
 	private int id;
 
 	private String name;
