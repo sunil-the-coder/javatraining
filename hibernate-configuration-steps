@@ -356,6 +356,55 @@ Disadv:
 3) Joined Strategy:
 
 
+mysql> select * from person;
++----+---------+---------+
+| id | phone   | name    |
++----+---------+---------+
+|  1 | 526262  | Komal   |
+|  2 | 8206820 | Mandal  |
+|  3 | 8290626 | Prakash |
++----+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from SalesPerson;
++-----------+----+
+| commision | id |
++-----------+----+
+|      5000 |  3 |
++-----------+----+
+1 row in set (0.00 sec)
+
+mysql> select * from Employee;
++--------+----+
+| salary | id |
++--------+----+
+|  50000 |  2 |
++--------+----+
+
+
+
+Common properties of the entities in inheritance will be stored in parent table but specific
+
+properties will be stored in its own table with id from parent table.
+
+Adv:
+	3 NF form.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
