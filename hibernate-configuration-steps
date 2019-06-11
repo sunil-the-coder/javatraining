@@ -340,6 +340,46 @@ Disadv:
 
 
 
+2) Table Per class strategy:
+
+	Every entity will be stored in separate table with their own information.
+The identifier will be shared from parent table.
+
+Adv:
+	No NULL values.
+	Normalized form.
+
+Disadv:
+	Repeating common columns across the entities.
+
+
+3) Joined Strategy:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
