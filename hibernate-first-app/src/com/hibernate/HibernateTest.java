@@ -6,8 +6,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.hibernate.model.Employee;
 import com.hibernate.model.Person;
-import com.hibernate.model.Vehicle;
+import com.hibernate.model.SalesPerson;
 
 public class HibernateTest {
 	
@@ -20,24 +21,13 @@ public class HibernateTest {
 		
 		//Transient statue
 		Person person = new Person("Komal","526262");
+		Employee employee = new Employee("Mandal","8206820",50000);
+		SalesPerson sp = new SalesPerson("Prakash","8290626",5000);
 		
 		
-		Vehicle jupitor = new Vehicle("Jupiter");
-		Vehicle activa = new Vehicle("Activa");
-		
-		jupitor.setPerson(person);
-		activa.setPerson(person);
-		
-		//one-to-one mapping
-		person.getVehicles().add(jupitor);
-		person.getVehicles().add(activa);
-		
-		//save the child first
-		session.save(jupitor);
-		session.save(activa);
-		
-		//then parent
 		session.save(person);
+		session.save(employee);
+		session.save(sp);
 		
 		session.getTransaction().commit();	
 

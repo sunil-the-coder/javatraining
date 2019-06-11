@@ -316,6 +316,62 @@ Any changes made to the detached objects are not saved to the database. The deta
 
 
 
+Hibernate Inheritance:
+
+	Person
+ Employee, SalesPerson
+
+
+Strategy:
+	1) Single Table Strategy ( Default )
+	2) Table per class strategy
+	3) Joined Strategy
+
+
+DTYPE -> Discriminated type -> Name of the entity class in inheritance.
+
+
+1) Every entity in inheritance will be stored in single table.
+
+Adv:
+	Single table to retrieve data. ( faster )
+Disadv:
+	1) Unnecessary NULL values for some of the entities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
