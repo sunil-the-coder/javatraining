@@ -10,14 +10,18 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Table(name = "person")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Cache(region = "itp.cache",usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "person_id_seq",sequenceName = "PERSON_ID_DB_SEQ")
+	@GeneratedValue
+	//@SequenceGenerator(name = "person_id_seq",sequenceName = "PERSON_ID_DB_SEQ")
 	private int id;
 
 	private String name;
