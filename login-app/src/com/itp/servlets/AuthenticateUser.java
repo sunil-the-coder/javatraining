@@ -24,8 +24,11 @@ public class AuthenticateUser extends HttpServlet {
 		String username = request.getParameter("uname");
 		String password = request.getParameter("pwd");
 		
+		//DB Connection validation
+		
 		if(username.equals("sunil") && password.equals("patil")) {
-			out.println("Login Success.");
+		//	out.println("Login Success.");
+			response.sendRedirect("categories");
 		}else {
 			//response.sendRedirect("index.html");
 			
