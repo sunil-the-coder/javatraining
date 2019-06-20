@@ -1,0 +1,60 @@
+
+Java SE,Java EE ( Servlet 1.3x)
+
+App base URL: 
+	https://192.168.137.1:8181/timserver
+
+Application custom URL:
+	/date
+	/products
+	/categories
+
+https://192.168.0.15:8080/timeserver/date
+
+		DNS ( Domain Name Server )
+
+192.168.0.15:8080		flipkart.com
+
+https://flipkart.com/timeserver
+
+
+
+/hello -> com.itp.servlets.HelloServlet
+
+
+Request Headers:
+
+User-Agent -> Contains info about client browser, device, operating system etc..
+
+
+Query String: ?key1=value1&key2=value2
+
+/search?source=hp&ei=DKkJXdGzJZKSwgOtlZTYCQ&q=java&oq=java&gs_l=psy-ab.3..35i39l2j0i67l3j0i131l2j0l2j0i67.22111.22394..23276...0.0..1.190.819.0j6......0....1..gws-wiz.....6.jghTA7osap4
+
+
+Ip V4 & V6
+
+V4- > 127.0.0.1
+
+V6 -> 0:0:0:0:0:0:0:1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
