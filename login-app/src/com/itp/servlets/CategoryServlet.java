@@ -14,6 +14,10 @@ public class CategoryServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		//Fetch categories from database & display it in table.
+		
+		
 		response.getWriter().println("All categories will be displayed here");
 	}
 

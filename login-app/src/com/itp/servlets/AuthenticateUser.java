@@ -31,22 +31,17 @@ public class AuthenticateUser extends HttpServlet {
 		String password = request.getParameter("pwd");
 
 		// DB Connection validation
-		
-		
-		
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			//DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+			// DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		
-		String validationQuery = "select * from users where uname=? and passwd=?";
-		try (Connection conn = DriverManager.
-				getConnection("jdbc:mysql://localhost:3306/nobel", 
-						"sunil", "sunil@123");
-				PreparedStatement ps = conn.prepareStatement(validationQuery);
-				) {
+
+		String authQuery = "select * from users where uname=? and passwd=?";
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+				PreparedStatement ps = conn.prepareStatement(authQuery);) {
 
 			ps.setString(1, username);
 			ps.setString(2, password);
@@ -61,7 +56,6 @@ public class AuthenticateUser extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 
 		/*
 		 * if (username.equals("sunil") && password.equals("patil")) { //

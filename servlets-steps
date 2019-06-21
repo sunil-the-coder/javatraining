@@ -41,6 +41,25 @@ V6 -> 0:0:0:0:0:0:0:1
 
 
 
+mysql> create table categories(id int primary key auto_increment, catName text, catDesc text, catImgUrl text);
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> insert into categories(catName,catDesc,catImgUrl) values('shoes','must wear shoes for sporty look','shoes.jpg'),('Printer','take the printouts','printer.jpg'),('Watch','Must wear watches','watch.jpg');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select *from categories;
++----+---------+---------------------------------+-------------+
+| id | catName | catDesc                         | catImgUrl   |
++----+---------+---------------------------------+-------------+
+|  1 | shoes   | must wear shoes for sporty look | shoes.jpg   |
+|  2 | Printer | take the printouts              | printer.jpg |
+|  3 | Watch   | Must wear watches               | watch.jpg   |
++----+---------+---------------------------------+-------------+
+3 rows in set (0.00 sec)
+
+
+
 
 
 
