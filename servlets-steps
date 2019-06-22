@@ -86,6 +86,21 @@ Integrate hibernate with Servlets/JSP Applications:
 
 <img src='Images/printer.jpg' width='50%' height='50%'></img>
 
+create table products(pid int primary key auto_increment, prodName text, prodDesc text, prodPrice int,prodImgUrl text, qty int);
+
+
+Lifecycle method of the servlets:
+
+1) init() -> Call only once when servlet instantiated by container.
+
+2) service() -> Call for each user request handling for its servlet
+
+3) destroy() -> Call only once based on following scenario:
+	1) Time out period expires
+	2) Container restart
+	3) Application restart
+
+
 
 
 

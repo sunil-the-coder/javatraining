@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,52 +20,71 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthenticateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	PreparedStatement ps = null;
+	Connection conn  = null;
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+
+		//String driver = config.getInitParameter("driver");
+		
+		//Save the config object in GenericServlet so that you can reuse later in another methods.
+		super.init(config);
+
+		System.out.println("Obtaining Database Connection....");
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+
+			String authQuery = "select * from users where uname=? and passwd=?";
+			ps = conn.prepareStatement(authQuery);
+
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	@Override
+	public void destroy() {
+		System.out.println("Closing Database Connection....");
+		try {
+			if(conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("Processing Request....");
+		
 		PrintWriter out = response.getWriter();
-
-		// out.println("Authenticating User.....");
 
 		String username = request.getParameter("uname");
 		String password = request.getParameter("pwd");
 
-		// DB Connection validation
-
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			// DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+			if (ps != null) {
+				ps.setString(1, username);
+				ps.setString(2, password);
 
-		String authQuery = "select * from users where uname=? and passwd=?";
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
-				PreparedStatement ps = conn.prepareStatement(authQuery);) {
+				ResultSet rs = ps.executeQuery();
+				if (rs.next()) {
+					response.sendRedirect("categories");
+				} else {
+					response.sendRedirect("index.html");
+				}
 
-			ps.setString(1, username);
-			ps.setString(2, password);
-
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				response.sendRedirect("categories");
-			} else {
-				response.sendRedirect("index.html");
+				rs.close();
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		/*
-		 * if (username.equals("sunil") && password.equals("patil")) { //
-		 * out.println("Login Success."); // response.sendRedirect("categories"); } else
-		 * { // response.sendRedirect("index.html");
-		 * 
-		 * RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
-		 * dispatcher.forward(request, response); }
-		 */
 		out.close();
 
 	}
