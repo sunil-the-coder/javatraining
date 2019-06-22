@@ -1,6 +1,8 @@
 package com.itp.oshop.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,8 @@ import javax.persistence.Table;
 public class Category {
 
 	@Id
+	@GeneratedValue
+	@Column(name="id")
 	private int catId;
 	private String catName;
 	private String catDesc;

@@ -428,6 +428,46 @@ config for 2nd level cache like maxElements, idleTime, lifetime, region etc.
 3) Add Annotation @Cache to the entities which we want to store in 2nd level cache. 
 
 
+evict() -> It will remove object from cache.
+
+
+What is difference between openSession and getCurrentSession?
+
+
+
+NamedNativeQuery
+
+
+Criteria API:
+
+HTTP Methods: GET/POST/PUT/DELETE
+
+Web Server ? Apache Tomcat ? Servlets ? WAR File ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
