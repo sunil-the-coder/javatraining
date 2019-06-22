@@ -41,7 +41,7 @@ public class CategoryServlet extends HttpServlet {
 			out.println("<tr>");
 			out.println("<td>" + c.getCatName() + "</td>");
 			out.println("<td>" + c.getCatDesc() + "</td>");
-			out.println("<td><img src='Images/" + c.getCatImgUrl() + "' width='50%' height='50%'></img></td>");
+			out.println("<td><a href='products?catId="+c.getCatId()+"'><img src='Images/" + c.getCatImgUrl() + "' width='50%' height='50%'></img></a></td>");
 			out.println("</tr>");
 		});
 
