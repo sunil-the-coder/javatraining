@@ -78,17 +78,14 @@ public class AuthenticateUser extends HttpServlet {
 				if (rs.next()) {
 
 					// Create new session for logged in user.
-					HttpSession session = request.getSession(false);
+					HttpSession session = request.getSession();
+					System.out.println("ID:" + session.getId());
+					System.out.println("Timeout Period:" + session.getMaxInactiveInterval());
 
-					if (session == null) {
-						System.out.println("Session won't be created..");
-					} else {
-						System.out.println("ID:" + session.getId());
-						session.setAttribute("currentUser", username);
-						System.out.println("Timeout Period:" + session.getMaxInactiveInterval());
-					}
-
-				
+					session.setAttribute("currentUser", username);
+					
+					String user = (String) session.getAttribute("currentUser");
+					System.out.println("User:"+user);
 					response.sendRedirect("categories");
 				} else {
 					response.sendRedirect("index.html");

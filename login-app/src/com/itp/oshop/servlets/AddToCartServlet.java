@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.itp.oshop.cart.ShoppingCart;
 import com.itp.oshop.model.CartProduct;
@@ -20,6 +21,10 @@ public class AddToCartServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		HttpSession userSession = request.getSession(false);
+		
+		if (userSession != null) {
 
 		// ?pid=5&pname=Rolex%20Watch&price=12000&qty=1
 		
@@ -32,11 +37,11 @@ public class AddToCartServlet extends HttpServlet {
 
 		// Database store / In Memory shopping Cart
 
-		ServletContext context = getServletContext();
-		ShoppingCart cart  = (ShoppingCart)context.getAttribute("cart");
+		//ServletContext context = getServletContext();
+		ShoppingCart cart  = (ShoppingCart)userSession.getAttribute("cart");
 		if(cart == null) {
 			cart = new ShoppingCart();
-			context.setAttribute("cart", cart);
+			userSession.setAttribute("cart", cart);
 		}
 		
 		cart.addProduct(cartProduct);
@@ -45,6 +50,9 @@ public class AddToCartServlet extends HttpServlet {
 	//	dispatcher.forward(request, response);
 		
 		response.sendRedirect("listCart");
+		}else {
+			response.sendRedirect("index.html");
+		}
 	}
 
 }

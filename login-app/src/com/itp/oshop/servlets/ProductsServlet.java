@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -25,50 +26,57 @@ public class ProductsServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 
-		if (request.getParameter("catId") != null) {
-			
-			
-			int catId = Integer.parseInt(request.getParameter("catId"));
+		HttpSession userSession = request.getSession(false);
 
-			
-			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-			Session session = sessionFactory.openSession();
+		if (userSession != null) {
 
-			Criteria criteria = session.createCriteria(Product.class);
-			criteria.add(Restrictions.eq("catId", catId));
-			List<Product> products = (List<Product>) criteria.list();
-			
-			/*
-			 * Query query =
-			 * session.createQuery("select OBJECT(p) from Product p where catId=?");
-			 * query.setParameter(0, catId);
-			 * 
-			 * List<Product> products = (List<Product>) query.list();
-			 */
-			
-			//System.out.println(products);
-			
-			out.println("<html><body>");
-			out.println("<table border=1 width=50%>");
-			out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th></tr>");
+			PrintWriter out = response.getWriter();
 
-			products.stream().forEach(p -> {
-				out.println("<tr>");
-				out.println("<td>" + p.getName() + "</td>");
-				out.println("<td>" + p.getDescription() + "</td>");
-				out.println("<td>" + p.getPrice() + "</td>");
-				out.println("<td><img src='Images/" + p.getImgUrl() + "' width='50%' height='50%'></img></td>");
-				out.println("<td><a href='addToCart?pid="+p.getPid()+"&pname="+p.getName()+"&price="+p.getPrice()+"&qty=1'>AddToCart</a>&nbsp;&nbsp;<a href='buy'>Buy</a></td>");
-				out.println("</tr>");
-			});
+			if (request.getParameter("catId") != null) {
 
-			out.println("</table></body></html>");
+				int catId = Integer.parseInt(request.getParameter("catId"));
 
-			session.close();
+				SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+				Session session = sessionFactory.openSession();
 
-			out.close();
+				Criteria criteria = session.createCriteria(Product.class);
+				criteria.add(Restrictions.eq("catId", catId));
+				List<Product> products = (List<Product>) criteria.list();
+
+				/*
+				 * Query query =
+				 * session.createQuery("select OBJECT(p) from Product p where catId=?");
+				 * query.setParameter(0, catId);
+				 * 
+				 * List<Product> products = (List<Product>) query.list();
+				 */
+
+				// System.out.println(products);
+
+				out.println("<html><body>");
+				out.println("<table border=1 width=50%>");
+				out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th></tr>");
+
+				products.stream().forEach(p -> {
+					out.println("<tr>");
+					out.println("<td>" + p.getName() + "</td>");
+					out.println("<td>" + p.getDescription() + "</td>");
+					out.println("<td>" + p.getPrice() + "</td>");
+					out.println("<td><img src='Images/" + p.getImgUrl() + "' width='50%' height='50%'></img></td>");
+					out.println("<td><a href='addToCart?pid=" + p.getPid() + "&pname=" + p.getName() + "&price="
+							+ p.getPrice() + "&qty=1'>AddToCart</a>&nbsp;&nbsp;<a href='buy'>Buy</a></td>");
+					out.println("</tr>");
+				});
+
+				out.println("</table></body></html>");
+
+				session.close();
+
+				out.close();
+			}
+		} else {
+			response.sendRedirect("index.html");
 		}
 	}
 
