@@ -1,11 +1,9 @@
 package com.itp.oshop.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itp.oshop.cart.ShoppingCart;
 import com.itp.oshop.model.CartProduct;
 
 @WebServlet("/addToCart")
@@ -23,6 +22,7 @@ public class AddToCartServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// ?pid=5&pname=Rolex%20Watch&price=12000&qty=1
+		
 		int pid = Integer.parseInt(request.getParameter("pid"));
 		int qty = Integer.parseInt(request.getParameter("qty"));
 		int price = Integer.parseInt(request.getParameter("price"));
@@ -33,13 +33,13 @@ public class AddToCartServlet extends HttpServlet {
 		// Database store / In Memory shopping Cart
 
 		ServletContext context = getServletContext();
-		List<CartProduct> cart  = (List<CartProduct>)context.getAttribute("cart");
+		ShoppingCart cart  = (ShoppingCart)context.getAttribute("cart");
 		if(cart == null) {
-			cart = new LinkedList<>();
+			cart = new ShoppingCart();
 			context.setAttribute("cart", cart);
 		}
 		
-		cart.add(cartProduct);
+		cart.addProduct(cartProduct);
 
 	//	RequestDispatcher dispatcher = request.getRequestDispatcher("listCart");
 	//	dispatcher.forward(request, response);
