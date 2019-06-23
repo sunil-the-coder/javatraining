@@ -28,14 +28,18 @@ public class ProductsServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		if (request.getParameter("catId") != null) {
+			
+			
 			int catId = Integer.parseInt(request.getParameter("catId"));
 
+			
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 			Session session = sessionFactory.openSession();
 
 			Criteria criteria = session.createCriteria(Product.class);
 			criteria.add(Restrictions.eq("catId", catId));
 			List<Product> products = (List<Product>) criteria.list();
+			
 			/*
 			 * Query query =
 			 * session.createQuery("select OBJECT(p) from Product p where catId=?");
@@ -43,6 +47,7 @@ public class ProductsServlet extends HttpServlet {
 			 * 
 			 * List<Product> products = (List<Product>) query.list();
 			 */
+			
 			//System.out.println(products);
 			out.println("<html><body>");
 			out.println("<table border=1 width=50%>");
@@ -54,7 +59,7 @@ public class ProductsServlet extends HttpServlet {
 				out.println("<td>" + p.getDescription() + "</td>");
 				out.println("<td>" + p.getPrice() + "</td>");
 				out.println("<td><img src='Images/" + p.getImgUrl() + "' width='50%' height='50%'></img></td>");
-				out.println("<td><a href='addToCart'>AddToCart</a>&nbsp;&nbsp;<a href='buy'>Buy</a></td>");
+				out.println("<td><a href='addToCart?pid="+p.getPid()+"&pname="+p.getName()+"&price="+p.getPrice()+"&qty=1'>AddToCart</a>&nbsp;&nbsp;<a href='buy'>Buy</a></td>");
 				out.println("</tr>");
 			});
 
