@@ -46,9 +46,9 @@ public class ListCartServlet extends HttpServlet {
 		out.println("</table>");
 		
 		out.println("<h2> Total : Rs."+total+"</h2>");
-		out.println("<h4><a href='categories'>Continue Shopping </a></h4><br>");
-		out.println("<h4><a href='buy'>Buy</a></h4><br>");
-		out.println("<h4><a href='logout'>Logout</a></h4><br>");
+		out.println("<h4><a href='categories'>Continue Shopping </a></h4>");
+		out.println("<h4><a href='buy'>Buy</a>");
+		out.println("<h4><a href='logout'>Logout</a>");
 		
 		out.println("</body></html>");
 
