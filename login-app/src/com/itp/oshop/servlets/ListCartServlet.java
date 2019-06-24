@@ -34,8 +34,13 @@ public class ListCartServlet extends HttpServlet {
 				return;
 			}
 
-			// Display shopping cart in tabular format.
+			String username = (String)userSession.getAttribute("currentUser");
+			
 			out.println("<html><body>");
+			out.println("Welcome,"+username);
+		
+			// Display shopping cart in tabular format.
+			
 			out.println("<table border=1 width=50%>");
 			out.println("<tr><th>Name</th><th>Price</th><th>Qty</th><th> Action</th></tr>");
 

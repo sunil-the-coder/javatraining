@@ -38,7 +38,10 @@ public class CategoryServlet extends HttpServlet {
 			Criteria criteria = session.createCriteria(Category.class);
 			List<Category> categories = (List<Category>) criteria.list();
 
+			String username = (String)userSession.getAttribute("currentUser");
+			
 			out.println("<html><body>");
+			out.println("Welcome,"+username);
 			out.println("<table border=1 width=50%>");
 			out.println("<tr><th>Name</th><th>Description</th><th> Image </th></tr>");
 

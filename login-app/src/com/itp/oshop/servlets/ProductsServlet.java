@@ -54,7 +54,10 @@ public class ProductsServlet extends HttpServlet {
 
 				// System.out.println(products);
 
+				String username = (String)userSession.getAttribute("currentUser");
+				
 				out.println("<html><body>");
+				out.println("Welcome,"+username);
 				out.println("<table border=1 width=50%>");
 				out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th></tr>");
 
