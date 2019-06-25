@@ -22,12 +22,13 @@ public class OshopInitializer extends HttpServlet {
 		super.init(config);
 		
 		//Load sessionFactory here...
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-
-		ServletContext context = getServletContext();
-		context.setAttribute("globalSessionFactory", sessionFactory);
-		
-		System.out.println("Oshop is initialized & Prepared the session factory");
-	}
+		/*
+		 * SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		 * 
+		 * ServletContext context = getServletContext();
+		 * context.setAttribute("globalSessionFactory", sessionFactory);
+		 * 
+		 * System.out.println("Oshop is initialized & Prepared the session factory");
+		 */	}
 
 }

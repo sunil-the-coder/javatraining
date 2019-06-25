@@ -16,7 +16,7 @@ public class LogoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		HttpSession userSession = request.getSession(false);
-
+		
 		if (userSession != null) {
 			// Destroy the session - Delete everything from session.
 			userSession.invalidate();
