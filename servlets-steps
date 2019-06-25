@@ -148,6 +148,54 @@ mysql> select * from products;
 
 
 
+Servlet 3.x:
+
+1) Annotation based mapping
+2) Event driven handling for application, context and sessions.
+
+
+Listener: ( Interfaces )
+
+1) ServletContextListener
+
+	a. contextInitialized(event)
+		It will be called once application completely initialized.
+
+	b. contextDestroyed(event)
+		It will be called once application is going to restart, container restart etc.
+
+
+
+2) ServletContextAttributeListener:
+
+	Mostly used in case you want to capture adding, removing or updating attributes from context object.
+
+	a. attributeAdded(event);
+	b. attributeRemoved(event);
+	c. attributeReplaced(event);
+
+
+3) HttpSessionListener
+	sessionCreated(event)
+	sessionDestroyed(event)
+
+4) HttpSessionAttributeListener
+	a. attributeAdded(event);
+	b. attributeRemoved(event);
+	c. attributeReplaced(event);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
