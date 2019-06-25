@@ -185,6 +185,39 @@ Listener: ( Interfaces )
 	c. attributeReplaced(event);
 
 
+Table:
+
+After Logout:
+
+	Save product details to below table.
+
+	table cart_products(uid,pid,name,price,qty);
+
+After Login:
+
+List<CartProduct> -> select * from cart_products where uid=?;
+
+Add this list to in memory shopping cart.
+
+
+Filters:
+	1) URL Path Mapping  ( /admin/* )
+
+	2) Path extension mapping  - ( *.secured )
+
+
+http://192.168.0.5:8181/login-app/admin/addProduct
+
+
+
+
+
+
+
+
+
+
+
 
 
 
