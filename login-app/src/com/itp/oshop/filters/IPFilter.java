@@ -28,6 +28,7 @@ public class IPFilter implements Filter {
 
 		System.out.println("Host IP:"+host);
 		if (host.startsWith("127.0.0") || host.startsWith("0:0:0:0") || host.startsWith("192.168.0.15")) {
+			
 			chain.doFilter(request, response);
 		} else {
 			response.getWriter()

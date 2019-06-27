@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +32,7 @@ public class CategoryServlet extends HttpServlet {
 		
 		if (userSession != null) {
 
-			PrintWriter out = response.getWriter();
+			//PrintWriter out = response.getWriter();
 
 			ServletContext context = getServletContext();
 
@@ -40,8 +41,14 @@ public class CategoryServlet extends HttpServlet {
 
 			Criteria criteria = session.createCriteria(Category.class);
 			List<Category> categories = (List<Category>) criteria.list();
-
-			String username = (String)userSession.getAttribute("currentUser");
+			
+			request.setAttribute("listCategories", categories);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("showCategories.jsp");
+			dispatcher.forward(request, response);
+			
+			
+/*			String username = (String)userSession.getAttribute("currentUser");
 			
 			out.println("<html><body>");
 			out.println("Welcome,"+username);
@@ -58,7 +65,7 @@ public class CategoryServlet extends HttpServlet {
 			});
 
 			out.println("</table></body></html>");
-
+*/
 			session.close();
 
 		}else {
