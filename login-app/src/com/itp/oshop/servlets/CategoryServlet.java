@@ -18,7 +18,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.itp.oshop.model.Category;
-import com.itp.oshop.util.HibernateUtil;
 
 @WebServlet("/categories")
 public class CategoryServlet extends HttpServlet {
@@ -42,14 +41,17 @@ public class CategoryServlet extends HttpServlet {
 			Criteria criteria = session.createCriteria(Category.class);
 			List<Category> categories = (List<Category>) criteria.list();
 			
-			request.setAttribute("listCategories", categories);
+			/*
+			 * request.setAttribute("listCategories", categories);
+			 * 
+			 * RequestDispatcher dispatcher =
+			 * request.getRequestDispatcher("showCategories.jsp");
+			 * dispatcher.forward(request, response);
+			 */
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("showCategories.jsp");
-			dispatcher.forward(request, response);
-			
-			
-/*			String username = (String)userSession.getAttribute("currentUser");
-			
+			String username = (String)userSession.getAttribute("currentUser");
+
+			PrintWriter out = response.getWriter();
 			out.println("<html><body>");
 			out.println("Welcome,"+username);
 			out.println("<table border=1 width=50%>");
@@ -65,7 +67,7 @@ public class CategoryServlet extends HttpServlet {
 			});
 
 			out.println("</table></body></html>");
-*/
+
 			session.close();
 
 		}else {
