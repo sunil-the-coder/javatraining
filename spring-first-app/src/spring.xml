@@ -4,9 +4,21 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="prod" class="com.itp.spring.beans.Product">
+	<bean id="prod" class="com.itp.spring.beans.Product" scope="prototype">
 		<property name="id" value="20" />
 		<property name="name" value="Spring" />
+		<property name="rating" ref="prodRating"></property>
 	</bean>
+	
+	<bean id="prodRating" class="com.itp.spring.beans.Rating">
+		<property name="rating" value="5"></property>
+	</bean>
+	
+	
 
+<!-- 	<bean id="prod2" class="com.itp.spring.beans.Product">
+		<property name="id" value="10" />
+		<property name="name" value="Test" />
+	</bean>
+ -->
 </beans>

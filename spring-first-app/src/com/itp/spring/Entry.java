@@ -18,14 +18,15 @@ public class Entry {
 		
 		Product prod = context.getBean("prod",Product.class);
 
-		System.out.println("Retrieved bean");
+		System.out.println(prod);
+		
 		
 	//	Product prod = new Product();		
 		//prod.setId(40);
 		//prod.setName("Printer");
 		
 		
-		System.out.println(prod);
+		
 		
 	}
 }
