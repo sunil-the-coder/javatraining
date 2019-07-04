@@ -4,13 +4,13 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="prod" class="com.itp.spring.beans.Product" scope="prototype">
+	<bean id="prod" class="com.itp.spring.beans.Product" scope="prototype" autowire="byName">
 		<property name="id" value="20" />
 		<property name="name" value="Spring" />
-		<property name="rating" ref="prodRating"></property>
+		<!-- <property name="rating" ref="prodRating"></property> -->
 	</bean>
 	
-	<bean id="prodRating" class="com.itp.spring.beans.Rating">
+	<bean id="rating" class="com.itp.spring.beans.Rating">
 		<!-- <property name="rating" value="5"></property> -->
 		<constructor-arg name="rating" value="100"/>
 	</bean>
