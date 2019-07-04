@@ -4,8 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -15,12 +13,23 @@ public class UserDaoImpl implements UserDao {
 
 	private JdbcTemplate jdbcTemplate;
 
-	public UserDaoImpl(DataSource dataSource) {
-		super();
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-		System.out.println("jdbcTemplated is prepared..." + jdbcTemplate);
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
 	}
 
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public UserDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/*
+	 * public UserDaoImpl(DataSource dataSource) { super(); this.jdbcTemplate = new
+	 * JdbcTemplate(dataSource); System.out.println("jdbcTemplated is prepared..." +
+	 * jdbcTemplate); }
+	 */
 	@Override
 	public void saveUser(User user) {
 		String query = "insert into users values(?,?,?)";

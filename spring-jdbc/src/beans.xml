@@ -4,8 +4,10 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="userDao" class="com.itp.spring.dao.UserDaoImpl">
-		<constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+	<bean id="userDao" class="com.itp.spring.dao.UserDaoImpl" autowire="byName">
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byName">
 	</bean>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
