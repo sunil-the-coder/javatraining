@@ -11,7 +11,8 @@
 	</bean>
 	
 	<bean id="prodRating" class="com.itp.spring.beans.Rating">
-		<property name="rating" value="5"></property>
+		<!-- <property name="rating" value="5"></property> -->
+		<constructor-arg name="rating" value="100"/>
 	</bean>
 	
 	

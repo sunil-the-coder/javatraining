@@ -10,6 +10,7 @@ public class Rating {
 
 	public Rating(int rating) {
 		super();
+		System.out.println("Rating param ctr called.");		
 		this.rating = rating;
 	}
 
