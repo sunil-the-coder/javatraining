@@ -18,6 +18,12 @@ public class Product {
 		this.name = name;
 	}
 
+	
+	public Product(Rating rating) {
+		super();
+		this.rating = rating;
+	}
+
 	public int getId() {
 		return id;
 	}

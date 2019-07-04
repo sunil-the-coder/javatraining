@@ -4,7 +4,7 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="prod" class="com.itp.spring.beans.Product" scope="prototype" autowire="byType">
+	<bean id="prod" class="com.itp.spring.beans.Product" scope="prototype" autowire="constructor">
 		<property name="id" value="20" />
 		<property name="name" value="Spring" />
 		<!-- <property name="rating" ref="prodRating"></property> -->
