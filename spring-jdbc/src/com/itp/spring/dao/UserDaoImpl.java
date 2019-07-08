@@ -39,6 +39,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> getAllUsers() {
+		//logging
+		//security
 		List<User> users = jdbcTemplate.query("select * from users", new UserRowMapper());
 		return users;
 	}

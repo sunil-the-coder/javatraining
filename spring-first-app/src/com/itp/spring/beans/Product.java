@@ -1,11 +1,14 @@
 package com.itp.spring.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Product {
 
 	private int id = 10;
 	private String name = "adidas shoes";
 
 	// Loose coupling
+	//@Autowired
 	private Rating rating;
 
 	public Product() {
