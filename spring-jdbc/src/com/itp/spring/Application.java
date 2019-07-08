@@ -14,12 +14,12 @@ public class Application {
 
 		UserDao userDao = context.getBean("userDao", UserDao.class);
 
-		User user = new User(6, "test12", "test12");
-		userDao.saveUser(user);
+	//	User user = new User(6, "test12", "test12");
+	//	userDao.saveUser(user);
 
-		/*
-		 * for (User user : userDao.getAllUsers()) { System.out.println(user); }
-		 */
+		
+		  for (User user : userDao.getAllUsers()) { System.out.println(user); }
+		 
 
 	}
 }

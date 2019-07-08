@@ -21,7 +21,9 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 		<property name="password" value="sunil@123"/>
 	</bean>
 	
-	<aop:config>
+	<aop:aspectj-autoproxy/>
+	
+	<!-- <aop:config>
 		<aop:pointcut expression="execution(* com.itp.spring.dao.UserDaoImpl.*(..))" 
 			id="pcForAllUsers"/>
 
@@ -34,7 +36,7 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 			<aop:after method="logBeforeMethod" pointcut-ref="pcForAllPackages"/>			
 		</aop:aspect>
 	</aop:config>
-	
+ -->	
 	<bean id="loggingAspect" class="com.itp.spring.aop.LoggingAspect"> </bean>
 
 </beans>
