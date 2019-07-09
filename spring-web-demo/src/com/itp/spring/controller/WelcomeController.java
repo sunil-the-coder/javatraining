@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/users") //controller level mapping ( used in case if prefix is same for all of its methods )
 public class WelcomeController {
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@RequestMapping(value = "/hello", method = RequestMethod.GET) //method level mapping
 	public ModelAndView sayWelcome() {
 		ModelAndView modelAndView = new ModelAndView();
 		//View name - The name of the file ( eg. welcome.jsp, hello.fm )
