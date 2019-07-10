@@ -13,10 +13,11 @@ public class PersonController {
 		
 	}
 	
-	@RequestMapping(value="/getAllPersons")
-	public List<Person> getAllPerson() {
-		
-	}
+	/*
+	 * @RequestMapping(value="/getAllPersons") public List<Person> getAllPerson() {
+	 * 
+	 * }
+	 */
 	
 	@RequestMapping(value="deletePerson")
 	public void deletePerson() {

@@ -11,6 +11,10 @@ public class WelcomeController {
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET) //method level mapping
 	public ModelAndView sayWelcome() {
+		
+		
+		//fetch data from db
+		
 		ModelAndView modelAndView = new ModelAndView();
 		//View name - The name of the file ( eg. welcome.jsp, hello.fm )
 		modelAndView.setViewName("welcome");
