@@ -18,5 +18,10 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	
+	<bean id="hibInitializer" class="com.itp.spring.hibernate.HibernateInitializer" 
+			init-method="initializeHibernate" destroy-method="destroyHibernate">
+		<property name="configFile" value="hibernate.cfg.xml"></property>
+	</bean>
 
 </beans>
