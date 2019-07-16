@@ -1,6 +1,7 @@
 package com.itp.springbootdemo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,8 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repository;
 	
-	public void add(Product prod) {
-		repository.save(prod);
+	public Product add(Product prod) {
+		return repository.save(prod);
 	}
 
 	public List<Product> getAll() {
@@ -25,7 +26,11 @@ public class ProductService {
 	}
 
 	public Product getProductById(int id) {
-		return repository.findById(id).get();
+		Optional<Product> product = repository.findById(id);
+		if(product.isPresent()) {
+			return product.get();	
+		}
+		return null;
 	}
 
 	public void delete(int id) {
