@@ -12,7 +12,6 @@ public class WelcomeController {
 	@RequestMapping(value = "/hello", method = RequestMethod.GET) //method level mapping
 	public ModelAndView sayWelcome() {
 		
-		
 		//fetch data from db
 		
 		ModelAndView modelAndView = new ModelAndView();
