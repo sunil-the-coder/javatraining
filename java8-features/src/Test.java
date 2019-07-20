@@ -1,73 +1,38 @@
-@FunctionalInterface // ( can't declare multiple methods inside functional interface)
-interface A {
-	void disp(int x);
-}
-
-/*
- * class C implements A { public void disp() {
- * System.out.println("C disp called..."); } }
- */
-
-class B {
-	public void show(A a) {
-		a.disp(10);
-	}
-}
-
-/*
- * class OddThread implements Runnable {
- * 
- * @Override public void run() { for(;;) {
- * System.out.println("Odd thread running...."); } } }
- */
-
-@FunctionalInterface
-interface Calculator {
-	int add(int x, int y);
-}
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Test {
 
 	public static void main(String[] args) {
-
-		Calculator c = (x, y) -> x + y;
-		Calculator c1 = (int x, int y) -> x + y;
 		
-		int sum = c.add(10, 20);
-		System.out.println("Sum is:" + sum);
-
-		/*
-		 * Runnable runnable = new Runnable() {
-		 * 
-		 * @Override public void run() { for(;;) {
-		 * System.out.println("Odd thread running...."); } } };
-		 */
-
-		/*
-		 * Runnable runnable = () -> { for (;;) {
-		 * System.out.println("Odd thread running...."); } };
-		 */
-
-		Thread t1 = new Thread(() -> {
-			for (;;) {
-				System.out.println("Odd thread running....");
-			}
-		});
-
-		// t1.start();
-
-		B b = new B();
+		Stream<Integer> ints = Stream.of(1,2,3,4,5,6);
+		ints.forEach(p->System.out.println(p));
 		
-		A a = p -> System.out.println("after call for p...." + p);
-
-		b.show(a);
-
-		/*
-		 * new Thread(()-> { for(;;) { System.out.println("Thread rann"); try {
-		 * TimeUnit.MILLISECONDS.sleep(500); } catch (InterruptedException e) {
-		 * e.printStackTrace(); } }
-		 * 
-		 * }).start();
-		 */
+		List<Integer> numbers = new ArrayList<>();
+		numbers.add(10);
+		numbers.add(20);
+		numbers.add(30);
+		
+		numbers.stream().forEach(p->System.out.println(p));
+		
+		
+		List<String> memberNames = new ArrayList<>();
+		memberNames.add("Amitabh");
+		memberNames.add("Shekhar");
+		memberNames.add("Aman");
+		memberNames.add("Rahul");
+		memberNames.add("Shahrukh");
+		memberNames.add("Salman");
+		memberNames.add("Yana");
+		memberNames.add("Lokesh");
+		
+		Stream<String> filteredNames = memberNames.stream().filter(name -> !name.startsWith("S"));
+		List<String> upperNames = filteredNames.map(n-> n.toUpperCase()).collect(Collectors.toList());
+		System.out.println(upperNames);
+		
+		//filteredNames.forEach(n-> System.out.println(n.toUpperCase()));
+		
 	}
 }
