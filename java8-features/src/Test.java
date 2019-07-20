@@ -32,13 +32,16 @@ public class Test {
 		 * System.out.println("Odd thread running...."); } } };
 		 */
 
-		Runnable runnable = () -> {
+		/*
+		 * Runnable runnable = () -> { for (;;) {
+		 * System.out.println("Odd thread running...."); } };
+		 */
+		
+		Thread t1 = new Thread(() -> {
 			for (;;) {
 				System.out.println("Odd thread running....");
 			}
-		};
-		
-		Thread t1 = new Thread(runnable);
+		});
 
 		t1.start();
 
