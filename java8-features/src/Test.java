@@ -1,6 +1,6 @@
 @FunctionalInterface // ( can't declare multiple methods inside functional interface)
 interface A {
-	void disp(int x, int y);
+	void disp(int x);
 }
 
 /*
@@ -10,7 +10,7 @@ interface A {
 
 class B {
 	public void show(A a) {
-		a.disp(10, 20);
+		a.disp(10);
 	}
 }
 
@@ -21,9 +21,20 @@ class B {
  * System.out.println("Odd thread running...."); } } }
  */
 
+@FunctionalInterface
+interface Calculator {
+	int add(int x, int y);
+}
+
 public class Test {
 
 	public static void main(String[] args) {
+
+		Calculator c = (x, y) -> x + y;
+		Calculator c1 = (int x, int y) -> x + y;
+		
+		int sum = c.add(10, 20);
+		System.out.println("Sum is:" + sum);
 
 		/*
 		 * Runnable runnable = new Runnable() {
@@ -36,18 +47,19 @@ public class Test {
 		 * Runnable runnable = () -> { for (;;) {
 		 * System.out.println("Odd thread running...."); } };
 		 */
-		
+
 		Thread t1 = new Thread(() -> {
 			for (;;) {
 				System.out.println("Odd thread running....");
 			}
 		});
 
-		t1.start();
+		// t1.start();
 
 		B b = new B();
-		A a = (p, q) -> System.out.println("after call for p...." + p);
-		A a1 = (q, s) -> System.out.println("after call for q...." + q);
+		
+		A a = p -> System.out.println("after call for p...." + p);
+
 		b.show(a);
 
 		/*
