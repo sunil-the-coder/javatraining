@@ -22,7 +22,11 @@ import com.itp.oshop.model.Category;
 @WebServlet("/categories")
 public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	public CategoryServlet() {
+		
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Fetch categories from database & display it in table.

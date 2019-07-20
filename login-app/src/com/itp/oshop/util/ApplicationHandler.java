@@ -33,6 +33,7 @@ public class ApplicationHandler implements ServletContextListener,HttpSessionLis
 		// TODO Auto-generated method stub
 
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		
 		ServletContext context = arg0.getServletContext();
 		context.setAttribute("globalSessionFactory", sessionFactory);
 
