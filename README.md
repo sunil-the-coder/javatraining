@@ -3,16 +3,16 @@
 
 Steps to take latest codebase 
 
-1. git clone https://github.com/sunil-linux/javatraining.git
+1. git clone https://github.com/sunil-the-coder/javatraining.git
 
 2. cd javatraining
 
-3. git checkout pbatch9
+3. git checkout pbatch10
 
 ( It you want to take my changes to your machine then pull )
 
 ( Daily Step )
 
-4. git pull origin pbatch9
+4. git pull origin pbatch10
 
 
