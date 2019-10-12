@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 class Student {
 	private int id;
@@ -18,7 +19,20 @@ class Student {
 public class StudentTest {
 
 	public static void main(String[] args) {
+		
+		
+		//Read data from console
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter data:");
+		
+		int id = scan.nextInt();
+		String name = scan.next();
 	
+		System.out.println(id+"\t"+name);
+		
+		scan.close();
+		
+		
 		Student s1 = new Student(10, "sunil");
 		Student s2 = new Student(11, "anil");
 		
