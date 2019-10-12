@@ -1,0 +1,7 @@
+<!ELEMENT studentdb (student+)>
+<!ELEMENT student (id,name,(email* | phone?))>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ATTLIST student fname #CDATA required>

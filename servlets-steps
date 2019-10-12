@@ -1,0 +1,237 @@
+
+Java SE,Java EE ( Servlet 1.3x)
+
+App base URL: 
+	https://192.168.137.1:8181/timserver
+
+Application custom URL:
+	/date
+	/products
+	/categories
+
+https://192.168.0.15:8080/timeserver/date
+
+		DNS ( Domain Name Server )
+
+192.168.0.15:8080		flipkart.com
+
+https://flipkart.com/timeserver
+
+
+
+/hello -> com.itp.servlets.HelloServlet
+
+
+Request Headers:
+
+User-Agent -> Contains info about client browser, device, operating system etc..
+
+
+Query String: ?key1=value1&key2=value2
+
+/search?source=hp&ei=DKkJXdGzJZKSwgOtlZTYCQ&q=java&oq=java&gs_l=psy-ab.3..35i39l2j0i67l3j0i131l2j0l2j0i67.22111.22394..23276...0.0..1.190.819.0j6......0....1..gws-wiz.....6.jghTA7osap4
+
+
+Ip V4 & V6
+
+V4- > 127.0.0.1
+
+V6 -> 0:0:0:0:0:0:0:1
+
+
+
+
+mysql> create table categories(id int primary key auto_increment, catName text, catDesc text, catImgUrl text);
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> insert into categories(catName,catDesc,catImgUrl) values('shoes','must wear shoes for sporty look','shoes.jpg'),('Printer','take the printouts','printer.jpg'),('Watch','Must wear watches','watch.jpg');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select *from categories;
++----+---------+---------------------------------+-------------+
+| id | catName | catDesc                         | catImgUrl   |
++----+---------+---------------------------------+-------------+
+|  1 | shoes   | must wear shoes for sporty look | shoes.jpg   |
+|  2 | Printer | take the printouts              | printer.jpg |
+|  3 | Watch   | Must wear watches               | watch.jpg   |
++----+---------+---------------------------------+-------------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+Integrate hibernate with Servlets/JSP Applications:
+
+1) Copy all hibernate related jar files manually into WEB-INF/lib folder.
+
+2) Prepare hibernate.cfg.xml file to src folder.
+
+3) Prepare Java Object which will map to database table.
+
+4) Create HibernateUtil class which will initialize hibernate.
+
+5) Now start using SessionFactory from Util class to perform user operations.
+
+
+ 
+<img src="" width="" height="">
+
+<img src='Images/printer.jpg' width='50%' height='50%'></img>
+
+create table products(pid int primary key auto_increment, prodName text, prodDesc text, prodPrice int,prodImgUrl text, qty int);
+
+
+Lifecycle method of the servlets:
+
+1) init() -> Call only once when servlet instantiated by container.
+
+2) service() -> Call for each user request handling for its servlet
+
+3) destroy() -> Call only once based on following scenario:
+	1) Time out period expires
+	2) Container restart
+	3) Application restart
+
+
+
+
+ServletConfig -> 
+
+Object provided by container which holds information about single servlet like init parameters etc..
+
+
+
+
+mysql> select * from categories;
++----+---------+---------------------------------+-------------+
+| id | catName | catDesc                         | catImgUrl   |
++----+---------+---------------------------------+-------------+
+|  1 | shoes   | must wear shoes for sporty look | shoes.jpg   |
+|  2 | Printer | take the printouts              | printer.png |
+|  3 | Watch   | Must wear watches               | watch.jpg   |
++----+---------+---------------------------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from products;
++-----+-------+---------------+------------------------+-----------+-------------------+------+
+| pid | catId | prodName      | prodDesc               | prodPrice | prodImgUrl        | qty  |
++-----+-------+---------------+------------------------+-----------+-------------------+------+
+|   1 |     1 | Adidas Shoes  | Must wear adidas shoes |      2500 | adidas.jpg        |   30 |
+|   2 |     1 | Sparx Shoes   | sparx shoes            |      4000 | sparx.jpg         |   23 |
+|   3 |     2 | HP Printer    | fastest hp printer     |     14000 | hp_printer.jpg    |    5 |
+|   4 |     2 | Canon Printer | canon printer          |     12000 | canon_printer.jpg |   10 |
+|   5 |     3 | Rolex Watch   | Stylish Watch          |     12000 | rolex.jpg         |   40 |
+|   6 |     3 | Titan Watch   | cool titan watch       |     11000 | titan.jpg         |    6 |
++-----+-------+---------------+------------------------+-----------+-------------------+------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Servlet 3.x:
+
+1) Annotation based mapping
+2) Event driven handling for application, context and sessions.
+
+
+Listener: ( Interfaces )
+
+1) ServletContextListener
+
+	a. contextInitialized(event)
+		It will be called once application completely initialized.
+
+	b. contextDestroyed(event)
+		It will be called once application is going to restart, container restart etc.
+
+
+
+2) ServletContextAttributeListener:
+
+	Mostly used in case you want to capture adding, removing or updating attributes from context object.
+
+	a. attributeAdded(event);
+	b. attributeRemoved(event);
+	c. attributeReplaced(event);
+
+
+3) HttpSessionListener
+	sessionCreated(event)
+	sessionDestroyed(event)
+
+4) HttpSessionAttributeListener
+	a. attributeAdded(event);
+	b. attributeRemoved(event);
+	c. attributeReplaced(event);
+
+
+Table:
+
+After Logout:
+
+	Save product details to below table.
+
+	table cart_products(uid,pid,name,price,qty);
+
+After Login:
+
+List<CartProduct> -> select * from cart_products where uid=?;
+
+Add this list to in memory shopping cart.
+
+
+Filters:
+	1) URL Path Mapping  ( /admin/* )
+
+	2) Path extension mapping  - ( *.secured )
+
+
+http://192.168.0.5:8181/login-app/admin/addProduct
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

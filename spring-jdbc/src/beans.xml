@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="userDao" class="com.itp.spring.dao.UserDaoImpl" autowire="byName">
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byName">
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/nobel"/>
+		<property name="username" value="sunil"/>
+		<property name="password" value="sunil@123"/>
+	</bean>
+	
+	<aop:aspectj-autoproxy/>
+	
+	<!-- <aop:config>
+		<aop:pointcut expression="execution(* com.itp.spring.dao.UserDaoImpl.*(..))" 
+			id="pcForAllUsers"/>
+
+	<aop:pointcut expression="within(com.itp.spring.dao.*)" 
+			id="pcForAllPackages"/>
+			
+		<aop:aspect id="logAspect" ref="loggingAspect">
+			<aop:before method="logBeforeMethod" pointcut-ref="pcForAllUsers" />
+			<aop:after method="logAfterMethod" pointcut-ref="pcForAllUsers"/>
+			<aop:after method="logBeforeMethod" pointcut-ref="pcForAllPackages"/>			
+		</aop:aspect>
+	</aop:config>
+ -->	
+	<bean id="loggingAspect" class="com.itp.spring.aop.LoggingAspect"> </bean>
+
+</beans>

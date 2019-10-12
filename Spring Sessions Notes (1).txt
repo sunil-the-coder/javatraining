@@ -1,0 +1,529 @@
+Spring Sessions:
+
+-1>
+ 
+a) Prerequisites
+b) Major Changes in Java 1.6, 1.7 or 1.8
+c) Java 6.0 -> Annotations.
+d) Changes in Java EE Applications using Annotations. Web Fragments ( Security Model can be merged existing application )
+e) What a Annotations ? Why Annotations are Important ? How java solves that marker interface ?
+f) It provides meta  information to runtime environments how the behaviour can be used.
+g) How to define the annotations ?
+
+	Dynamically obtain the information at runtime. And provide the information about class.
+
+h) Reflection :- It is access given to JVM. In a restrictive manner load the classes, instantiate object
+		& Provide the information.
+h) 
+
+Prog :-  Using Annotations & parsing 
+
+Prog :- Instantiate an Simple class Object & call methods.
+( CartFactory )
+
+
+
+Theory :-
+
+Brainy Guy - Rod Johnson
+
+Spring Features 
+
+a> IoC ( Loose Coupling )
+b> AOP ( Some cross cutting technologies ). Changes in source code which does not part of business logic. But it is external. This is point.
+c> Database Connection. ( Why Hibernate ? )
+d> Spring MVC 
+e> Support for Struts.
+f> 
+
+
+
+A software framework is a abstraction in which software provides the generic functionality can be selectively changed
+by user code thus providing application Specific Software. A Software Framework can also be defined as Universal, 
+reusable software platform used to develop products, applications or solutions.
+
+A software framework comprises of Various Support for Programs, Compilers, code libraries and API and All Required
+tools to Complete the process of software development.
+
+
+
+
+
+Any Framework key distinguishes each others that separate it from ordinary libraries. These features includes
+ 
+1) IoC ( Inversion of Control ) now known as Dependency Injection. While using IoC the flow of control of an application
+is not dectatade by the user/programmer but instead it controls by the framework.
+
+
+2) Default Behaviour :- Unlike libraries default behaviour  need to be provided for the customizable part of my application
+which programmer does not define.
+
+
+3) Extensibility :- A framework should be able to be extensible by the user by selectively overriding or specializing the
+specific functionality by user code.
+
+
+4) Non - Modifiable Framework Code : Every Framework would comprise of specific codes that can not be modified
+by the user.
+
+
+
+
+Types of Framework:-
+
+Application  Framework -> Application specific to os.
+Web Framework -> Develop for Web applications, Web portals.
+Media Framework -> Work with media web framework. eg) Media Servers
+
+
+Spring Framework 3.X
+
+	The Spring Framework is introduced by Rod Johnson in 2003 as a Open Source Framework Providing following 3 functionalities
+a> IoC ( Inversion of Control ) -> Dependency Injection. One of the Key strength of Spring Framework.
+b> Use for Loose Coupling of Various Object in application without having to made any modifications to your existing
+applications.
+c> It is lightweight  Dependency Injection and AOP Container & Framework. 
+
+It primary Comprises of two types of container
+	a> Bean Factory.
+	b> ApplicationContext.
+
+The ApplicationContext is more widely used because of support for Internalization & its capability of treating beans
+as event listeners.
+
+The ApplicationContext is further categorized into 
+a> ClassPathXMlApplicationContext -> Used to represent the XML file in the class path in the application.
+b> XMLWebApplicationContext -> Used to refer the XML Files within a Web Application.
+c> FileSystemXMLApplicationContext ->  Used to referencing the xml file by underline file system.
+
+
+
+
+Demo Practical Application :-
+
+1) Setting Property via XML. (ex : Users)
+2) Injection of Contained Object. ( JetEngine )
+3) Dependency Injection.  ( Containment )
+4) 
+
+
+
+Autowiring 
+
+a> By Id
+b> By Type
+c> By Constructor Arguments  
+d> By Name ( If property name is same )
+
+
+Injection -> It is process in which external components are set into current object ( Instantiate, Initialize & Inject ) into your class.
+
+
+All the internal components are initialized by objects information.
+
+
+4) Scopes in XML Files
+	a> singleton -> Always creates only one bean irrespective no of times the getBean method invoked.
+	b> prototype -> Always creates New instance  of the bean will be created each time a call to getBean() is made.
+	c> request   -> Specifies the Scope of Bean is only valid for current web request.
+	d> session   -> The bean is valid for current user session.
+	e> globalsession -> The Bean is valid for entire web application.
+
+
+request,session & globalsession are only used in web based application.
+
+5) Using Dependency Injection Without Explicitly Referencing. ( Spring will do take care of Auto-wire )
+
+Auto-wiring is a features that allows the dependency Injection to work on my bean without the programmer having the explicitly specify the reference to the 
+property of this class. Auto-wiring can take place with the help of either byName, byType or Constructor Argument.
+
+In the case of byName the property name defined with setters & getters in the primary component will be automatically injected into with the dependent component
+by using property name.
+
+For Example : The JetPlane comprises of property objEngine which has an entry in the xml file having id as objEngine and will be injected into the JetPlane
+if the autowire property is set to byName.
+
+
+
+
+6) Developing the GUI Application Using Spring.
+( Developing UI Using Spring ) -> 
+
+
+Lazy Init -> Rather than creating bean at startup  of application i.e. when the read the xml files. This will create the object when the request for this bean 
+is made via the getBean() method.
+
+
+
+7) Working with Database Using Spring DataSources.
+
+a>  JdbcTemplate -> Standard Classes for Interacting with db.
+b>  DBCP 
+c>  Hibernate 
+
+
+
+
+jdbcTemplate.update() method is used for firing the  insert, update & delete statements.
+
+
+
+<-------------- Session - 2  -------------->
+
+8) Method Injection :- Allows the User/Programmer to replace the method without modifying/alter the structure of class.
+Benefit -> You are not allowing to change the meaning of class or Introduce new class.
+		-> This can to conditional -> Can be used for time period & if u realize the some issue with new implementation you can always get revert back to original implementation.
+	
+	
+	-> It Provides the Dynamic SubClassing.
+	->  Getting rid of Container Infrastructure code in scenario where the Singleton beans needs to be have non-singleton or prototype bean.
+	
+Liability  of MI:-
+		-> Anyone not familiar with method injection will have hard time finding out how the code is working. So, it might make your code hard to understand.
+		
+		
+		
+Example : Shopping Cart.
+
+It internally uses the Proxy Objects. ( Gives the Controlled access to Actual Object )
+	
+
+	
+9) AOP ( Aspect Oriented Programming ) -> Applying the Cross Cutting Concern Separately from Outside the class.
+
+
+Cross Cutting Concerns ->
+
+Example : Credit Cart Transaction
+
+1) While Performing the transaction , i dont need to handle  the logging.
+
+
+Joint Point -> The location where i can apply when Advice. Which can Before, After the Method Call, Exceptions, Round About.
+
+Advice -> Business Logic that we want to apply. ( That class is called as Adviser )
+	
+	
+PointCut -> Combination of Multiple Join Point. It is Expression.
+
+
+Weaving -> It is process by which when advice will be apply to your business logic. ( Ye Advice ka logic kab run karana hai )
+
+	-> Compile Time -> Part of ByteCode. ( Advice ka bytecode ko inject kiya jata hai. It modifies the structure of class. )
+	-> Loading Time -> When custome classloader loads the class it loads the Advice bytecode.
+	-> Run Time -> Using Proxy. ( Methods Invokes the advised object ) ( Spring Uses this )
+	
+	
+	Interceptor -> It is apply at Application Level. 
+	AOP -> It is apply at Method Level.
+	
+	
+	Not-Transaction:- Checking Balance, Card is Valid or not, Card is Active or Not.
+	
+	
+
+a> Logging
+b> Security
+c> Transactions.
+
+
+
+
+
+AOP -> 
+
+Aspect Oriented Programming breaks down the programming logic into distinct part called as Concerns. 
+The Functions that spans the multiple points of an application are called as Cross Cutting Concerns and they are conceptually separate from applications main business logic. This could be Various Aspects likes Logging, Security, Cashing, Transaction Management etc.
+
+Aspect -
+An Aspect is defined as module that has a set of API providing the cross cutting requirements for the applications.
+For Example - If i was creating the logging module then these could be called as AOP's Aspect for Logging.
+
+Join Point - 
+A Join Point is defined as point in your application where an AOP Aspect has to be applied i.e. It is actual place in the application where the logic will be taken & applied using the Spring AOP Framework.
+For Instance - If an advice had to be applied prior to business logic of method then this location would be termed as join point.
+
+JointPoint -> All the possible places in your code where advice can apply. ( Methods are joinPoint ) -> In Spring advice can only be apply on Methods.
+We can apply joinPoint when your member variable name changes.  AspectJ Support this.
+
+**** In Spring JoinPoint has information about which method is actually called for current advice. SO that in advice the programmer can take decision and write the his diff code.
+
+JoinPoint is automatically Inject By Spring Framework.
+
+Important Methods of JoinPoint
+1) getTarget() -> It gives the reference to advised object or the Object which method is called for this advice.
+2) toString() -> It returns on which method this advice is applied.
+
+
+
+
+Advice - 
+An Advice is the actual action that has to be taken place before or after method execution. 
+For Example - Logging the details of Credit Card Transaction before & After the transaction could be defined as advice.
+
+
+PointCut - 
+A set of one or more join points where an advice should be executed is called as PointCut.
+We could define the PointCuts using standard Expressions.
+
+
+Target Object -  
+Also known adviced object. It is the object being advised by one or more aspects which will always be a proxied object.
+
+
+Weaving - 
+It is process of linking various aspects with application types or objects to finally  create an advised object. Weaving can be done in one of the following
+three manners :-
+
+a> Compile Time -
+	In case of Compile time the advice will be injected in the bytecode of the adviced object at the time of compilation itself.
+	
+b> ClassLoading Time
+	In ClassLoading weaving when the target objected/advised object is being loaded the bytecode is injected with the advice.
+	
+c> Run Time - (Spring Uses this)
+	In Run Time Weaving which will apply the proxied object through which the advice will be applied on the target object.
+	
+	
+Types Of Advice :
+
+a> After Advice -> Where the advice is apply after the execution of business method. -> You cant modify the target method returned values.
+b> Before Advice -> Where the advice is applied prior to the execution of the method.
+c> Around Advice -> Where the advice is applied before & after method execution.
+	-> This advice gives the more control over the calling the target method. ( Since you have the choice to call the target method or not using 		 		ProcedingJoinPoint.proceed() method. )
+	-> You can modify the returned Values of Target Methods.
+	-> You can share the local variable with before() & after() advice methods.
+	
+	
+d> After Throwing Advice -> In this the advice will be executed whenever the exception is raised.
+e> After Returning Advice -> Which will be executed after the return statement is fired.
+
+
+
+Defining PointCut - 
+Syntax : <AccessSpecifier> <ReturnType> <className> <MethodName> ( <Method Argument>))
+
+
+Types of PointCut Expression:-
+
+a> execution ( Can be used for any patterns ) -> It takes methods names with wildcards as parameters
+b> within ( TO execute all methods in particular class ) -> More Readable ->  Mostly used for Classes.
+	Ex> 1> within(com.spatil.models.TransferService) or
+		2> within(com.spatil.models.*) -> Main Package
+		3> within(com.spatil.models..*) -> Main Package with Subpackage
+
+c> args  -> Mostly Used for calling methods that match these arguments. It can be used with methods, classes.
+	Ex> 1> args(java.lang.String)
+	
+
+	Best Practice Defining PointCut Expressions
+
+	Ex> Combing the Different PointCuts
+	@PointCut("allGetters() && allTransferMethods()")
+	
+	
+		
+		
+		
+Custom PointCut Expression Using Annotation
+	-> Define Normal Annotation ( @interface Loggable )
+	-> Applying annotation ( @Around("@annotation(com.spatil.aspects.Loggable)");
+	-> Define the annotation for which you have to execute the advice. ( @Loggable public String getTransfer() }
+	
+	
+	
+You can do the AOP by two Types :-
+	1) XML Configuration -> It is mostly used for configure. Lets say you want to debug the application, then you dont like to modify the source code.
+	2) Annotations ( AspectJ) -> It is mostly used to Functionalities. Lets say transaction functionality should be added at source code level.
+
+
+
+PointCuts
+1) Perl 5 ( It is used before jdk 1.4 )
+2) Jdk Expression ( It is used after jdk 1.5 )
+
+Famous Exception in AOP  If u didn't write properly point cut expression.
+
+java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting 'name pattern' at character position 16
+execution(*add*())
+
+
+
+
+
+************ Spring Web MVC ***************************
+
+1) WEB-INF/controller-servlet.xml -> Define What are the beans, controllers & how Views are presented, who is controller.
+
+In Spring has multiple controllers. ( Where u define the business logic ). In Struts you have to use execute method for business logic but in spring u can use your custom method for writing the business logic. ( Possible because of Interceptors )
+
+2) I have to tell the tomcat which class is act as controller for all the request.
+
+
+** WEB-INF/web.xml
+
+
+
+In Struts we used the Filter as controller. ( All request first go to this filter ) Filter Dispatcher Pattern
+In Spring we used the Servlet as controller.
+
+In Spring we use the Interceptors & in Struts we use filters or Interceptors.
+
+
+
+Steps for Creating Spring Web MVC Application
+
+1) Create the dynamic web project & add all required jar files into lib folder for your web application.
+2) Under WEB-INF folder add an entry for the web.xml which will contain servlet entry for "org.springframework.web.servlet.DispatcherServlet".
+3) The load on startup attribute for this servlet should be marked as 1.
+4) The Servlet Mapping will contain the Url Pattern on the basis of path mapping which will direct all the request to the DispatcherServlet.
+5) Under the Source folder Prepare the POJO class which will act as a controller handling various request for URL's.
+6) Under your WEB-INF folder create a file as the "controller-servlet.xml" which contains the defination to the location of controller classes and has an entry
+   for the viewResolver which will identify the appropriate view to be used post the execution of the request.
+7) The name of this xml file would match the servlet-name used for DispatcherServlet.
+8) Under the WEB-INF folder create the folder as views that is the name we will used as prefix attribute of ViewResolver. 
+   This folder will contain the all necessary files that represent that ultimate output or view of your application.It could be either files from jsp or velocity or freemarker. 
+
+9)  
+
+
+processUser.jsp -> Represent the user info.
+
+
+success.jsp -> 
+
+
+
+Execution Flow Of Spring Application
+
+
+@ModelAttribute -> Provide the required beans that are need to be provide.
+
+
+
+2) Second Spring Login App
+
+
+
+3) Spring Internalization Library -> Provide the language information for each request.
+
+	If i consider takes place at a time.
+		
+	Interceptors methods can be used to define the default.
+	
+	
+4) 
+	
+	
+	
+	
+	
+************* Steps for Spring Internalization Application. ***********
+
+1. Copy libraries into lib folder.
+2. prepare controller class.
+3. Under your source folder add properties file related to the languages that you wish to support.
+   Each property fileName suffix with _languageCode.properties.
+4. In your spring-controller xml file add an entry for a bean with the id "messageSource" and initializing it's
+   property called basename(basenames) and the value as "classpath:PropertyFileName"
+5. Define another bean representing the class localeChangeInterceptor providing with the property as the 
+   paramName and value will be equal to "language".
+6. Create another bean called localeResolver which would define "defaultLocale" to be associated. It tells where
+   to store your localeCode. ( Session/ Cookie )
+7. Define the bean for handlerMapping which will contain  list of all the interceptors that have to be applied.
+8. The View files would contain <spring:message code="">  tags specifying the code as the key in the property file.
+
+
+
+Examples :
+1. Using Internalization in Spring MVC
+2. Defining Custom Interceptors. using HandlerInterceptors.
+3. 
+
+
+The Spring Interceptors can be created by defining the POJO class that implements the HandlerInterceptor interface
+comprising of following three methods -
+
+a. preHandle-> which is very first method to be fired whenever a request is intercepted the programmer can apply
+the desired business logic to decide wheather or not the request should be processed further.If this method
+returns the false value the request will not be sent to the controller.
+Once prehandle Successfully terminated returning true value the request is further sent to the controller
+for processing which after applying the desired business logic will sent the request back to the interceptors
+for postHandling. It is within the postHandling that the model and view can realtered if need be. Soon after this
+the request is sent to the viewResolver which will generate the appropiate view and finally fire the afterCompletion
+method of the interceptor.
+
+b. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Links:-
+
+Glassbox is tool that uses internally heavily AOP for Performance Monitoring.
+http://glassbox.sourceforge.net/glassbox/HowItWorks.html	
+http://www.volantec.biz/aop.htm
+http://viralpatel.net/blogs/performance-monitoring-using-glassbox/
+
+
+Defining AOP PointCut Expression Language
+http://docs.spring.io/spring/docs/2.0.x/reference/aop.html
+http://www.mkyong.com/spring/spring-aop-examples-advice/
+http://guptavikas.wordpress.com/2010/04/15/aspectj-pointcut-expressions/
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----------- Links   ---------------------->
+
+JdbcTemplate -> http://docs.spring.io/spring/docs/2.0.8/reference/jdbc.html
+			 -> http://www.mkyong.com/spring/spring-jdbctemplate-jdbcdaosupport-examples/
+ 
+
+Internalization Converters -> 	https://bikku.com		 
+			 
+
+Autowiring -> 
+
+
+
+site : google.com
+
+
+dogpile.com -> Meta Search Engine. -> Aggregation of Search Engines 
+
+sundry table -> Maintaing the SoftwareVersions.
+
+
+
+
+ 
+

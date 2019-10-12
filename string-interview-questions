@@ -1,0 +1,56 @@
+
+
+1. WAF to reverse the given string without using reverse() method ? 
+	i/p ->sunil,  o/p -> linus
+
+2.Write a java program to count occurrences of each character in String in java. 
+If the String is "Java Hungry" then the answer should be
+{ a=2, r=1, u=1, v=1, g=1, H=1, y=1, J=1, n=1}
+
+3. Find all possible combinations of String?
+
+ If the input is "wxyz"  then the output of the string is
+
+" w wx wxy wxyz wxz wy wyz wz x xy xyz xz y yz z " 
+
+4. Write a java program to check if the input string is palindrome?
+
+	madam <-> madam  => They are palindarom
+
+5.How to calculate total number of vowels in String?
+	
+6.How to Count number of words in the String? 		
+
+7. How to remove specific characters in the String?
+
+Original string ->  "Alive is awesome" 
+User input string to remove -> "alwsr" 
+	then it should print  "ive i eome" as output .
+
+Original string -> "Learning never stops"
+User inputs string to remove -> "estp"  
+	then the it should print   "Larning nvr o" as output .
+
+8. Calculate the length of the string without using String class length() method.
+
+9. Insert a String into another String in Java.
+
+originalString: NobelJava
+String to be inserted: For
+index: 5
+
+Output: NobelForJava
+
+10. Input -> 5su6n43il
+	Output -> 5+6+4+3 = 18
+
+11. Find 3rd largest number from array.
+
+i/p -> [3,7,4,10,67,4,23,89]
+o/p->  23
+
+
+ 
+
+
+

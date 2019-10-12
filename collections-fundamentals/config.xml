@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Application Settings</comment>
+<entry key="server.port">1900</entry>
+<entry key="app.name">movie-service</entry>
+</properties>

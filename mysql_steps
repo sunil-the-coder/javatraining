@@ -1,0 +1,23 @@
+mysql> 
+mysql> create database itp;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use itp;
+Database changed
+mysql> create table student(id int primary key, sname text);
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> insert into student values(1,'sunil');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from student;
++----+-------+
+| id | sname |
++----+-------+
+|  1 | sunil |
++----+-------+
+1 row in set (0.00 sec)
+

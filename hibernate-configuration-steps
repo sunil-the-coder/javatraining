@@ -1,0 +1,748 @@
+
+
+
+One time step for adding dtd files to eclipse workspace:
+
+1. Window->Preferences-> XML Catalog -> User specified entry -> Add
+	Location: actual file system path
+	Key: Value from config dtd file
+	web address: value from config dtd file.
+
+2. Same steps from 1 for mapping file.
+
+
+
+Steps:
+
+1. Add hibernate libraries along with db library to build path.
+2. Prepare java object which maps to database table.
+3. Prepare hibernate.cfg.xml file to src folder & udpate db configuration.
+4. Prepare hibernate.hbm.xml & provide its mapping.
+5. write Hibernate initilaization class which loads hibernate configuration & do its operation.
+
+
+
+SessionFactory:
+	Global object which provides configuraiton for your database, connections, sessions etc.
+
+Hibernate:  
+	Wrapper written on the top of existing jdbc code which simplifies database interaction.
+
+
+Named Queries & Named Native Query:
+
+
+Grouping queries related to single entity in the entity class.
+
+Mostly they are defined on the top of the entity class.
+
+@NamedQueries({
+	@NamedQuery(name="",query=""),
+	@NamedQuery(name="",query="")
+})
+
+
+@NamedNativeQueries({
+	@NamedNativeQuery(name="",query="")
+})
+
+
+For better performance optimization for some of the queries at database level we can use sql queries with hibernate.
+
+
+
+
+@Embeddable & @Embedded :
+
+	Reuse the set of common object properties for mulitple entities in hibernate.
+
+
+@EmbeddedId -> To create composite key from set of properties.
+
+
+
+
+
+1) Using @ElementCollection
+	** drop database & create new databse.
+
+
+mysql> show tables;
++------------------+
+| Tables_in_nobel  |
++------------------+
+| Person_addresses |
+| book             |
+| person           |
+| static_data      |
+| static_dummy     |
+| student          |
+| studentdemo      |
+| studentinfo      |
++------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from person;
++----+--------+-------+
+| id | phone  | name  |
++----+--------+-------+
+|  1 | 526262 | Komal |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from Person_addresses;
++-----------+---------+---------+-------------+
+| Person_id | city    | pincode | street      |
++-----------+---------+---------+-------------+
+|         1 | pune    |  413033 | dange chowk |
+|         1 | Wagholi |  413032 | kharadi     |
++-----------+---------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+### After changing table & column names
+
+
+mysql> select * from person;
++----+--------+-------+
+| id | phone  | name  |
++----+--------+-------+
+|  1 | 526262 | Komal |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from person_addresses;
++-----------+---------+---------+-------------+
+| person_id | city    | pincode | street      |
++-----------+---------+---------+-------------+
+|         1 | pune    |  413033 | dange chowk |
+|         1 | Wagholi |  413032 | kharadi     |
++-----------+---------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+########## Relationships with Entities #################
+
+1-1, 1-M, M-1, M-M
+
+Unidirection ( person - vehicle )
+
+Bidirection ( person-vehicle and vehicle-person)
+
+
+#### One to One Mappin ##########
+
+
+
+mysql> show tables;
++--------------------+
+| Tables_in_hib_test |
++--------------------+
+| person             |
+| vehicle            |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person;
++----+--------+-------+------------+
+| id | phone  | name  | vehicle_id |
++----+--------+-------+------------+
+|  1 | 526262 | Komal |          1 |
++----+--------+-------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | Jupiter |
++----+---------+
+1 row in set (0.01 sec)
+
+mysql> 
+
+
+@OneToMany ->
+	1 person can have mulitple vehicles
+
+Separate table for maintaining relationship between 2 tables.(Primary keys of both tables )
+
+And each entity will store their own info in new table.
+
+
+
+mysql> select * from person;
++----+--------+-------+
+| id | phone  | name  |
++----+--------+-------+
+|  1 | 526262 | Komal |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++----+---------+
+| id | name    |
++----+---------+
+|  1 | Jupiter |
+|  2 | Activa  |
++----+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person_vehicle;
++-----------+-------------+
+| person_id | vehicles_id |
++-----------+-------------+
+|         1 |           1 |
+|         1 |           2 |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+
+3) @ManyToOne -> many vehicles belongs to single person.
+
+
+Relationship maintained in separate table with both primary key as well as child table refer primary key from parent.
+
+
+mysql> select * from person;
++----+--------+-------+
+| id | phone  | name  |
++----+--------+-------+
+|  1 | 526262 | Komal |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++----+---------+-----------+
+| id | name    | person_id |
++----+---------+-----------+
+|  1 | Jupiter |         1 |
+|  2 | Activa  |         1 |
++----+---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person_vehicle;
++-----------+-------------+
+| person_id | vehicles_id |
++-----------+-------------+
+|         1 |           1 |
+|         1 |           2 |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+
+
+
+@OneToMany(mappedBy="vehicle") :-
+List<Vehicle> vehicles;
+
+
+ mappedBy signals hibernate that the key for the relationship is on the other side.
+
+So no third table & vehicle table will maintain the mapping.
+
+This means that although you link 2 tables together, only 1 of those tables has a foreign key constraint to the other one. MappedBy allows you to still link from the table not containing the 
+constraint to the other table.
+
+@ManyToMany -> 100% - 1%
+
+
+
+fetch = FetchType.EAGER / LAZY ( By default lazy loading )
+
+LAZY -> It will wait till client tells to retrieve child entities from parent object.
+
+EAGER -> Load everything including child entities even if client doesn't require.
+
+
+@OneToMany(cascade =CascadeType.ALL)
+
+
+
+1) Hibernate Inheritance
+2) Caching (1st & 2nd level)
+
+3) States of hibernate entities:
+
+
+	
+
+States of hibernate Entity:
+
+1) Transient State:
+
+	Person p = new Person(1,"sunil");
+
+An object which is not associated with hibernate session and does not represent a row in the database and can be gargage collected if require.
+
+There is no identifier assigned by hibernate.
+
+Any newly create object with new keyword bydefault is transient state.
+
+
+2) Persistent:
+
+An object that is associated with the hibernate session is called as Persistent object. When the object is in persistent state, then it represent one row of the database and consists of an identifier value. You can make a transient instance persistent by associating it with a Session.
+
+	//move object from transient/detached state to persistent state
+	session.save(person);
+	session.saveOrUpdate(person);
+
+
+
+3) Detached State:
+
+Object which is just removed from hibernate session is called as detached object.
+
+When the object is in detached sate then it contain identity but you can’t do persistence operation with that identity.
+
+Any changes made to the detached objects are not saved to the database. The detached object can be reattached to the new session and save to the database using update, saveOrUpdate and merge methods.
+
+
+	session.close();
+
+
+
+
+Hibernate Inheritance:
+
+	Person
+ Employee, SalesPerson
+
+
+Strategy:
+	1) Single Table Strategy ( Default )
+	2) Table per class strategy
+	3) Joined Strategy
+
+
+DTYPE -> Discriminated type -> Name of the entity class in inheritance.
+
+
+1) Every entity in inheritance will be stored in single table.
+
+Adv:
+	Single table to retrieve data. ( faster )
+Disadv:
+	1) Unnecessary NULL values for some of the entities.
+
+
+
+2) Table Per class strategy:
+
+	Every entity will be stored in separate table with their own information.
+The identifier will be shared from parent table.
+
+Adv:
+	No NULL values.
+	Normalized form.
+
+Disadv:
+	Repeating common columns across the entities.
+
+
+3) Joined Strategy:
+
+
+mysql> select * from person;
++----+---------+---------+
+| id | phone   | name    |
++----+---------+---------+
+|  1 | 526262  | Komal   |
+|  2 | 8206820 | Mandal  |
+|  3 | 8290626 | Prakash |
++----+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from SalesPerson;
++-----------+----+
+| commision | id |
++-----------+----+
+|      5000 |  3 |
++-----------+----+
+1 row in set (0.00 sec)
+
+mysql> select * from Employee;
++--------+----+
+| salary | id |
++--------+----+
+|  50000 |  2 |
++--------+----+
+
+
+
+Common properties of the entities in inheritance will be stored in parent table but specific
+
+properties will be stored in its own table with id from parent table.
+
+Adv:
+	3 NF forms
+
+
+GenerationType:
+	1) AUTO -> Dynamically choose auto increment based on database. ( Default )
+	2) IDENTITY -> Internally maitained by hibernate
+	3) TABLE -> Internally maintained by hibernate with seperate table.
+	4) SEQUENCE -> Only for Oracle Database where id will be generated by oracle sequence structure.
+
+
+
+Caching: 1st & 2nd level
+
+Advantages of caching:
+
+	Cache Memory:
+
+
+
+Hibernate:
+	1st -> Session level -> Bydefault enabled
+
+	2nd -> SessionFactory level -> Manual enable + provide 2nd cache vendor factory object.
+
+2nd level cache providers:
+	1) jBoss cache
+	2) Sworm cache
+	3) ehcache 
+
+
+Steps for Enabling 2nd level cache:( ehcache )
+
+1) Enable 2nd level cache with hibernate.cfg.xml and also specicy vendor implementation factory class.
+
+2) Add configuration file for ehcache.xml to src folder which has
+config for 2nd level cache like maxElements, idleTime, lifetime, region etc.
+
+3) Add Annotation @Cache to the entities which we want to store in 2nd level cache. 
+
+
+evict() -> It will remove object from cache.
+
+
+What is difference between openSession and getCurrentSession?
+
+
+
+NamedNativeQuery
+
+
+Criteria API:
+
+HTTP Methods: GET/POST/PUT/DELETE
+
+Web Server ? Apache Tomcat ? Servlets ? WAR File ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
