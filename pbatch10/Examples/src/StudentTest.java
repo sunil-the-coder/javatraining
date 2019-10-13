@@ -1,5 +1,3 @@
-import javax.swing.JOptionPane;
-
 class Student {
 	private int id;
 	private String name;
@@ -10,28 +8,12 @@ class Student {
 		this.name = name;
 	}
 
-	public void disp() {
-		System.out.println("[id=" + id + ", name=" + name + "]");
-	}
-
-}
-
-class MyNumbert {
-	private int data;
-
-	MyNumbert() {
-	}
-
-	public MyNumbert(int data) {
-		this.data = data;
-	}
-
-	public boolean isNegative() {
-		return data < 0;
+	public String toString() {
+		return  "[id=" + id + ", name=" + name + "]";
 	}
 	
-	public boolean isEven() {
-		return data % 2 == 0;
+	public void disp() {
+		System.out.println("[id=" + id + ", name=" + name + "]");
 	}
 
 }
@@ -40,17 +22,21 @@ public class StudentTest {
 
 	public static void main(String[] args) {
 
-		MyNumbert t1 = new MyNumbert(9);
-		boolean isNeg = t1.isNegative();
-		if(isNeg) {
-			
-			JOptionPane.showMessageDialog(null, "Number is Negative");
-			//System.out.println("Number is Negative");
-		}else {
-			System.out.println("Number is not Negative");
-		}
+		int a = 10;
+		System.out.println(a);
 		
-		System.out.println("isEven:"+t1.isEven());
-
+		String s = new String("sunil");
+		System.out.println(s);
+		
+		Student stud = new Student(10,"Sunil");
+		System.out.println(stud.toString());
+		
+		Student stud2 = new Student(100,"Anil");
+		System.out.println(stud2);
+		
+		String sData = stud2.toString();
+		System.out.println(sData);
+		
+		
 	}
 }
