@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 class Student {
 	private int id;
@@ -16,55 +16,41 @@ class Student {
 
 }
 
+class MyNumbert {
+	private int data;
+
+	MyNumbert() {
+	}
+
+	public MyNumbert(int data) {
+		this.data = data;
+	}
+
+	public boolean isNegative() {
+		return data < 0;
+	}
+	
+	public boolean isEven() {
+		return data % 2 == 0;
+	}
+
+}
+
 public class StudentTest {
 
 	public static void main(String[] args) {
+
+		MyNumbert t1 = new MyNumbert(9);
+		boolean isNeg = t1.isNegative();
+		if(isNeg) {
+			
+			JOptionPane.showMessageDialog(null, "Number is Negative");
+			//System.out.println("Number is Negative");
+		}else {
+			System.out.println("Number is not Negative");
+		}
 		
-		
-		//Read data from console
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter data:");
-		
-		int id = scan.nextInt();
-		String name = scan.next();
-	
-		System.out.println(id+"\t"+name);
-		
-		scan.close();
-		
-		
-		Student s1 = new Student(10, "sunil");
-		Student s2 = new Student(11, "anil");
-		
-		s1.disp();
-		s2.disp();
-		
-		System.out.println("================================");
-		
-		//Array of Object
-		Student[] students = new Student[5];
-		students[0] = s1; 
-		students[1] = new Student(100,"Ganesh");
-		
-		students[0].disp();
-		students[1].disp();
-		
-		
-		//Arrays in integer
-		int arr[] = new int[5];
-		arr[0] = 10;
-		arr[1] = 20;
-		
-		int[] arr2 = new int[5];
-		
-		int[] arr3 = {10,20,30};
-		
-	
-		int[] arr4 = new int[] {10,20,30,40,50};
-		
-		
-		
-		
-		
+		System.out.println("isEven:"+t1.isEven());
+
 	}
 }
