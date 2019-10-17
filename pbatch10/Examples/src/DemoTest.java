@@ -19,28 +19,30 @@ class Demo {
 
 }
 
+class A {
+	public void disp() {
+		System.out.println("A disp");
+	}
+}
+
+class B extends A {
+	
+	public void disp() {
+		System.out.println("B disp");
+	}
+}
+
 public class DemoTest {
 	public static void main(String[] args) {
 
-		Demo d1 = new Demo(10, 20);
-		
-		//static method call
-		d1.setC(100);
-		
-		//non-static method call
-		d1.disp();
+		A aRef = new A();
+		aRef.disp();
 
-		
-		
-		
-		Demo d2 = new Demo(50, 60);
-		
-		//static method call
-		d2.setC(200);
-		
-		//non-static method call
-		d2.disp();
-		d1.disp();
-		
+		B bRef = new B();
+		bRef.disp();
+
+		A aRef2 = new B();
+		aRef2.disp();
+
 	}
 }
