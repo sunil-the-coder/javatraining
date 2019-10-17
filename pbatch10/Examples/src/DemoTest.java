@@ -20,13 +20,25 @@ class Demo {
 }
 
 class A {
-	public void disp() {
+	private int data;
+
+	public final void disp() {
 		System.out.println("A disp");
+	}
+
+	public void setData(int data) {
+		this.data = data;
 	}
 }
 
 class B extends A {
-	
+	public void show() {
+		System.out.println("B show");
+	}
+}
+
+class C extends A {
+
 	public void disp() {
 		System.out.println("B disp");
 	}
@@ -34,6 +46,10 @@ class B extends A {
 
 public class DemoTest {
 	public static void main(String[] args) {
+		
+		final A ref = new A();
+		ref.setData(100);
+		
 
 		A aRef = new A();
 		aRef.disp();
