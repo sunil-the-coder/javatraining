@@ -21,57 +21,48 @@ class Demo {
 
 }
 
-class A {
+abstract class A {
+
+	//abstract
+	public abstract void show();
+	
+	//non-abstract
 	public void disp() {
 		System.out.println("A disp");
 	}
 }
 
-class B extends A {
-	public void show() {
-		System.out.println("B show");
-	}
+abstract class B extends A {
+
 }
 
 class C extends B {
-
+	
 	public void disp() {
 		System.out.println("C disp");
 	}
-
-	public void f1() {
-		System.out.println("C f1");
+	 
+	public void show() {
+		System.out.println("C show");
 	}
 }
+
+/*
+ * class B extends A { public void show() { System.out.println("B show"); } }
+ * 
+ * class C extends B {
+ * 
+ * public void disp() { System.out.println("C disp"); }
+ * 
+ * public void f1() { System.out.println("C f1"); } }
+ */
 
 public class DemoTest {
 	public static void main(String[] args) {
 
 		A a = new C();
 		a.disp();
-
-		B b = (B) a;
-		b.disp();
-		b.show();
-		// b.f1();
-
-		C c = (C) b;
-		c.f1();
-		c.disp();
-		c.show();
-		
-		
-		Collection coll = new LinkedList();
-		
-		LinkedList l = (LinkedList)coll;
-		
-		
-
-		/*
-		 * B b = new C(); b.show(); b.disp();
-		 * 
-		 * C c = new C(); c.show(); c.disp();
-		 */
+		a.show();
 
 	}
 }
