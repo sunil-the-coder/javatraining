@@ -22,9 +22,10 @@ class Demo {
 }
 
 abstract class A {
-
-	//abstract
-	public abstract void show();
+	
+	public A() {
+		System.out.println("A ctr called");
+	}
 	
 	//non-abstract
 	public void disp() {
@@ -34,9 +35,16 @@ abstract class A {
 
 abstract class B extends A {
 
+	public B() {
+		System.out.println("B ctr called");
+	}
 }
 
 class C extends B {
+	
+	public C() {
+		System.out.println("C ctr");
+	}
 	
 	public void disp() {
 		System.out.println("C disp");
@@ -62,7 +70,6 @@ public class DemoTest {
 
 		A a = new C();
 		a.disp();
-		a.show();
 
 	}
 }
