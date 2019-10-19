@@ -1,3 +1,5 @@
+import java.util.Collection;
+import java.util.LinkedList;
 
 class Demo {
 
@@ -20,14 +22,8 @@ class Demo {
 }
 
 class A {
-	private int data;
-
-	public final void disp() {
+	public void disp() {
 		System.out.println("A disp");
-	}
-
-	public void setData(int data) {
-		this.data = data;
 	}
 }
 
@@ -37,28 +33,45 @@ class B extends A {
 	}
 }
 
-class C extends A {
+class C extends B {
 
 	public void disp() {
-		System.out.println("B disp");
+		System.out.println("C disp");
+	}
+
+	public void f1() {
+		System.out.println("C f1");
 	}
 }
 
 public class DemoTest {
 	public static void main(String[] args) {
+
+		A a = new C();
+		a.disp();
+
+		B b = (B) a;
+		b.disp();
+		b.show();
+		// b.f1();
+
+		C c = (C) b;
+		c.f1();
+		c.disp();
+		c.show();
 		
-		final A ref = new A();
-		ref.setData(100);
+		
+		Collection coll = new LinkedList();
+		
+		LinkedList l = (LinkedList)coll;
+		
 		
 
-		A aRef = new A();
-		aRef.disp();
-
-		B bRef = new B();
-		bRef.disp();
-
-		A aRef2 = new B();
-		aRef2.disp();
+		/*
+		 * B b = new C(); b.show(); b.disp();
+		 * 
+		 * C c = new C(); c.show(); c.disp();
+		 */
 
 	}
 }
