@@ -8,6 +8,11 @@ public class GamingApplication {
 	public static void applyOperation(Vehicle vehicle) {
 		vehicle.applyBreaks();
 		vehicle.applyHorns();
+		
+		if(vehicle instanceof Bike) {
+			Bike b = (Bike) vehicle;
+			b.controlUsingRemote();
+		}
 	}
 
 	public static void main(String[] args) {
