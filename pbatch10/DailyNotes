@@ -1,0 +1,85 @@
+Special cases for objects in java:
+
+1) Object won't be created but ctr will call.
+
+	a) Abstract class ( Only to derived class object )
+
+2) Object will be created but ctr won't call.
+
+	a) cloning
+	b) serialization
+
+
+
+(Object -> clone()(M)) -> Cloneable(I)
+
+
+Why final methods or classes ?
+
+	1) If you don't want to change the behaviour of the base classes by derived classes.
+
+	2) Security.
+
+		Ex: String class -> the behaviour of immutability should not be change.
+
+
+What are final classes in java ?
+	1) String
+	2) Number ( Integer, Float, Double, Short )
+
+All wrapper classes are final except Number.
+
+final class Integer extends Number
+{
+
+}
+
+
+Ctrl+Shift+T -> Open Type ( Search inside jar files as well )
+
+
+Ctrl+Shift+R -> Open Resource ( Only specific to eclipse current workplace )
+
+
+Ctrl+Shift+L -> For all eclipse shortcuts
+
+
+
+Problem Statement:
+
+	Gaming Application
+	( Car, Bike, Truck )
+
+Backend of gaming system:
+
+	
+interface:
+
+This defines the contract between client and actual implementation object.
+
+Which are the objects are controlled using remote ?
+
+Bike
+
+
+
+
+
+
+
+
+
+char - 1
+char - 2 byte
+
+SCP -> String
+
+
+
+String are immutable.
+
+
+
+
+
+
