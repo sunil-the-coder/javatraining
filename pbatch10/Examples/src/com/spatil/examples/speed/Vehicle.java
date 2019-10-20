@@ -1,12 +1,10 @@
 package com.spatil.examples.speed;
 
-public class Vehicle {
+public abstract class Vehicle {
 
-	public void applyBreaks() {
-		System.out.println("Applying vehicle breaks");
-	}
+	public abstract void applyBreaks();
 
 	public void applyHorns() {
-		System.out.println("Applying vehicle horns");
+		System.out.println("Applying  horns");
 	}
 }
