@@ -1,6 +1,6 @@
 package com.spatil.examples.speed;
 
-public class Bike extends Vehicle {
+public class Bike implements Vehicle {
 	
 	@Override
 	public void applyBreaks() {

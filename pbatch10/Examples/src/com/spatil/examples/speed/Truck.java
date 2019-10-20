@@ -1,6 +1,12 @@
 package com.spatil.examples.speed;
 
-public class Truck extends Vehicle {
+public class Truck implements Vehicle {
+
+	@Override
+	public void applyHorns() {
+
+		System.out.println("Applying truck horns....");
+	}
 
 	@Override
 	public void applyBreaks() {
