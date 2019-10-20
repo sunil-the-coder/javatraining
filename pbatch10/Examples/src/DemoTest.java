@@ -1,6 +1,3 @@
-import java.util.Collection;
-import java.util.LinkedList;
-
 class Demo {
 
 	private int a, b;
@@ -22,12 +19,12 @@ class Demo {
 }
 
 abstract class A {
-	
+
 	public A() {
 		System.out.println("A ctr called");
 	}
-	
-	//non-abstract
+
+	// non-abstract
 	public void disp() {
 		System.out.println("A disp");
 	}
@@ -40,16 +37,18 @@ abstract class B extends A {
 	}
 }
 
+
+
 class C extends B {
-	
+
 	public C() {
 		System.out.println("C ctr");
 	}
-	
+
 	public void disp() {
 		System.out.println("C disp");
 	}
-	 
+
 	public void show() {
 		System.out.println("C show");
 	}
