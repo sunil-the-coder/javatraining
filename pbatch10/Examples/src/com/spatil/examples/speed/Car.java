@@ -1,6 +1,6 @@
 package com.spatil.examples.speed;
 
-public class Car implements Vehicle {
+public class Car implements Vehicle, RemoteControllable {
 
 	@Override
 	public void applyHorns() {
@@ -11,5 +11,10 @@ public class Car implements Vehicle {
 	@Override
 	public void applyBreaks() {
 		System.out.println("Applying Car breaks....");
+	}
+
+	@Override
+	public void controlUsingRemote() {
+		System.out.println("controlling car using remote....");
 	}
 }

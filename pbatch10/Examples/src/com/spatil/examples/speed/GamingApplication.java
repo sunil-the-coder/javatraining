@@ -4,17 +4,6 @@ import java.util.Scanner;
 
 public class GamingApplication {
 
-	//Loosly Coupled Method
-	public static void applyOperation(Vehicle vehicle) {
-		vehicle.applyBreaks();
-		vehicle.applyHorns();
-		
-		if(vehicle instanceof Bike) {
-			Bike b = (Bike) vehicle;
-			b.controlUsingRemote();
-		}
-	}
-
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
@@ -43,6 +32,18 @@ public class GamingApplication {
 				System.exit(0);
 			}
 
+		}
+
+	}
+
+	// Loosly Coupled Method
+	public static void applyOperation(Vehicle vehicle) {
+		vehicle.applyBreaks();
+		vehicle.applyHorns();
+
+		if (vehicle instanceof RemoteControllable) {
+			RemoteControllable remote = (RemoteControllable) vehicle;
+			remote.controlUsingRemote();
 		}
 
 	}
