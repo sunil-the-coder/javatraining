@@ -82,4 +82,78 @@ String are immutable.
 
 
 
+21/10/2019
+
+Abstraction:
+	Hiding the implementation details and provide necessary details.
+	Access specifier ( private, public )
+
+
+Encapsulation:
+	Binding of data and memmber functiont together
+
+Switch switch = new PhonixSwitch();
+
+//Abstraction - we just know 2 ways to interact with switch but don't know how they are going to function
+
+switch.on();
+switch.off();
+
+
+interface Switch
+{
+	void on();
+	void off();
+}
+
+class PheonixSwitch implements Switch
+{
+	private int wirelessSetting;
+	private int current;
+
+	public void on() {
+		startWiring();
+		startPassingCurrent();
+
+		//internal logic
+	}
+
+	//internal complexicities and should be hide from outside ( client )
+	public void startWiring() {
+
+	}
+
+	public void startPassingCurrent() {
+	
+	}
+
+	public void off() {
+		//internal logic
+	}
+}
+
+
+Encapsulation:
+	Binding of data and functions together in single unit(Class).
+
+
+Stack:
+	
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
 
