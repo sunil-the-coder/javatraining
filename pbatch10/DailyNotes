@@ -139,7 +139,14 @@ Encapsulation:
 
 Stack:
 	
-	
+	ArrayStack -> push,pop
+		Using arrays
+
+	LinkedStack -> push,pop
+		using linkedlist
+
+
+	push, pop
 
 	
 	

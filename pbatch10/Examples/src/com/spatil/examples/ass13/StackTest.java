@@ -18,7 +18,9 @@ public class StackTest {
 	}
 
 	public static void main(String[] args) {
+		
 		int size = 5;
+		
 		doStackOperations(new ArrayStack(size));
 		doStackOperations(new LinkedStack(size));
 	}
