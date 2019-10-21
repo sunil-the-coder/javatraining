@@ -2,22 +2,24 @@ package com.spatil.examples.ass13;
 
 public class StackTest {
 
-	public static void main(String[] args) {
-
-		int size = 5;
-
-		Stack stack = new Stack(size);
+	//Loosly coupled method......
+	public static void doStackOperations(Stack stack) {
+		
 		stack.push(10);
 		stack.push(20);
 		stack.push(30);
 		stack.push(40);
 		stack.push(50);
 
-		for (int i = 0; i < size + 1; i++) {
+		for (int i = 0; i < 5; i++) {
 			System.out.println("Pop:" + stack.pop());
 		}
 
-		// stack.push(60);
+	}
 
+	public static void main(String[] args) {
+		int size = 5;
+		doStackOperations(new ArrayStack(size));
+		doStackOperations(new LinkedStack(size));
 	}
 }
