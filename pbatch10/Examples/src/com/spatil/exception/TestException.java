@@ -1,26 +1,28 @@
 package com.spatil.exception;
 
-import java.io.IOException;
+class InvalidAccountException extends Exception {
+	public InvalidAccountException(String message) {
+		super(message);
+	}
+}
 
 public class TestException {
 
 	public static void main(String[] args) {
+
+		int acno = 100;
 		
 		try {
-			f1();
-		} catch (IOException e) {
+			if(acno == 100) {
+				//InvalidAccountException e = new InvalidAccountException("Invalid account number..");
+				throw new InvalidAccountException("Invalid account number..");
+			}
+			System.out.println("Valid Account number");
+		} catch (InvalidAccountException e) {
+			//System.out.println(e.getMessage());
 			e.printStackTrace();
+			
 		}
-		
 	}
 
-	private static void f1() throws IOException {
-
-		f2();
-		
-	}
-
-	private static void f2() throws IOException  {
-		System.in.read();
-	}
 }

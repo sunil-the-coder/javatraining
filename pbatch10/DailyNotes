@@ -222,6 +222,23 @@ Mostly Log the exception details in file and rethrow to caller with given proper
 
 
 
+Custom Exception / Business Exception:
+
+InsufficientBalanceException
+InvalidAccoutException
+
+
+How to define custom exception:
+
+
+
+
+
+
+
+
+
+
 
 
 
