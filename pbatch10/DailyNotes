@@ -164,6 +164,11 @@ try -> actual logic which might generate exception
 catch -> exception handler based on type of exception
 finally -> block which always executes irrespective of exception occured or not
 
+Why finally ? what do you do in finally block ?
+
+Mostly used for closing the resources like file, socket, database connection etc...
+
+
 
 throw -> to throw exceptions manually to caller
 throws -> It is used to bypass the exception handling to caller of the method. So current method is not responsible for handling exception.
