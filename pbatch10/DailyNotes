@@ -196,6 +196,58 @@ Throwable -> it maintains the stack trace.
 
 
 
+checked					unchecked
+
+1. extends from Exception	1. extends from RuntimException
+
+2. They are must to be handled  2. No need to handle at compile time
+at compile tim by using 
+try-catch or by rethrow to 
+caller of the method.
+
+3. Report error at compile time 3. No error at compile time but can
+if not handled.			   generate runtime error.
+
+
+
+
+What do you write in catch block ?
+
+Mostly Log the exception details in file and rethrow to caller with given proper message..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

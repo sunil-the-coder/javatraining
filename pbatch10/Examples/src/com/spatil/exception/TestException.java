@@ -9,11 +9,16 @@ public class TestException {
 
 		try {
 
+			int v = Integer.parseInt("1o");
+			System.out.println(v);
+
 			int ans = 10 / 0;
 			System.out.println("Ans is:" + ans);
 
 		} catch (ArithmeticException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Can't divide by zero");
+		} catch(NumberFormatException e) {
+			System.out.println("Invalid number provided. Please provide numeric value.");
 		}
 
 		// f1();
