@@ -8,18 +8,20 @@ public class StackTest {
 	public static void doStackOperations(Stack stack) {
 
 		try {
+
 			stack.push(10);
 			stack.push(20);
 			stack.push(30);
 			stack.push(40);
 			stack.push(50);
-			//stack.push(60);
-			
+			// stack.push(60);
+
 			for (int i = 0; i < 6; i++) {
 				System.out.println("Pop:" + stack.pop());
 			}
+
 		} catch (StackOverflowException e) {
-			//System.out.println(e.getMessage());
+			// System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, e.getMessage());
 
 		} catch (StackUnderflowException e) {
@@ -33,6 +35,6 @@ public class StackTest {
 		int size = 5;
 
 		doStackOperations(new ArrayStack(size));
-		//doStackOperations(new LinkedStack(size));
+		// doStackOperations(new LinkedStack(size));
 	}
 }
