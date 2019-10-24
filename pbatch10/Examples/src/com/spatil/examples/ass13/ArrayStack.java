@@ -19,22 +19,22 @@ public class ArrayStack implements Stack {
 	}
 
 	@Override
-	public void push(int data) {
+	public void push(int data) throws StackOverflowException {
 		if (!isFull())
 			stk[++top] = data;
 		else
-			System.err.println("Stack is full. Can't push more elements....");
+			throw new StackOverflowException("Stack is full. Can't push more elements....");
 	}
 
 	@Override
-	public int pop() {
+	public int pop() throws StackUnderflowException {
 		int data = -1;
 
 		if (!isEmpty()) {
 			data = stk[top];
 			top--;
 		} else {
-			System.err.println("Stack is empty. Can't pop more elements....");
+			throw new StackUnderflowException("Stack is empty. Can't pop more elements....");
 		}
 		return data;
 	}
