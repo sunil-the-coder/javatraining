@@ -146,9 +146,67 @@ Stack:
 		using linkedlist
 
 
-	push, pop
 
+
+		***** Exception Handling:  **********
+
+Exception:
+	Runtime logical condition due to which the flow of an application can break.
+
+Why exception handling:
+
+1) To allow continue execution of application
+2) To separate business logic from error handling.
 	
+
+
+try -> actual logic which might generate exception
+catch -> exception handler based on type of exception
+finally -> block which always executes irrespective of exception occured or not
+
+
+throw -> to throw exceptions manually to caller
+throws -> It is used to bypass the exception handling to caller of the method. So current method is not responsible for handling exception.
+
+
+try {
+
+	//Business logic
+	FILE *fp = fopne()
+	int = fread()
+	fclose();
+
+}catch(Exception e) {
+	//error handling
+}
+
+
+Types of Exception:
+
+1) checked 
+	
+	
+2) unchecked
+
+
+
+
+Throwable -> it maintains the stack trace.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
