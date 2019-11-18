@@ -276,6 +276,12 @@ To work with any custom java object.
 
 
 
+mkdir -> TO create single directly which is not exist
+mkdirs -> Create nested directories.
+
+
+
+
 
 
 

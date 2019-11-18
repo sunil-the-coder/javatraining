@@ -6,6 +6,9 @@ public class FileTest {
 
 	public static void main(String[] args) {
 
+		File tempFile = new File("/home/sunil/tmpFolder/a/b/c");
+		tempFile.mkdirs();
+		
 		
 		File file = new File("/home/sunil/javatraining");
 		
@@ -14,7 +17,6 @@ public class FileTest {
 		for (String name : dirContents) {
 			System.out.println(name);
 		}
-		
 		
 		File[] files = file.listFiles();
 		
