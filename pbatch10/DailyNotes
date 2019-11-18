@@ -233,6 +233,52 @@ How to define custom exception:
 
 
 
+		File Handling:
+
+
+
+Operations:  R/W/A
+
+File: It represents the file on file system.
+
+	Deletion
+	isDir / isFile
+	size
+	listOfDirectory content
+	permissions( r/w/x)
+	Creation of paths (Folders)
+
+
+File: 
+	Permanent storage
+
+
+Text(Char)			Binary(Stream)
+
+
+Reader/Writer			InputStream/OutputStream
+
+
+FileReader | FileWriter		FileInputStream/FileOutputStream
+BufferedReader | BufferedWriter	BIS | BOS
+PipedReader |PipedWriter	PIS | POS
+
+
+Byte / char
+
+
+
+			FileInputStream | FileOutputStream -> Read 1 byte
+			DataInputStream  | DataOutputStream -> Directly work with primitive types
+
+			ObjectInputStream | ObjectOutputStream -> 
+To work with any custom java object.
+
+
+
+
+
+
 
 
 
