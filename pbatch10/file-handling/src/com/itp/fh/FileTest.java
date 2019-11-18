@@ -1,51 +1,37 @@
 package com.itp.fh;
 
-import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class FileTest {
 
 	public static void main(String[] args) {
 
-		File tempFile = new File("/home/sunil/tmpFolder/a/b/c");
-		tempFile.mkdirs();
-		
-		
-		File file = new File("/home/sunil/javatraining");
-		
-		String[] dirContents = file.list();
-		
-		for (String name : dirContents) {
-			System.out.println(name);
-		}
-		
-		File[] files = file.listFiles();
-		
-		for(File f : files) {
-			System.out.println(f.getAbsolutePath());
-			
-			if(f.canExecute()) {
-				//do somethingg....
-				
+		try {
+
+			FileReader fr = new FileReader("/home/sunil/lines.txt");
+
+			int v = -1;
+			while ((v = fr.read()) != -1) {
+				System.out.print((char) v);
 			}
-			
-			if(f.getName().endsWith(".txt")) {
-				//delete all files
-				
-			}
-			
-			
+
+			fr.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
-		//File file = new File("D:\\javaprogram\\lines.txt"); -> Windows
-		
-		/*
-		 * System.out.println(file.canRead()); System.out.println(file.length()
-		 * +" bytes"); System.out.println(file.exists());
-		 * System.out.println(file.getParent()); System.out.println(file.isFile());
-		 * System.out.println(file.isHidden());
-		 */
-		
-		
-		
+
+		try {
+
+			FileWriter fw = new FileWriter("/home/sunil/lines1.txt");
+			fw.write("this is sunil from java program");
+			fw.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

@@ -280,6 +280,20 @@ mkdir -> TO create single directly which is not exist
 mkdirs -> Create nested directories.
 
 
+End of file indicator:
+
+char by char(int) read -> -1 | EOF 
+line by line -> String -> null
+
+
+
+
+
+
+
+
+
+
 
 
 
