@@ -1,16 +1,14 @@
 package com.itp.fh;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class FileTest {
 
 	public static void copyFile(String srcFile, String destFile) {
 
-		try (FileReader fr = new FileReader(srcFile); 
-				FileWriter fw = new FileWriter(destFile);) {
+		try (FileInputStream fr = new FileInputStream(srcFile); 
+				FileOutputStream fw = new FileOutputStream(destFile);) {
 
 			int v = -1;
 			while ((v = fr.read()) != -1) {
@@ -27,7 +25,7 @@ public class FileTest {
 
 	public static void main(String[] args) {
 
-		copyFile("/home/sunil/Demo.cpp", "/home/sunil/Demo2.cpp");
+		copyFile("/home/sunil/demo.png", "/home/sunil/demo2.png");
 
 //		FileReader fr = null;
 //
