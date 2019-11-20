@@ -9,43 +9,26 @@ public class FileTest {
 
 	public static void copyFile(String srcFile, String destFile) {
 
-		FileReader fr = null;
-		FileWriter fw = null;
-
-		try {
-			fr = new FileReader(srcFile);
-			fw = new FileWriter(destFile);
+		try (FileReader fr = new FileReader(srcFile); 
+				FileWriter fw = new FileWriter(destFile);) {
 
 			int v = -1;
 			while ((v = fr.read()) != -1) {
-				//System.out.print((char)v);
 				fw.write(v);
 			}
-			
+
 			System.out.println("File is copied.");
-			
-		} catch (FileNotFoundException e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (fr != null)
-					fr.close();
-				if (fw != null)
-					fw.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 
 	}
 
 	public static void main(String[] args) {
-		
+
 		copyFile("/home/sunil/Demo.cpp", "/home/sunil/Demo2.cpp");
-		
-		
+
 //		FileReader fr = null;
 //
 //		try {

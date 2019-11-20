@@ -293,6 +293,35 @@ line by line -> String -> null
 
 
 
+Java 1.7
+
+AutoCloseable Resources / try-with-resources
+
+
+
+Closeable / AutoCloseable
+
+All resources must implement this interface to be automatically closed.
+
+
+try(
+	FileReader fr = new FileReader("file");
+	FileWriter fw = new FileWriter("");
+) 
+
+{
+	//Actual logic of file operation	
+
+}catch() {}
+
+
+
+
+
+
+
+
+
 
 
 
