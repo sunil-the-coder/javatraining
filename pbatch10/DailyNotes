@@ -338,6 +338,38 @@ Object ->
 
 
 
+Blank/Tagger/Marker Interfaces:
+
+	The interface which don't have any methods declared inside.
+
+They are used as meta information(or mark something) given to JVM or runtime system.
+
+
+
+
+
+
+
+1. Serializable
+2. Cloneable -> Deep copy- duplicate copy of same object
+3. Remote -> RMI/RPC - Remote procedure call.
+
+
+html tags:
+
+	<b>My name is Sunil</b>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

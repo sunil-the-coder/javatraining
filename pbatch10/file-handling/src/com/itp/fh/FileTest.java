@@ -6,7 +6,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+interface A {
+}
+
+class B implements A {
+
+}
+
 class Student implements Serializable {
+
 	private int id;
 	private String name;
 
@@ -62,7 +70,7 @@ public class FileTest {
 				ObjectInputStream ois = new ObjectInputStream(fis);) {
 
 			System.out.println("Reading student object back from file...");
-			
+
 			Object obj = ois.readObject();
 			Student stud = (Student) obj;
 			System.out.println(stud);
