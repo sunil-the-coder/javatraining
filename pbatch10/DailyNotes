@@ -317,6 +317,42 @@ try(
 
 
 
+OIS / OOS -> Custom java object
+
+
+FileInputStream fis = new FileInputStream("file")
+ObjectInputStream ois = new ObjectInputStream(fis);
+
+
+
+
+Serializable -> Which tells to jvm that i want to serialize this perticular object.
+
+This must be implemented by object which is used for file/network/db storage.
+
+
+Object -> 
+	1. file
+	2. network
+	3. database save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
