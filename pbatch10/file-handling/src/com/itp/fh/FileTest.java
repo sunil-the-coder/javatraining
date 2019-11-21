@@ -6,18 +6,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-interface A {
-}
-
-class B implements A {
-
-}
 
 class Student implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String name;
-
+	private int age;
+	
 	public Student(int id, String name) {
 		super();
 		this.id = id;
@@ -54,16 +51,16 @@ public class FileTest {
 		// copyFile("/home/sunil/demo.png", "/home/sunil/demo2.png");
 
 		// Write custom java object to file - Serialization
-		try (FileOutputStream fos = new FileOutputStream("/home/sunil/student.ser");
-				ObjectOutputStream oos = new ObjectOutputStream(fos);) {
-
-			Student stud = new Student(10, "Sunil");
-			oos.writeObject(stud);
-
-			System.out.println("Student object stored on file..");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try (FileOutputStream fos = new FileOutputStream("/home/sunil/student.ser");
+//				ObjectOutputStream oos = new ObjectOutputStream(fos);) {
+//
+//			Student stud = new Student(10, "Sunil");
+//			oos.writeObject(stud);
+//
+//			System.out.println("Student object stored on file..");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 		// read custom java object from file - Deserialization
 		try (FileInputStream fis = new FileInputStream("/home/sunil/student.ser");
