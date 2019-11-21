@@ -1,0 +1,53 @@
+
+
+1. Write a program to read student information as rollno, name, class and percentage and store it in a file stud.dat, Display the details of the student having a given rollno.
+
+2. 
+ A bank maintains two kinds of accounts - Savings Account and Current Account. The savings account provides compound interest, deposit and withdrawal facilities. The current account only provides deposit and withdrawal facilities. Current account holders should also maintain a minimum balance. If balance falls below this level, a service charge is imposed. Create a classes & include the necessary methods in order to achieve the following tasks. 
+ 
+ a. Accept deposit from a customer and update the balance. 
+ b. Display the balance.
+ c. Compute interest and add to balance. 
+ d. Permit withdrawal and update the balance ( Check for the minimum balance, impose penalty if necessary).   
+ 
+ 
+ 
+ 3.
+ Write a java program to accept two file names as command line arguments and copy the contains of first to second in such a manner the case of all alphabet is changed and digits are replaced by ‘*’. Display appropriate error message if the first file does not exist. (Use methods from Character class ) 
+ 
+
+ 4. 
+ Accept the names of two files and copy the contents of the first to the second. Add Author name and Date in comments in the beginning of file. Add the comment ‘end of file’ at the end
+ 
+ 
+ 5.
+ Accept the names of three files and copy the contents of the first two to the third
+ 
+ 
+ 6. 
+
+
+ Write a program to store item information (id, name, price, qty) in file 
+“item.dat”. 
+Write a menu driven program to perform the following operations:  
+i. Search for a specific item by name.
+ ii. Find costliest item. iii. Display all items and total cost 
+ 
+ 7.
+  Write a Java program to accept an option, string and file name from user. 
+Perform following operations:  
+a. If no option is passed then print all lines in the file containing the string.  
+b. If the option passed is –c then print the count of lines containing the string. 
+c. If the option passed is –v then print the lines not containing the string
+  
+ 8.
+ A file contains a set of integers. Read this file and write the numbers 
+and the number in words in another file. Ex: 261 – Two hundred and Sixty One.
+ 
+ 
+ 9.
+ Write a program to display the contents of a file in the reverse order. 
+ 
+
+
+

@@ -362,6 +362,22 @@ html tags:
 
 
 
+Serializable -> Bydefault serialization/deserialization is provided using jvm.
+
+
+Serializable -> Inbuidl ser/deser ( Blank interface)
+ 
+Externalizable -> custom ser/deser ( readObject, writeObject)
+
+
+Custom Serialization -> Externalizable
+
+
+
+
+
+
+
 
 
 
