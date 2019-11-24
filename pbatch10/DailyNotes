@@ -376,6 +376,47 @@ Custom Serialization -> Externalizable
 
 
 
+Object				bytestream(file/socket/db)
+
+
+bytestream(f/db/socket)		Object
+
+
+
+
+			Nested Classes	
+
+
+
+Functional Interface:
+	Single method in interface.
+	
+For lambda expression we need FI. -> Java 8 feature ( 13 )
+
+Java 8 & 11
+
+
+Tagger/Blank/Marker Interface: 
+	No methods inside interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
