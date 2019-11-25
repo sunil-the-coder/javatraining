@@ -409,6 +409,21 @@ java 1.5
 java.util.concurrent ->  ConcurrentMap, BlockingQueue
 
 
+Iterator -> while traversing on collection you can remove elements.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
