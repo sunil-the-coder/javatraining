@@ -408,9 +408,15 @@ java.util -> Basic collection classes
 java 1.5 
 java.util.concurrent ->  ConcurrentMap, BlockingQueue
 
+	
 
-Iterator -> while traversing on collection you can remove elements.
+Map -> Keys ( String, Integer )
 
+
+String(All wrapper classes) -> Immutable class
+
+
+	
 
 
 

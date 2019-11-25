@@ -1,8 +1,10 @@
 package com.spatil.examples;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 class Student {
 
@@ -12,25 +14,32 @@ public class CollectionTest {
 
 	public static void main(String[] args) {
 
-		List list = new LinkedList();
-		list.add(10);
-		list.add(10.5);
-		list.add("sunil");
+		Map map = new HashMap(); // key-value pair
+		map.put(10, "Sunil");
+		map.put(20, "Anil");
+		map.put(30, 100);
+		map.put(40, "Arvind");
 
-		System.out.println(list);
+		System.out.println(map);
+
+		Object value  = map.get(40);
+		System.out.println(value);
 		
-		for(int i = 0; i < list.size(); i++)
-			System.out.println(list.get(i));
+		//return only keys
+		Set keys = map.keySet();
+		System.out.println(keys);
+		
+		//return only values
+		Collection coll = map.values();
+		System.out.println(coll);
+		
+		//key value pairs
+		Set<Entry> entrySet = map.entrySet();
 		
 		
-		for(Object obj : list)
-			System.out.println(obj);
+		for(Entry entry : entrySet)
+			System.out.println(entry.getKey()+" = "+entry.getValue());
 		
-		System.out.println("********** Using iterator *************");
-		Iterator itr = list.iterator();
-		while(itr.hasNext()) {
-			Object element = itr.next();
-			System.out.println(element);
-		}
+		
 	}
 }
