@@ -393,11 +393,38 @@ Functional Interface:
 	
 For lambda expression we need FI. -> Java 8 feature ( 13 )
 
-Java 8 & 11
-
+Java 2, 5, 8, 11 :
 
 Tagger/Blank/Marker Interface: 
 	No methods inside interface
+
+
+
+
+
+
+java.util -> Basic collection classes
+
+java 1.5 
+java.util.concurrent ->  ConcurrentMap, BlockingQueue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

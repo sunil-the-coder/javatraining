@@ -10,8 +10,8 @@ class Outer {
 			System.out.println("Data is:" + data);
 			System.out.println("Data is:" + this.data);
 			System.out.println("Data is:" + Outer.this.data);
-			
-			//Outer.this -> Reference to object of outer class
+
+			// Outer.this -> Reference to object of outer class
 		}
 	}
 }
