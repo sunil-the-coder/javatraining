@@ -1,19 +1,69 @@
 package com.spatil.examples;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
+class Book {
+	private int id;
+	private String name;
+	private String author;
+
+	public Book(int id, String name, String author) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.author = author;
+	}
+
+	@Override
+	public String toString() {
+		return "[id=" + id + ", name=" + name + ", author=" + author + "]";
+	}
+
+}
 
 public class CollectionTest {
 
+	public static List<Book> filterBooksByAuthor(List<Book> books, String authorName) {
+		List<Book> authorBooks = new ArrayList<>();
+		
+		//Filter books based on given author name & add into the authorBooks list and then return it
+
+		//logic
+		
+		
+		return authorBooks;
+	}
+	
+	
 	public static void main(String[] args) {
 
-		Map<Integer,String> map = new LinkedHashMap<>();
-		map.put(10, "Sunil");
-		map.put(14, "Akshay");
-		map.put(12, "Sandip");
-		map.put(11, "Ganesh");
-		map.put(13, "Anil");
+		List<Book> books = new ArrayList<>();
+		books.add(new Book(10, "Effective Java", "Scott"));
+		books.add(new Book(11, "SCJP", "Kathy Sierra"));
+		books.add(new Book(12, "Head First Java", "Kathy Sierra"));
+		books.add(new Book(13, "Advanced Programming with Java", "Kathy Sierra"));
 		
-		System.out.println(map);
+		for(Book book : books) {
+			System.out.println(book);
+		}
+		
+		List<Book> booksByAuthor = filterBooksByAuthor(books, "kathy Sierra");
+		
+		for(Book book : booksByAuthor) {
+			System.out.println(book);
+		}
+		
+
 	}
 }
+
+
+
+
+
+
+
+
+
+

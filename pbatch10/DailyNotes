@@ -455,6 +455,14 @@ DeSer -> file store(bytestream) -> Student(id=10, name="sunil")(object)
 
 
 
+Generics doesn't support primitive types while defining object.
+
+
+
+
+
+
+
 
 
 
