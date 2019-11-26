@@ -7,7 +7,11 @@ import java.util.List;
 class Student<T> {
 	T id;
 
-	public Student(T id) {
+	/*
+	 * public Student(T id) { this.id = id; }
+	 */
+	
+	public void setId(T id) {
 		this.id = id;
 	}
 
@@ -42,10 +46,12 @@ public class CollectionTest {
 		System.out.println("Total is:" + total);
 
 		
-		Student<Integer> stud = new Student<>(10);
+		Student<Integer> stud = new Student<>();
+		stud.setId(10);
 		System.out.println(stud);
 		
-		Student<String> stud2 = new Student<>("52525");
+		Student<String> stud2 = new Student<>();
+		stud2.setId("user12345");
 		System.out.println(stud2);
 		
 		
