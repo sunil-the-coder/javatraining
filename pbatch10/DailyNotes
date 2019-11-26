@@ -443,6 +443,27 @@ List<Integer>  list = new ArrayList<>();
 List<Integer>  list = new ArrayList<Integer>();
 
 
+Serialization:
+	Object to bytestream
+
+Ser ->	Student(id=10, name="sunil", age=25)   -> file store
+
+	transient int age; //Won't convert into bytestream
+
+
+DeSer -> file store(bytestream) -> Student(id=10, name="sunil")(object)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,59 +1,22 @@
 package com.spatil.examples;
 
-import java.util.ArrayList;
-import java.util.List;
-
-//User defined generic class
-class Student<T> {
-	T id;
-
-	/*
-	 * public Student(T id) { this.id = id; }
-	 */
-	
-	public void setId(T id) {
-		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [id=" + id + "]";
-	}
-
-}
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class CollectionTest {
 
-	public static int getSum(List<Integer> list) {
-		int total = 0;
-
-		for (Integer element : list) {
-			total = total + element;
-		}
-
-		return total;
-	}
-
 	public static void main(String[] args) {
 
-		List<Integer> list = new ArrayList<>();
-		list.add(10);
-		list.add(20);
-		list.add(30);
+		Set<Integer> set =  new LinkedHashSet<>();
+		set.add(50);
+		set.add(10);
+		set.add(15);
+		set.add(5);
+		set.add(50);
+		set.add(100);
+		set.add(5);
+		
+		System.out.println(set);
 
-		int total = getSum(list);
-
-		System.out.println("Total is:" + total);
-
-		
-		Student<Integer> stud = new Student<>();
-		stud.setId(10);
-		System.out.println(stud);
-		
-		Student<String> stud2 = new Student<>();
-		stud2.setId("user12345");
-		System.out.println(stud2);
-		
-		
 	}
 }
