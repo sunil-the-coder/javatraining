@@ -416,6 +416,44 @@ Map -> Keys ( String, Integer )
 String(All wrapper classes) -> Immutable class
 
 
+Object -> Can store any type of data
+
+
+Object data = "3o";
+
+String str = "1p";
+
+Integer.parseInt(str);
+
+int pData = (int)data;
+pData++;	;
+
+
+
+	Generics / Template Programming
+
+Adv:
+	Compile time type safety by ensuring only specific type of data will be accepted for any type of object.
+
+
+List<Integer>  list = new ArrayList();
+
+List<Integer>  list = new ArrayList<>();
+
+List<Integer>  list = new ArrayList<Integer>();
+
+
+
+
+
+Stack<float> 
+
+
+
+
+
+
+
 	
 
 
