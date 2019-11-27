@@ -459,6 +459,15 @@ Generics doesn't support primitive types while defining object.
 
 
 
+List<int>  -> Not allowed ( float, double, char )
+
+List<Integer> -> Allowed ( Float, Double, Character )
+
+
+
+
+
+
 
 
 

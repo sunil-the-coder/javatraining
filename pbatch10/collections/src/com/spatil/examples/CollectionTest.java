@@ -15,6 +15,10 @@ class Book {
 		this.author = author;
 	}
 
+	public String getAuthor() {
+		return author;
+	}
+
 	@Override
 	public String toString() {
 		return "[id=" + id + ", name=" + name + ", author=" + author + "]";
@@ -29,13 +33,14 @@ public class CollectionTest {
 		
 		//Filter books based on given author name & add into the authorBooks list and then return it
 
-		//logic
-		
+		for(Book book : books) {
+			if(book.getAuthor().equalsIgnoreCase(authorName))
+				authorBooks.add(book);
+		}
 		
 		return authorBooks;
 	}
-	
-	
+
 	public static void main(String[] args) {
 
 		List<Book> books = new ArrayList<>();
@@ -43,27 +48,17 @@ public class CollectionTest {
 		books.add(new Book(11, "SCJP", "Kathy Sierra"));
 		books.add(new Book(12, "Head First Java", "Kathy Sierra"));
 		books.add(new Book(13, "Advanced Programming with Java", "Kathy Sierra"));
-		
-		for(Book book : books) {
+
+		for (Book book : books) {
 			System.out.println(book);
 		}
-		
-		List<Book> booksByAuthor = filterBooksByAuthor(books, "kathy Sierra");
-		
-		for(Book book : booksByAuthor) {
+
+		List<Book> booksByAuthor = filterBooksByAuthor(books, "Scott");
+
+		System.out.println("****** Books by Author *******");
+		for (Book book : booksByAuthor) {
 			System.out.println(book);
 		}
-		
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
