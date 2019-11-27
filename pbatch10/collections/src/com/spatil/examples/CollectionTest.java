@@ -15,6 +15,14 @@ class Book {
 		this.author = author;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
 	public String getAuthor() {
 		return author;
 	}
@@ -30,14 +38,15 @@ public class CollectionTest {
 
 	public static List<Book> filterBooksByAuthor(List<Book> books, String authorName) {
 		List<Book> authorBooks = new ArrayList<>();
-		
-		//Filter books based on given author name & add into the authorBooks list and then return it
 
-		for(Book book : books) {
-			if(book.getAuthor().equalsIgnoreCase(authorName))
+		// Filter books based on given author name & add into the authorBooks list and
+		// then return it
+
+		for (Book book : books) {
+			if (book.getAuthor().equalsIgnoreCase(authorName))
 				authorBooks.add(book);
 		}
-		
+
 		return authorBooks;
 	}
 
@@ -50,9 +59,16 @@ public class CollectionTest {
 		books.add(new Book(13, "Advanced Programming with Java", "Kathy Sierra"));
 
 		for (Book book : books) {
+			if (book.getName().equals("SCJP"))
+				book.setAuthor(book.getAuthor() + " & James");
+		}
+
+		System.out.println("---------- Updated Books --------------");
+		for (Book book : books) {
 			System.out.println(book);
 		}
 
+		
 		List<Book> booksByAuthor = filterBooksByAuthor(books, "Scott");
 
 		System.out.println("****** Books by Author *******");
