@@ -467,6 +467,35 @@ List<Integer> -> Allowed ( Float, Double, Character )
 
 
 
+Assigment:
+
+
+
+Employee(id, name, location, salary,managerName)  
+
+EmployeeService -> 
+
+CRUD  ( Add, Get all, Delete by ID )
+
+1. Get employees whose salary is greater than given value ( 50,000)
+2. Employess whos salary between given range ( 40K - 70K)
+3. Employee based on given location
+4. Update salary of all employees by 10% whose location is Pune.
+
+
+5. Employees whose manager's salary is greater than given value.
+
+
+
+1,Sunil,Pune,50000,Anil
+2,Anil,Mumbai,70000,Satish
+3,Satish,Pune,90000,Anand
+4,Anand,Pune,100000,Arvind
+
+
+
+
+
 
 
 
