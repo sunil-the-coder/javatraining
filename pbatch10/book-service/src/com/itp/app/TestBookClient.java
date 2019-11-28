@@ -1,6 +1,10 @@
 package com.itp.app;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.itp.model.Book;
 import com.itp.service.BookService;
@@ -8,6 +12,25 @@ import com.itp.service.BookService;
 public class TestBookClient {
 
 	public static void main(String[] args) {
+
+		List<Book> mathBooks = new ArrayList<>();
+		List<Book> physicsBooks = new ArrayList<>();
+		List<Book> scienceBooks = new ArrayList<>();
+		
+
+		List<List<Book>> allBooks = new ArrayList<>();
+		allBooks.add(mathBooks);		
+		allBooks.add(physicsBooks);
+		allBooks.add(scienceBooks);
+		
+
+		Set<String> bcsStudents = new HashSet<>();
+		Set<String> mcsStudents = new HashSet<>();
+
+		List<Set<String>> allStudentNames =  new ArrayList<>();
+		allStudentNames.add(bcsStudents);
+		allStudentNames.add(mcsStudents);
+		
 
 		BookService bookService = new BookService();
 		bookService.addBook(new Book(10, "SCJP", "Kathy Siera"));
