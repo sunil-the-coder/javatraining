@@ -1,8 +1,12 @@
 package com.spatil.examples;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 class Book {
 	private int id;
@@ -40,21 +44,7 @@ class Book {
 }
 
 public class CollectionTest {
-
-	public static List<Book> filterBooksByAuthor(List<Book> books, String authorName) {
-		List<Book> authorBooks = new ArrayList<>();
-
-		// Filter books based on given author name & add into the authorBooks list and
-		// then return it
-
-		for (Book book : books) {
-			if (book.getAuthor().equalsIgnoreCase(authorName))
-				authorBooks.add(book);
-		}
-
-		return authorBooks;
-	}
-
+	
 	public static void main(String[] args) {
 
 		List<Book> books = new ArrayList<>();
@@ -68,35 +58,56 @@ public class CollectionTest {
 		for (Book book : books) {
 			System.out.println(book);
 		}
+
 		
-		Iterator<Book> itr = books.iterator();
-		while (itr.hasNext()) {
-			Book book = itr.next();
-			if (book.getId() == 14)
-				itr.remove(); // Safe way to delete element from collection while iterating over it.
-		}
-
-		System.out.println("\n************ After Deletion of Book by ID **************");
-		for (Book book : books) {
-			System.out.println(book);
+		Map<Integer,String> map = new HashMap<>();
+		map.put(10,"Sunil");
+		map.put(11,"Anil");
+		map.put(12,"Shivansh");
+		
+		
+		//To retrieve key-value pairs 
+		Set<Map.Entry<Integer,String>> entries = map.entrySet();
+		for(Map.Entry<Integer,String> entry : entries){
+			System.out.println(entry.getKey()+"-"+entry.getValue());
 		}
 		
-		for (Book book : books) {
-			if (book.getName().equals("SCJP"))
-				book.setAuthor(book.getAuthor() + " & James");
+		//For only values
+		Collection<String> values = map.values();
+		System.out.println(values);
+		
+		//For only keys
+		Set<Integer> keys = map.keySet();
+		for(Integer key : keys) {
+			String value = map.get(key);
+			System.out.println(key+"="+value);
 		}
-
-		System.out.println("\n************ After updating books author name **************");	
-		for (Book book : books) {
-			System.out.println(book);
+		
+		Iterator<Integer> itr = keys.iterator();
+		while(itr.hasNext()) {
+			Integer key  = itr.next();
+			String value = map.get(key);
+			System.out.println(key+"="+value);
 		}
-
-		List<Book> booksByAuthor = filterBooksByAuthor(books, "Scott");
-
-		System.out.println("\n********* After Books by Author *******");
-		for (Book book : booksByAuthor) {
-			System.out.println(book);
-		}
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
 	}
 }
