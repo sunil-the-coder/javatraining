@@ -497,6 +497,99 @@ CRUD  ( Add, Get all, Delete by ID )
 
 
 
+Book(10,"SCJP","kathy")  -> 100
+
+Book(10,"Java","kathy") -> 100
+
+
+
+
+same name different paramets -> overloading
+
+same name, same parameters, same signature -> Different class + Diff logic
+
+
+Function overriding:
+
+	Signature Same but different class having diff implementation of same method.
+
+
+
+this -> this is a pointer which always points to the current object on which current method has been called.
+
+
+
+hashCode -> The default implementation in Object class hashCode returns the object address.
+
+
+Map<Key,Value>  -> 
+
+put -> key.hashCode()
+
+Map<Book,String>
+
+*** 
+Whenever you want to use any custom java class as the Key in Map like data structure ( HashMap,Hashtable etc..) you need to override hashCode & equals() method. ***
+
+
+While overriding equals() & hashCode() both should consider same 
+properties of the object.
+
+
+
+****** Contract Between hashCode() & equals() *************
+
+1. If  2 object are equal by equals() method then they must generate same hashCode.
+
+"Karishma".equals("Karishma") -> true   => hashCode == 100
+
+
+2. If 2 objects has same hashCode they may or may not be equal by equals() method.
+
+Karishma == Ganesh   => 100
+
+"karishma".equals("Ganesh") - > true / false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
