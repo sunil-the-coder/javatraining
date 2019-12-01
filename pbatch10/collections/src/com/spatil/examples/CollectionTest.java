@@ -1,7 +1,6 @@
 package com.spatil.examples;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -51,10 +50,11 @@ class Book implements Comparable<Book> {
 		return value;
 	}
 
+	//Callback method
 	@Override
-	public int compareTo(Book o) {
+	public int compareTo(Book b2) {
 		// Actual logic to return value
-		return 0;
+		return this.id - b2.id;
 	}
 
 	@Override
@@ -67,10 +67,17 @@ class Book implements Comparable<Book> {
 class SortBookByAuthor implements Comparator<Book> {
 	@Override
 	public int compare(Book b1, Book b2) {
-		//same logic for returning value
-		return 0;
+		return  b1.getAuthor().compareTo(b2.getAuthor());
 	}
 }
+
+class SortBookByName implements Comparator<Book> {
+	@Override
+	public int compare(Book b1, Book b2) {
+		return  b1.getName().compareTo(b2.getName());
+	}
+}
+
 
 public class CollectionTest {
 
@@ -78,38 +85,35 @@ public class CollectionTest {
 
 		List<Book> books = new ArrayList<>();
 		books.add(new Book(10, "SCJP", "Kathy"));
-		books.add(new Book(11, "Core Java", "Kathy"));
-		books.add(new Book(12, "Adv Java", "Herbert"));
+		books.add(new Book(13, "Core Java", "Kathy"));
+		books.add(new Book(11, "Adv Java", "Herbert"));
 
 		for (Book book : books)
 			System.out.println(book);
 
-		Collections.shuffle(books);
-		System.out.println(books);
-
-		Collections.reverse(books);
-		System.out.println(books);
-
+		System.out.println("******** After Sorting ************");
+		
 		Collections.sort(books);
-		System.out.println(books);
 
-		List<String> names = Arrays.asList("sunil", "ganesh", "satish", "akash", "anil", "ganesh");
-		System.out.println(names);
+		for (Book book : books)
+			System.out.println(book);
 
-		Collections.shuffle(names);
-		System.out.println(names);
-
-		Collections.reverse(names);
-		System.out.println(names);
-
-		int index = Collections.binarySearch(names, "ganesh");
-		System.out.println(index);
-
-		int count = Collections.frequency(names, "ganesh");
-		System.out.println(count);
-
-		Collections.sort(names);
-		System.out.println(names);
-
+		
+		System.out.println("******* Sorting on Author name **************");
+		SortBookByAuthor sortBookByAuthor = new SortBookByAuthor();
+		Collections.sort(books, sortBookByAuthor);
+		
+		for (Book book : books)
+			System.out.println(book);
+		
+		
+		System.out.println("******* Sorting on Book name **************");
+		SortBookByName sortBookByName = new SortBookByName();
+		Collections.sort(books, sortBookByName);
+		for (Book book : books)
+			System.out.println(book);
+		
+		
+		
 	}
 }
