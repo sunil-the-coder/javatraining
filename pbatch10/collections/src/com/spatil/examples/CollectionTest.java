@@ -1,7 +1,9 @@
 package com.spatil.examples;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 class Book {
 	private int id;
@@ -60,31 +62,33 @@ public class CollectionTest {
 	
 	public static void main(String[] args) {
 
-		Book b1 = new Book(10, "SCJP", "Kathy");
-		Book b2 = new Book(11, "Core Java", "Kathy");
-		Book b3 = new Book(12, "Adv Java", "Herbert");
-				
-		Map<Integer,Book> map = new HashMap<>();
-		map.put(100,b1);
-		map.put(101,b2);
+		List<Book> books = new ArrayList<>();
+		books.add(new Book(10, "SCJP", "Kathy"));
+		books.add(new Book(11, "Core Java", "Kathy"));
+		books.add(new Book(12, "Adv Java", "Herbert"));
 		
-		System.out.println(map.get(102));
+		for(Book book : books)
+			System.out.println(book);
 		
-		Map<Book,Integer> bookMap = new HashMap<>();
-		bookMap.put(b1,100);
-		bookMap.put(b2,200);
-		bookMap.put(new Book(12, "Adv Java", "Herbert"),300);
+
+		List<String> names = Arrays.asList("sunil","ganesh","satish","akash","anil","ganesh");
+		System.out.println(names);
 		
-		System.out.println(bookMap.get(new Book(122, "Adv Java", "Kathy"))); //300
+		Collections.shuffle(names);
+		System.out.println(names);
+		
+		Collections.reverse(names);
+		System.out.println(names);
+		
+		int index = Collections.binarySearch(names, "ganesh");
+		System.out.println(index);
+		
+		int count = Collections.frequency(names, "ganesh");
+		System.out.println(count);
+		
+		Collections.sort(names);
+		System.out.println(names);
 		
 		
-		//To retrieve key-value pairs 
-		/*
-		 * Set<Map.Entry<Integer,Book>> entries = map.entrySet();
-		 * for(Map.Entry<Integer,Book> entry : entries){
-		 * System.out.println(entry.getKey()+"="+entry.getValue()); }
-		 */
-		
-	
 	}
 }
