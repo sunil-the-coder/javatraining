@@ -43,6 +43,7 @@ class Book {
 	
 	@Override
 	public int hashCode() {
+		System.out.println("Calculating hashCode of Book");
 		//Complex logic which return unique number for object.
 		int value = 13; // ( prime number )
 		value += value * this.author.hashCode();
@@ -64,55 +65,28 @@ public class CollectionTest {
 
 		Book b1 = new Book(10, "SCJP", "Kathy");
 		Book b2 = new Book(11, "Core Java", "Kathy");
-		Book b3 = new Book(100, "SCJP", "Kathy");
+		Book b3 = new Book(12, "Adv Java", "Herbert");
+				
+		Map<Integer,Book> map = new HashMap<>();
+		map.put(100,b1);
+		map.put(101,b2);
 		
-		//b1.setAuthor("test");
-
-		System.out.println(b1.hashCode());
-		System.out.println(b2.hashCode());
-		System.out.println(b3.hashCode());
+		System.out.println(map.get(102));
 		
-		System.out.println(b1 == b3); // false
-		System.out.println(b1.equals(b2)); // true / false
-		System.out.println(b2.equals(b3)); // false
-		System.out.println(b1.equals(b3)); // true
+		Map<Book,Integer> bookMap = new HashMap<>();
+		bookMap.put(b1,100);
+		bookMap.put(b2,200);
+		bookMap.put(new Book(12, "Adv Java", "Herbert"),300);
 		
-
+		System.out.println(bookMap.get(new Book(122, "Adv Java", "Kathy"))); //300
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		List<Book> books = new ArrayList<>();
-		books.add(new Book(10, "Effective Java", "Scott"));
-		books.add(new Book(11, "SCJP", "Kathy Sierra"));
-		books.add(new Book(12, "Head First Java", "Kathy Sierra"));
-		books.add(new Book(13, "Advanced Programming with Java", "Kathy Sierra"));
-		books.add(new Book(14, "Core Java", "Scott"));
-
-		System.out.println("\n************ All Books **************");
-		for (Book book : books) {
-			System.out.println(book);
-		}
-		
-		Map<String,Integer> map = new HashMap<>();
-		map.put("Sunil",10);
-		Integer oldValue = map.put("Sunil",11);
-		System.out.println(oldValue);
 		
 		//To retrieve key-value pairs 
-		Set<Map.Entry<String,Integer>> entries = map.entrySet();
-		for(Map.Entry<String,Integer> entry : entries){
-			System.out.println(entry.getKey()+"-"+entry.getValue());
-		}
+		/*
+		 * Set<Map.Entry<Integer,Book>> entries = map.entrySet();
+		 * for(Map.Entry<Integer,Book> entry : entries){
+		 * System.out.println(entry.getKey()+"="+entry.getValue()); }
+		 */
 		
 	
 	}
