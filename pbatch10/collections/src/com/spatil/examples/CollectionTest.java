@@ -1,8 +1,10 @@
 package com.spatil.examples;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 
 class Book implements Comparable<Book> {
@@ -83,6 +85,24 @@ public class CollectionTest {
 
 	public static void main(String[] args) {
 
+		String str = "sunilpatilpune";
+		List<Character> chars  = new LinkedList<>();
+		for(char ch : str.toCharArray())
+			chars.add(ch);
+		
+		int index = chars.indexOf('p');
+		List<Character> newlist = chars.subList(index, chars.size());
+		//System.out.println(newlist);
+		
+		StringBuilder sb = new StringBuilder();
+		for(Character ch : newlist)
+			sb.append(ch);
+		
+		System.out.println(sb.toString());
+		
+		
+		
+		
 		List<Book> books = new ArrayList<>();
 		books.add(new Book(10, "SCJP", "Kathy"));
 		books.add(new Book(13, "Core Java", "Kathy"));
