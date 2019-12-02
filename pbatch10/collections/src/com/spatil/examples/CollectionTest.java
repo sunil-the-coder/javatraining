@@ -85,7 +85,7 @@ public class CollectionTest {
 		Set<Book> oldBooks = new TreeSet<>();
 		oldBooks.add(new Book(1, "Godfather", "mClerren"));
 		
-		Set<Book> books = new TreeSet<>(new SortBookByName());
+		Set<Book> books = new TreeSet<>(oldBooks);
 		books.add(new Book(10, "SCJP", "Kathy"));
 		books.add(new Book(13, "Core Java", "Kathy"));
 		books.add(new Book(11, "Adv Java", "Herbert"));
