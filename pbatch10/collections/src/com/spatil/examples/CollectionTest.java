@@ -1,11 +1,8 @@
 package com.spatil.examples;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 class Book implements Comparable<Book> {
 	private int id;
@@ -52,10 +49,11 @@ class Book implements Comparable<Book> {
 		return value;
 	}
 
-	//Callback method
+	// Callback method
 	@Override
 	public int compareTo(Book b2) {
 		// Actual logic to return value
+		System.out.println("Comparing "+this.id +" with "+b2.id);
 		return this.id - b2.id;
 	}
 
@@ -69,41 +67,22 @@ class Book implements Comparable<Book> {
 class SortBookByAuthor implements Comparator<Book> {
 	@Override
 	public int compare(Book b1, Book b2) {
-		return  b1.getAuthor().compareTo(b2.getAuthor());
+		return b1.getAuthor().compareTo(b2.getAuthor());
 	}
 }
 
 class SortBookByName implements Comparator<Book> {
 	@Override
 	public int compare(Book b1, Book b2) {
-		return  b1.getName().compareTo(b2.getName());
+		return b1.getName().compareTo(b2.getName());
 	}
 }
-
 
 public class CollectionTest {
 
 	public static void main(String[] args) {
 
-		String str = "sunilpatilpune";
-		List<Character> chars  = new LinkedList<>();
-		for(char ch : str.toCharArray())
-			chars.add(ch);
-		
-		int index = chars.indexOf('p');
-		List<Character> newlist = chars.subList(index, chars.size());
-		//System.out.println(newlist);
-		
-		StringBuilder sb = new StringBuilder();
-		for(Character ch : newlist)
-			sb.append(ch);
-		
-		System.out.println(sb.toString());
-		
-		
-		
-		
-		List<Book> books = new ArrayList<>();
+		Set<Book> books = new TreeSet<>();
 		books.add(new Book(10, "SCJP", "Kathy"));
 		books.add(new Book(13, "Core Java", "Kathy"));
 		books.add(new Book(11, "Adv Java", "Herbert"));
@@ -111,29 +90,5 @@ public class CollectionTest {
 		for (Book book : books)
 			System.out.println(book);
 
-		System.out.println("******** After Sorting ************");
-		
-		Collections.sort(books);
-
-		for (Book book : books)
-			System.out.println(book);
-
-		
-		System.out.println("******* Sorting on Author name **************");
-		SortBookByAuthor sortBookByAuthor = new SortBookByAuthor();
-		Collections.sort(books, sortBookByAuthor);
-		
-		for (Book book : books)
-			System.out.println(book);
-		
-		
-		System.out.println("******* Sorting on Book name **************");
-		SortBookByName sortBookByName = new SortBookByName();
-		Collections.sort(books, sortBookByName);
-		for (Book book : books)
-			System.out.println(book);
-		
-		
-		
 	}
 }
