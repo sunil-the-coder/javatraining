@@ -93,5 +93,23 @@ public class CollectionTest {
 		for (Book book : books)
 			System.out.println(book);
 
+		
+		Set<String> names = new TreeSet<>();
+		names.add("sunil"); 
+		names.add("anil");
+		names.add("ganesh");
+		
+		System.out.println(names);
+		
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
