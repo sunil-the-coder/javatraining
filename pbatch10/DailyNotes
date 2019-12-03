@@ -558,6 +558,88 @@ Karishma == Ganesh   => 100
 
 
 
+Properties -> File based key/value pairs in string format.
+
+
+Why Not use Date ?
+1. Not Immutable ( setter )
+2. Not Thread safety
+
+
+
+1) Without Zone information.
+
+	a) LocalDate 
+	b) LocalTime 
+	c) LocalDateTime
+	
+2) With Zone information. 
+
+	ZoneId ( region specific zone information)
+
+	ZonedDate
+	ZonedTime
+	ZonedDateTime
+
+
+		2019-12-03T11:40:44.341
+
+DateTimeFormat: yyyy-mm-ddTHH:mm:ss.zzz
+
+
+
+Concrete Class: Object can be instantiated.
+
+Abstract class: Object can't be instantiated.
+
+Singleton class: Only single object can be instantiated.
+	
+
+
+Garbage Collector : 
+  It's background thread running continiously to verify/recycle the memory which is not getting used by object for the purpse of reuse.
+
+runtime.gc()  / System.gc()  -> Run the garbage collector manually.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
