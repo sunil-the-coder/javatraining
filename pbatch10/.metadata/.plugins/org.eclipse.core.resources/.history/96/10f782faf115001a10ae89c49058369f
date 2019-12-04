@@ -1,0 +1,8 @@
+package com.spatil.examples;
+
+public class UtilTest {
+
+	public static void main(String[] args) {
+
+	}
+}

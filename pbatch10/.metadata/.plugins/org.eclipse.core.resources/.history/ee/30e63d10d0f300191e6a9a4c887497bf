@@ -1,0 +1,24 @@
+package com.spatil.examples.ass13;
+
+public class LinkedStack {
+
+	public LinkedStack(int size) {
+	}
+
+	private boolean isFull() {
+		return false;
+	}
+
+	private boolean isEmpty() {
+		return false;
+	}
+
+	public void pushToList(int data) {
+		System.out.println("Eleement pushed to list");
+	}
+
+	public int popFromList() {
+		return 10;
+	}
+
+}

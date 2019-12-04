@@ -1,0 +1,9 @@
+package com.spatil.examples;
+
+public class UtilTest {
+
+	public UtilTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

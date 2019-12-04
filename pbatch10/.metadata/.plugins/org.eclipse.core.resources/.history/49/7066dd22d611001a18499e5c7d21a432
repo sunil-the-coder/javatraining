@@ -1,0 +1,5 @@
+package com.itp.model;
+
+public class Book {
+
+}

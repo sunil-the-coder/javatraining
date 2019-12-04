@@ -1,0 +1,17 @@
+package com.spatil.examples;
+
+
+interface A
+{
+	void disp();
+	
+}
+public class CollectionTest {
+
+	public static void main(String[] args) {
+
+
+		Collection
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.examples.cart;
+
+import java.util.List;
+import java.util.Map;
+
+import com.examples.model.ProdCategory;
+
+public interface Cart {
+	void addProduct(ProdCategory category, CartProduct prod);
+
+	void deleteProduct(int prodId);
+
+	List<CartProduct> getProductsByCategory(ProdCategory prodCategory);
+
+	Map<ProdCategory, List<CartProduct>> getCart();
+}

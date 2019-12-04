@@ -1,0 +1,38 @@
+package com.examples.cart;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class ShoppingCart implements Cart{
+
+	private List<CartProduct> cart = new LinkedList<CartProduct>();
+
+	public void addProduct(CartProduct prod) {
+		boolean isFound = false;
+		for (CartProduct p : cart) {
+			if (p.getProdId() == prod.getProdId()) {
+				p.setQty(p.getQty() + 1);
+				isFound = true;
+				break;
+			}
+		}
+		if (!isFound)
+			cart.add(prod);
+	}
+
+	public void deleteProduct(CartProduct prod) {
+		Iterator<CartProduct> itr = listCart();
+		while (itr.hasNext()) {
+			CartProduct p = itr.next();
+			if (p.getProdId() == prod.getProdId()) {
+				itr.remove();
+			}
+		}
+	}
+
+	public Iterator<CartProduct> listCart() {
+		return cart.iterator();
+	}
+	
+}

@@ -1,0 +1,20 @@
+package com.spatil.examples;
+
+public class ProcessTest {
+
+	public static void main(String[] args) {
+
+		//Retrieve machine information 
+		Runtime runtime = Runtime.getRuntime();
+		
+		int processors = runtime.availableProcessors();
+		System.out.println(processors);
+		
+		System.out.println(runtime.freeMemory());
+		
+		System.out.println(runtime.totalMemory());
+		
+		
+	}
+
+}

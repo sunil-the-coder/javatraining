@@ -1,0 +1,59 @@
+package com.itp.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import com.itp.model.Book;
+
+public class BookService {
+
+	// In Memory Database
+	private  Map<String,List<Book>> booksMap = new HashMap<>();
+
+	public void addBook(String category, Book book) {
+		// Store into memory
+		List<Book> books  = booksMap.get(category);
+		if(books == null)
+			books = new LinkedList<>();
+		
+		booksMap.put(category, book);
+		
+	}
+
+	public Book getBookById(int id) {
+		Iterator<Book> itr = booksMap.iterator();
+		while (itr.hasNext()) {
+			Book book = itr.next();
+			if (book.getId() == id) {
+				return book;
+			}
+		}
+		return null;
+	}
+
+	public List<Book> getAllBooks() {
+		return booksMap;
+	}
+
+	public List<Book> getBooksByAuthorName(String authorName) {
+		List<Book> authorBooks = new ArrayList<>();
+		for (Book book : booksMap) {
+			if (book.getAuthor().equalsIgnoreCase(authorName))
+				authorBooks.add(book);
+		}
+		return authorBooks;
+	}
+
+	public void deleteById(int id) {
+		// search book by given id and delete it from list.
+		Iterator<Book> itr = booksMap.iterator();
+		while (itr.hasNext()) {
+			Book book = itr.next();
+			if (book.getId() == id)
+				itr.remove();
+		}
+	}
+}

@@ -1,0 +1,14 @@
+package com.examples.service;
+
+import com.examples.cart.CartService;
+
+public class BillGeneratorService {
+
+	private CartService shoppingCartService;
+	private TaxCalculatorService taxCalculatorService;
+
+	
+	
+	public void generateBill
+
+}

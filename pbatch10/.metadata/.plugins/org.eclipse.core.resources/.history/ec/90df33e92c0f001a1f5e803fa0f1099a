@@ -1,0 +1,21 @@
+package com.spatil.examples;
+
+import java.util.LinkedList;
+import java.util.List;
+
+interface A
+{
+	//java 8 - default methods
+	default void disp() {
+		
+	}
+	
+}
+public class CollectionTest {
+
+	public static void main(String[] args) {
+		
+		List list = new LinkedList();
+		
+	}
+}

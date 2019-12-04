@@ -1,0 +1,8 @@
+package com.examples.service;
+
+//Maintain category wise tax values & return final product price based on tax
+public class TaxCalculatorService {
+
+	//
+	
+}

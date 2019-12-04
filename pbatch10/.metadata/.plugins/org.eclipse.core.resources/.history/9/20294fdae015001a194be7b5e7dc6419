@@ -1,0 +1,6 @@
+package com.examples.cart;
+
+public interface Cart {
+	void addProduct(CartProduct prod) ;
+	void deleteProduct(CartProduct prod);
+}

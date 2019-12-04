@@ -1,0 +1,32 @@
+package com.spatil.examples.ass13;
+
+public class LinkedStack {
+
+	public LinkedStack(int size) {
+	}
+
+	private boolean isFull() {
+		return false;
+	}
+
+	private boolean isEmpty() {
+		return false;
+	}
+
+	public void pushToList(int data) {
+		System.out.println("Eleement pushed to list");
+	}
+
+	public int popFromList() {
+		int data = -1;
+
+		if (!isEmpty()) {
+			data = stk[top];
+			top--;
+		} else {
+			System.err.println("Stack is empty. Can't pop more elements....");
+		}
+		return data;
+	}
+
+}

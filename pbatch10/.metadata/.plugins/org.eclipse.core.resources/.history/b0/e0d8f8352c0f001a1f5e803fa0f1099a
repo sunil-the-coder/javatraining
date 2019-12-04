@@ -1,0 +1,20 @@
+package com.spatil.examples;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+interface A
+{
+	//java 8 - default methods
+	default void disp() {
+		
+	}
+	
+}
+public class CollectionTest {
+
+	public static void main(String[] args) {
+		Map coll = new ConcurrentHashMap();
+		
+	}
+}

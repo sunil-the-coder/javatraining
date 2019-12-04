@@ -1,0 +1,9 @@
+package com.spatil.examples;
+
+public class PropTest {
+
+	public PropTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

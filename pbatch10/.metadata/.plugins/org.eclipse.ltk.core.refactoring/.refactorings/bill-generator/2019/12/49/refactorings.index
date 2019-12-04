@@ -1,0 +1,9 @@
+1575386298985	Delete element
+1575386714137	Extract local variable 'keySet'
+1575386893391	Rename type 'ShoppingCart'
+1575386907536	Move compilation unit
+1575387006882	Rename type 'Cart'
+1575387137099	Extract local variable 'cart'
+1575387184004	Move compilation unit
+1575387190626	Move compilation unit
+1575387215800	Rename package 'com.examples.cart'

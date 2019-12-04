@@ -1,0 +1,9 @@
+package com.examples.cart;
+
+import com.examples.model.ProdCategory;
+
+public interface Cart {
+	void addProduct(ProdCategory category, CartProduct prod);
+
+	void deleteProduct(int prodId);
+}

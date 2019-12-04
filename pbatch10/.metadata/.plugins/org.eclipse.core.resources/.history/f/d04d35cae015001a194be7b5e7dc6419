@@ -1,0 +1,60 @@
+package com.examples.cart;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.examples.model.ProdCategory;
+
+public class ShoppingCart implements Cart {
+
+	private Map<ProdCategory, List<CartProduct>> cart = new ConcurrentHashMap<>();
+
+	@Override
+	public void addProduct(ProdCategory category, CartProduct prod) {
+		boolean isFound = false;
+		List<CartProduct> products = cart.get(category);
+		if (products == null)
+			products = new LinkedList<>();
+
+		for (CartProduct p : products) {
+			if (p.getProdId() == prod.getProdId()) {
+				p.setQty(p.getQty() + 1);
+				isFound = true;
+				break;
+			}
+		}
+
+		products.add(prod);
+		cart.put(category, products);
+
+		for (CartProduct p : cart) {
+			if (p.getProdId() == prod.getProdId()) {
+				p.setQty(p.getQty() + 1);
+				isFound = true;
+				break;
+			}
+		}
+		if (!isFound)
+			cart.add(prod);
+	}
+
+	@Override
+	public void deleteProduct(int prodId) {
+		Iterator<CartProduct> itr = listCart();
+		while (itr.hasNext()) {
+			CartProduct p = itr.next();
+			if (p.getProdId() == prodId) {
+				itr.remove();
+			}
+		}
+	}
+
+	@Override
+	public List<CartProduct> getProductsByCategory(ProdCategory prodCategory) {
+		return cart.get(prodCategory);
+	}
+
+}

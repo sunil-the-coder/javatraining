@@ -1,0 +1,34 @@
+package com.examples.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.examples.model.CartProduct;
+import com.examples.model.ProdCategory;
+import com.examples.model.Product;
+
+public class BillGeneratorService {
+
+	private CartService shoppingCartService;
+	private TaxCalculatorService taxCalculatorService;
+
+	public BillGeneratorService(CartService shoppingCartService, TaxCalculatorService taxCalculatorService) {
+		super();
+		this.shoppingCartService = shoppingCartService;
+		this.taxCalculatorService = taxCalculatorService;
+	}
+
+	public void generateBill() {
+		Map<ProdCategory, List<CartProduct>> cart = shoppingCartService.getCart();
+
+		double totalBill = 0;
+
+		for (ProdCategory category : cart.keySet()) {
+			List<CartProduct> products = cart.get(category);
+			for(CartProduct product : products) {
+				taxCalculatorService.getFinalPriceFor(category, product.getPrice(), product.getQty());
+			}
+		}
+	}
+
+}

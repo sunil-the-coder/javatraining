@@ -1,0 +1,43 @@
+package com.examples.cart;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.examples.model.ProdCategory;
+
+public class ShoppingCart implements Cart {
+
+	private Map<ProdCategory,List<CartProduct>> cart = new ConcurrentHashMap<>();
+
+	@Override
+	public void addProduct(CartProduct prod) {
+		boolean isFound = false;
+		for (CartProduct p : cart) {
+			if (p.getProdId() == prod.getProdId()) {
+				p.setQty(p.getQty() + 1);
+				isFound = true;
+				break;
+			}
+		}
+		if (!isFound)
+			cart.add(prod);
+	}
+
+	@Override
+	public void deleteProduct(CartProduct prod) {
+		Iterator<CartProduct> itr = listCart();
+		while (itr.hasNext()) {
+			CartProduct p = itr.next();
+			if (p.getProdId() == prod.getProdId()) {
+				itr.remove();
+			}
+		}
+	}
+
+	public Iterator<CartProduct> listCart() {
+		return cart.iterator();
+	}
+
+}

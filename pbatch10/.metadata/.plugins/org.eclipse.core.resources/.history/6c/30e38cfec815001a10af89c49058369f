@@ -1,0 +1,12 @@
+package com.spatil.examples;
+
+public class ProcessTest {
+
+	public static void main(String[] args) {
+
+		//Retrieve machine information 
+		
+		Runtime runtime = new Runtime();
+	}
+
+}

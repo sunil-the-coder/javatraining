@@ -1,0 +1,18 @@
+package com.spatil.examples;
+
+import java.util.Hashtable;
+import java.util.Map;
+
+class Student {
+
+}
+
+public class CollectionTest {
+
+	public static void main(String[] args) {
+
+		Map map = new Hashtable(); //key-value pair
+		map.put(10, "Sunil");
+		
+	}
+}

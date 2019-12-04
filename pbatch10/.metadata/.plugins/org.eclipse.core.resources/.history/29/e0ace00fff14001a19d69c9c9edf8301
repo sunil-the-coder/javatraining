@@ -1,0 +1,10 @@
+package com.spatil.examples;
+
+public class PropTest {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

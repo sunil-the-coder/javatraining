@@ -1,0 +1,5 @@
+package com.examples.cart;
+
+public interface Cart {
+
+}

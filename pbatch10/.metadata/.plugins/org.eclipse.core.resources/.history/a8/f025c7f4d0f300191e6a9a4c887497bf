@@ -1,0 +1,5 @@
+package com.spatil.examples.ass13;
+
+public interface Stack {
+
+}

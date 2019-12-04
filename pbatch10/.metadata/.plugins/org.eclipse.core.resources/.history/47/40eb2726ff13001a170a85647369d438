@@ -1,0 +1,8 @@
+package com.itp.service;
+
+public class InvalidCategoryException extends RuntimeException {
+
+	public InvalidCategoryException(String arg0) {
+		super(arg0);
+	}
+}

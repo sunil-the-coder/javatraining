@@ -1,0 +1,33 @@
+package com.spatil.examples.ass13;
+
+public class StackTest {
+
+	public static void main(String[] args) {
+
+		int size = 5;
+
+		Stack stack = new ArrayStack(size);
+		stack.push(10);
+		stack.push(20);
+
+		for (int i = 0; i < size; i++) {
+			System.out.println("Pop:" + stack.pop);
+		}
+
+		
+		LinkedStack stack2 = new LinkedStack(size);
+		stack2.pushToList(10);
+		stack2.pushToList(20);
+		stack2.pushToList(30);
+		stack2.pushToList(40);
+		stack2.pushToList(50);
+
+		for (int i = 0; i < size + 1; i++) {
+			System.out.println("Pop:" + stack2.popFromList());
+		}
+		
+		
+		// stack.push(60);
+
+	}
+}

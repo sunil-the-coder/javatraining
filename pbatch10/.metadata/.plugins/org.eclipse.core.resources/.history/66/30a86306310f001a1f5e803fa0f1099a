@@ -1,0 +1,27 @@
+package com.spatil.examples;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+class Student {
+
+}
+
+public class CollectionTest {
+
+	public static void main(String[] args) {
+
+		Map map = new HashMap(); // key-value pair
+		map.put(10, "Sunil");
+		map.put(20, "Anil");
+		map.put(30, 100);
+		map.put(40, "Arvind");
+
+		System.out.println(map);
+
+		
+		
+	}
+}

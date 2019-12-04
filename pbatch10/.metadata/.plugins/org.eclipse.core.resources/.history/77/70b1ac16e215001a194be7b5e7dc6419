@@ -1,0 +1,20 @@
+package com.examples.service;
+
+import com.examples.cart.CartService;
+
+public class BillGeneratorService {
+
+	private CartService shoppingCartService;
+	private TaxCalculatorService taxCalculatorService;
+
+	public BillGeneratorService(CartService shoppingCartService, TaxCalculatorService taxCalculatorService) {
+		super();
+		this.shoppingCartService = shoppingCartService;
+		this.taxCalculatorService = taxCalculatorService;
+	}
+
+	public void generateBill() {
+		
+	}
+
+}

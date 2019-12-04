@@ -1,0 +1,18 @@
+package com.examples.service;
+
+import com.examples.cart.CartService;
+
+public class BillGeneratorService {
+
+	private CartService shoppingCartService;
+	private BillGeneratorService billGeneratorService;
+
+	public BillGeneratorService(CartService shoppingCartService, BillGeneratorService billGeneratorService) {
+		super();
+		this.shoppingCartService = shoppingCartService;
+		this.billGeneratorService = billGeneratorService;
+	}
+	
+	public void generateBill
+
+}

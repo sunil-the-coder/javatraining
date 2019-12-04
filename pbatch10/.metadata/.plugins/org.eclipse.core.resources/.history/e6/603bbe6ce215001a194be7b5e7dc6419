@@ -1,0 +1,8 @@
+package com.examples.service;
+
+//Maintain category wise tax values
+public class TaxCalculatorService {
+
+	//
+	
+}

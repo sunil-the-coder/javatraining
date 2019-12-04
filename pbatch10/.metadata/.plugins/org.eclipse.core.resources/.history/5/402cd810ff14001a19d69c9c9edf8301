@@ -1,0 +1,12 @@
+package com.spatil.examples;
+
+import java.util.Properties;
+
+public class PropTest {
+
+	public static void main(String[] args) {
+
+		Map<String,String> props = new Properties();
+	}
+
+}

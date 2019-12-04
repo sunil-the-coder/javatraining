@@ -1,0 +1,15 @@
+package com.spatil.examples;
+
+import java.util.Properties;
+
+public class PropTest {
+
+	public static void main(String[] args) {
+
+		Properties props = new Properties();
+		props.setProperty("username", "sunil");
+		props.setProperty("password", "sunil");
+		props.setProperty("email", "sunil");
+	}
+
+}

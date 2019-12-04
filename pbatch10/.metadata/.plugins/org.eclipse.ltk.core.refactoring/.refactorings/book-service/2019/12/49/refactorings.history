@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;books&apos; in &apos;com.itp.service.BookService&apos; to &apos;booksMap&apos;&#x0A;- Original project: &apos;book-service&apos;&#x0A;- Original element: &apos;com.itp.service.BookService.books&apos;&#x0A;- Renamed element: &apos;com.itp.service.BookService.booksMap&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;books&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;com.itp.service{BookService.java[BookService^books" name="booksMap" references="true" setter="false" stamp="1575178035501" textual="false" version="1.0"/>
+</session>

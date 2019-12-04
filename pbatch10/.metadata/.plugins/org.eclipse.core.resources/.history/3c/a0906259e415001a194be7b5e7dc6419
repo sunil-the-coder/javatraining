@@ -1,0 +1,18 @@
+package com.examples;
+
+import com.examples.model.ProdCategory.*;
+import com.examples.service.CartService;
+import com.examples.service.ShoppingCartService;
+
+public class BillDeskApplication {
+
+	public static void main(String[] args) {
+		
+		//1.Assuming we already have inventory which has products stored into it. So now are just adding direct prod to cart.
+		
+		CartService cartService = new ShoppingCartService();
+		cartService.addProduct(ProdCategory.A, prod);
+		
+		
+	}
+}

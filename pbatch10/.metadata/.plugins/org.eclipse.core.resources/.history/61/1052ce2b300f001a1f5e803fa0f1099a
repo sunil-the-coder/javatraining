@@ -1,0 +1,13 @@
+package com.spatil.examples;
+
+class Student {
+
+}
+
+public class CollectionTest {
+
+	public static void main(String[] args) {
+
+		
+	}
+}

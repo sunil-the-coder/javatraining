@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="/home/sunil/setup/eclipse-2019-09" version="1.8.0_201">
+<bootpath>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/resources.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/rt.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/sunrsasign.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/jsse.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/jce.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/charsets.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/jfr.jar"/>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/home/sunil/setup/eclipse-2019-09/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

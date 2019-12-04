@@ -1,0 +1,64 @@
+package com.spatil.examples;
+
+import java.util.LinkedList;
+import java.util.List;
+
+class Student {
+
+}
+
+public class CollectionTest {
+
+	public static void main(String[] args) {
+
+		List list = new LinkedList();
+
+		list.add(10);
+		list.add(10.5);
+		list.add("sunil");
+		list.add(new Student());
+		
+		System.out.println(list);
+		
+		list.remove("sunil");
+		
+		System.out.println(list);
+		
+		list.add(2, "Ganesh");
+		System.out.println(list);
+		
+		System.out.println(list.contains(10));
+		
+		//list.clear();  //delete all elements from collection
+		//System.out.println(list);
+
+		Object element = list.get(2);
+		System.out.println(element);
+		
+		
+		System.out.println(list.indexOf("Satish"));
+		
+		List newList = list.subList(0, 2);
+		System.out.println(newList);
+		
+		Object[]  arr = list.toArray();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
