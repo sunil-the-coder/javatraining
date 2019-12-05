@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="Demo"/>
-<fullyQualifiedTypeName name="Student"/>
 <fullyQualifiedTypeName name="p1.Vehicle"/>
 <fullyQualifiedTypeName name="com.spatil.examples.ass7.Student"/>
 <fullyQualifiedTypeName name="com.spatil.examples.ass7.Date"/>
 <fullyQualifiedTypeName name="com.spatil.examples.ass9.Employee"/>
 <fullyQualifiedTypeName name="com.spatil.examples.ass9.Manager"/>
 <fullyQualifiedTypeName name="com.spatil.examples.ass9.SalesPerson"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="com.spatil.examples.speed.RemoteControllable"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="com.spatil.exception.InvalidAccountException"/>
@@ -18,10 +15,8 @@
 <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="com.itp.fh.Student"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="Outer.Inner"/>
@@ -32,7 +27,6 @@
 <fullyQualifiedTypeName name="com.itp.model.Book"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 <fullyQualifiedTypeName name="com.itp.service.InvalidCategoryException"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -55,4 +49,15 @@
 <fullyQualifiedTypeName name="java.lang.Runtime"/>
 <fullyQualifiedTypeName name="java.lang.ProcessBuilder"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="com.itp.threads.OddThread"/>
+<fullyQualifiedTypeName name="com.itp.threads.EvenThread"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="com.itp.threads.FileWatcher"/>
+<fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
 </qualifiedTypeNameHistroy>

@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item key="ShowStatusLine" value="true"/>
-		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/package-examples/src/p1/Vehicle.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/Examples/src/com/spatil/examples/ass7/Student.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/Examples/src/com/spatil/examples/Student.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/Examples/src/com/spatil/examples/ass7/Date.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/Examples/src/com/spatil/examples/ass13/StackTest.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/file-handling/src/com/itp/fh/FileTest.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/bill-generator/src/com/examples/service/TaxCalculatorService.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/bill-generator/src/com/examples/service/BillGeneratorService.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
 		<item key="ShowDerived" value="false"/>
 		<item key="FilterByLocation" value="false"/>
 		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
