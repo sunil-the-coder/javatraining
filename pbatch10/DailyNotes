@@ -605,6 +605,121 @@ runtime.gc()  / System.gc()  -> Run the garbage collector manually.
 
 
 
+			Threading:
+
+Types of threads:
+
+Worker Thread				Daemon Thread
+
+1) Default created thread is worker	1) Thread t = new Thread();
+  thread.				   t.setDaemon(true);
+				
+					You have manully call 					method for creating daemon thread.
+
+
+2) JVM will wait till complete 		2) No wait.
+execution of thread
+
+
+3) Foreground task 			3) background task
+
+
+
+			JoinAccount(5000)
+
+p1						p2
+
+
+
+Synchronization:
+
+	Control multiple threads for accessing common shared object using lock concept.
+
+Why Sync?
+1. To avoid data inconsistency.
+2. To avoid thread inteference.
+
+How to apply sync ?
+
+	1) synchronized(keyword) with method
+
+	public synchronized void deposit(double amount) {
+		//Logic which updates common shared prop
+	}
+
+	2) synchronized block
+
+	public void deposit(double amount) {
+			//multiple lines of code
+
+			sychronized(this) {
+				//Logic which updates common shared prop
+			 //critical section of code
+			}
+
+			//normal code
+	}
+
+		
+
+Types of locks:
+
+1) Object level lock ( non-static method )
+
+2) Class level lock ( static method )
+
+
+Disadv:
+
+1) Performance will impact due to locking object at operating system level ( monitors ).
+
+
+
+
+Thread Communication:
+	
+
+join() method -> wait till complete execution of previous thread.	
+
+
+-- Especially used in Asychronous Messaging System ------
+
+
+JMS(Java Messaging System) / Kafka Queue -> Asychrounous communication between your components
+
+
+
+BlockingQueue<Job> blockingQueue = new LinkedBlockingDeque<>(5);
+
+--Add into queue
+blockingQueue.put() -> sync
+
+--Remove from queue
+blockingQueue.take() -> sync
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
