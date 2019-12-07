@@ -605,6 +605,10 @@ runtime.gc()  / System.gc()  -> Run the garbage collector manually.
 
 			Threading:
 
+Thread[main,5,main]
+
+
+
 Types of threads:
 
 Worker Thread				Daemon Thread
@@ -717,6 +721,69 @@ Future Object:
 executorService.shutdown(); -> Stop accepting new tasks and wait till complete execution of pending tasks.
 
 shutdownNow(); -> try to destroy everything but can't be gurantee. If there any tasks which still pending to execute it will return those tasks.
+
+
+
+
+volatile keyword:
+
+1. Only to be used with variables and not with methods or class.
+2. It's used for alternative to synchronization.
+3. It provides thread safety for object data members which obj shared with multiple threads.
+4. Always data will be read from main memory rather than cpu locally cached data.
+5. It prevents the compiler from the reordering of code.
+
+
+
+
+Volatile Keyword	Synchronization Keyword
+Volatile keyword is a field modifier.	Synchronized keyword modifies code blocks and methods.
+The thread cannot be blocked for waiting in case of volatile.	Threads can be blocked for waiting in case of synchronized.
+It improves thread performance.	Synchronized methods degrade the thread performance.
+It synchronizes the value of one variable at a time between thread memory and main memory.	It synchronizes the value of all variables between thread memory and main memory.
+Volatile fields are not subject to compiler optimization.	Synchronize is subject to compiler optimization.
+
+
+
+
+
+
+
+class MyClass
+{
+	static int data = 10;
+}
+
+sychronized(joinAccount) {
+	joinAccount.wait();
+		
+		deposit();
+
+	joinAccount.notify();
+}
+
+
+
+Problem Statement :
+
+
+
+**********		JDBC 		**************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
