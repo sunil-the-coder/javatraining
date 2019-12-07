@@ -603,8 +603,6 @@ runtime.gc()  / System.gc()  -> Run the garbage collector manually.
 
 
 
-
-
 			Threading:
 
 Types of threads:
@@ -628,7 +626,6 @@ execution of thread
 			JoinAccount(5000)
 
 p1						p2
-
 
 
 Synchronization:
@@ -664,9 +661,9 @@ How to apply sync ?
 
 Types of locks:
 
-1) Object level lock ( non-static method )
+1) Object level lock ( non-static props(method+var) )
 
-2) Class level lock ( static method )
+2) Class level lock ( static props(method+var) )
 
 
 Disadv:
@@ -688,7 +685,6 @@ join() method -> wait till complete execution of previous thread.
 JMS(Java Messaging System) / Kafka Queue -> Asychrounous communication between your components
 
 
-
 BlockingQueue<Job> blockingQueue = new LinkedBlockingDeque<>(5);
 
 --Add into queue
@@ -696,7 +692,54 @@ blockingQueue.put() -> sync
 
 --Remove from queue
 blockingQueue.take() -> sync
+
+
+
+
+Runnable -> run() => we can't return value from thread. because run() method return type is void.
+
+
+Callable -> call() => We can return value from thread.
+
+
+ExecutorService Framework :
+	You can create thread pools and he can manage the lifecycle of the thread.
+
+Thread Pool : 
+
+It is set of fixed threads created which can be utilized for different user tasks.
+
+
+Future Object:
+  It is used to read return value of the callable thread.
+
+
+executorService.shutdown(); -> Stop accepting new tasks and wait till complete execution of pending tasks.
+
+shutdownNow(); -> try to destroy everything but can't be gurantee. If there any tasks which still pending to execute it will return those tasks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
+
+
+
+
+
+	
+
 
 
 
