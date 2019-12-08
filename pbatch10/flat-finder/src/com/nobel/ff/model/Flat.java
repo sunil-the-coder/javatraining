@@ -1,4 +1,4 @@
-package com.nobellit.ff.model;
+package com.nobel.ff.model;
 
 public class Flat implements Comparable<Flat> {
 	private String flatName;

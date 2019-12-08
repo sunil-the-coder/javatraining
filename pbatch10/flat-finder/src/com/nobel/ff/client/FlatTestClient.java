@@ -1,13 +1,13 @@
-package com.nobellit.ff.client;
+package com.nobel.ff.client;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.nobellit.ff.model.Flat;
-import com.nobellit.ff.model.Keys;
-import com.nobellit.ff.service.FlatCostCalculatorService;
+import com.nobel.ff.model.Flat;
+import com.nobel.ff.model.Keys;
+import com.nobel.ff.service.FlatCostCalculatorService;
 
 public class FlatTestClient {
 

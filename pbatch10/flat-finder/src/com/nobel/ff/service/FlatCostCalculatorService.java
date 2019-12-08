@@ -1,11 +1,11 @@
-package com.nobellit.ff.service;
+package com.nobel.ff.service;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import com.nobellit.ff.model.Flat;
-import com.nobellit.ff.model.Keys;
+import com.nobel.ff.model.Flat;
+import com.nobel.ff.model.Keys;
 
 public class FlatCostCalculatorService {
 
