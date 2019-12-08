@@ -17,7 +17,7 @@ public class FlatTestClient {
 		flats.add(new Flat("C", 11000, 4, 20, 1500));
 
 		FlatCostCalculatorService service = new FlatCostCalculatorService(flats);
-		service.calculateTotalCost();
+		service.calculateTotalCost(10,5,20);
 		
 		Collections.sort(flats);
 		
