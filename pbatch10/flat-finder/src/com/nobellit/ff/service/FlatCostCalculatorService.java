@@ -1,5 +1,6 @@
 package com.nobellit.ff.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,8 @@ public class FlatCostCalculatorService {
 			totalCost -= flat.getLocationAdvantage();
 			flat.setTotalCost(totalCost);
 		}
+		
+		Collections.sort(flats);
 
 	}
 

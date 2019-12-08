@@ -1,6 +1,5 @@
 package com.nobellit.ff.client;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,8 +18,6 @@ public class FlatTestClient {
 		flats.add(new Flat("B", 12000, 1, 15, 100));
 		flats.add(new Flat("C", 11000, 4, 20, 1500));
 
-	//	int[] params = new int[] {10,5,20,25,300};
-		
 		Map<Keys,Integer> params = new HashMap<>();
 		params.put(Keys.DISTANCE_COST, 10);
 		params.put(Keys.TRAVEL_COST, 5);
@@ -30,18 +27,9 @@ public class FlatTestClient {
 		FlatCostCalculatorService service = new FlatCostCalculatorService(flats);
 		service.calculateTotalCost(params);
 		
-		Collections.sort(flats);
+		Flat flat = flats.get(0);
 		
-		
-		System.out.printf("Best flat is %s having rent %d",flats.get(0).getFlatName(),flats.get(0).getTotalCost());
-		
-		/*
-		 * for(Flat flat : flats) System.out.println(flat);
-		 */
-		
-		//Logic
-		
-		
+		System.out.printf("Best flat is %s having rent %d",flat.getFlatName(),flat.getTotalCost());
 		
 		
 	}

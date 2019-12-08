@@ -71,7 +71,7 @@ public class Flat implements Comparable<Flat> {
 		return "Flat [flatName=" + flatName + ", rent=" + rent + ", distance=" + distance + ", travelTime=" + travelTime
 				+ ", locationAdvantage=" + locationAdvantage + ", totalCost=" + totalCost + "]";
 	}
-	
+
 	@Override
 	public int compareTo(Flat f2) {
 		return this.totalCost - f2.getTotalCost();
