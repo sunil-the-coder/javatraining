@@ -903,15 +903,18 @@ Add User to mysql if in case new mysql version not allow to access for root user
 
 
 
-
 $ CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password'
 
 $ GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';
 
 
+Insert/Update/Delete  -> executeUpdate
+select  -> executeQuery
 
-Insert/Update/Delete Query:
-	
+mysql> delete from student where id=4;
+
+
+
 
 
 
