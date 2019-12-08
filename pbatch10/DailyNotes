@@ -770,6 +770,14 @@ Problem Statement :
 Best flat finder:
 
 
+
+Enum: 
+	It groups similar elements for single type.
+
+enum Color {YELLOW,RED,WHITE};
+
+
+
 **********		JDBC 		**************
 
 

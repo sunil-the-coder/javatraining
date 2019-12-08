@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.nobellit.ff.model.Flat;
+import com.nobellit.ff.model.Keys;
 import com.nobellit.ff.service.FlatCostCalculatorService;
 
 public class FlatTestClient {
@@ -20,10 +21,10 @@ public class FlatTestClient {
 
 	//	int[] params = new int[] {10,5,20,25,300};
 		
-		Map<String,Integer> params = new HashMap<>();
-		params.put("distanceCost", 10);
-		params.put("travelCost", 5);
-		params.put("totalWorkingDays", 20);
+		Map<Keys,Integer> params = new HashMap<>();
+		params.put(Keys.DISTANCE_COST, 10);
+		params.put(Keys.TRAVEL_COST, 5);
+		params.put(Keys.TOTAL_WORKING_DAYS, 20);
 		
 		
 		FlatCostCalculatorService service = new FlatCostCalculatorService(flats);
