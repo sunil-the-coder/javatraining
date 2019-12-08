@@ -778,58 +778,120 @@ enum Color {YELLOW,RED,WHITE};
 
 
 
+com.nobel.ff
+
+domain 
+company
+productName
+
+util
+service
+controller
+
+
+Eclipse -> Free
+IntelliJ Idea -> Free + Paid
+Netbeans > For GUI development ( Windows/Dialog )
+
+
+
+
 **********		JDBC 		**************
 
 
 
+MongoDB -> NoSQL databases
+	Store in JSON format.
 
 
+Oracle / mySQL/ PLSQL/ DB2 / SQL server  -> 
 
+MS-ACCESS / SQL Server:
 
 
+Driver:
 
+	Java		Driver		DB	
 
 
+What are the interfaces? 
 
+1. Connection
+2. DriverManager
+3. Statement / PreparedStatement / CallableStatement(call the proc)
+4. ResultSet
+5. DatabaseMetaData / ResultSetMetaData -> Data about database like which are tables, procedures, table info etc.
 
+student -> columns, types,
 
+select * from student;
 
 
+Jar files -> Java Archieve
 
+	It contains set of .class files with packages and some required configuration files ( .xml, .properties ) etc.
 
 
+Type 4 Driver - Thin driver / Database Protocol Driver / 100% Java driver
 
+It is faster than any other driver as well as portable.
 
+Every database vendor provides this driver.
 
 
+Problem statement:
 
+	Read student data from mysql database table.
 
 
+Username: sunil
+Password: sunil@123
+DB Name: nobel
+Table Name: sunil
 
 
+$ sudo mysql -u root -p
+Enter password: root
 
+$ create database nobelit;
 
-	
+$ use nobelit;
 
+$ show tables; -> show tables present in nobelit.
 
+$ create table test(id int primary key, name varchar, height float);
 
+$ insert into test values(1,'sunil',6.1);
 
+$ select * from student;
 
-	
+--- Display student table data -----
 
 
 
+Steps to Connect to any Database from JDBC:
 
 
+MySQL: server version: 5.7.28-0ubuntu0.18.04.4 
 
+driver: com.mysql.jdbc.Driver / com.mysql.cj.jdbc.Driver
+url: jdbc:mysql://<servername>:<port>/<dbname>
 
+	 jdbc:mysql://localhost:3306/nobel
 
-	
+username: sunil / root
+password: sunil@123 / your password
 
 
 
+Oracle:
+driver: oracle.jdbc.driver.OracleDriver 
+url: jdbc:oracle:thin:@<machineip>:<port>:<servicename>
 
+	jdbc:oracle:thin:@localhost:1521:xe
 
+username: system
+password: system 
 
 
 
@@ -837,101 +899,6 @@ enum Color {YELLOW,RED,WHITE};
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Stack<float> 
-
-
-
-
-
-
-
-	
 
 
 
