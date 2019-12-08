@@ -859,9 +859,10 @@ $ use nobelit;
 
 $ show tables; -> show tables present in nobelit.
 
-$ create table test(id int primary key, name varchar, height float);
+$ create table student(id int primary key, name varchar(20), height float);
 
-$ insert into test values(1,'sunil',6.1);
+$ insert into student values(1,'sunil',6.1);
+
 
 $ select * from student;
 
@@ -893,6 +894,24 @@ url: jdbc:oracle:thin:@<machineip>:<port>:<servicename>
 username: system
 password: system 
 
+1	sunil	90897965
+2	Mandal	902692
+4	Komal	82906
+
+
+Add User to mysql if in case new mysql version not allow to access for root user & grant previledges.
+
+
+
+
+$ CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password'
+
+$ GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';
+
+
+
+Insert/Update/Delete Query:
+	
 
 
 

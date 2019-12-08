@@ -17,9 +17,12 @@ public class JdbcTest {
 			// 2. Obtain the database connection.
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
 
-			// 3. Prepare the statement
-			PreparedStatement ps = conn.prepareStatement("select * from student");
-
+			// 3. Prepare the statement with dynamic parameters
+			PreparedStatement ps = conn.prepareStatement("select * from student where name=? and phone=?");
+			ps.setString(1, "sunil");
+			ps.setString(2, "902692");
+			//ps.setInt(1, 2);
+			
 			// 4. Execute Query
 			ResultSet rs = ps.executeQuery();
 
