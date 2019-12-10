@@ -952,17 +952,6 @@ Observable design pattern:
 3) Behaviour
 	Strategy, Observable, Command, Chain of responsibilty
 
-
-
-
-
-
-
-
-
-
-
-
 		
 
 		(proxy)
@@ -972,6 +961,15 @@ user1	-> -> -> | 	facebook
 
 	(proxy)
 client  ->  |   target object
+
+
+
+Guildlines:
+
+1) Define private Constructor
+2) static getInstance() method which returns the actual object
+3) static reference to your class itself.
+
 
 
 

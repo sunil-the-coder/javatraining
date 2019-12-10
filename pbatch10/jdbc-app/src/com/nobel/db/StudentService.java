@@ -15,8 +15,9 @@ public class StudentService {
 
 		Student student = null;
 
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement("select * from student where id=" + id + "");
+		Connection conn = DBConnection.getConnection();
+
+		try (PreparedStatement ps = conn.prepareStatement("select * from student where id=" + id + "");
 				ResultSet rs = ps.executeQuery();) {
 
 			while (rs.next()) {
@@ -33,10 +34,9 @@ public class StudentService {
 	public List<Student> getAllStudents() {
 
 		List<Student> students = new LinkedList<Student>();
+		Connection conn = DBConnection.getConnection();
 
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement("select * from student");
-				ResultSet rs = ps.executeQuery();) {
+		try (PreparedStatement ps = conn.prepareStatement("select * from student"); ResultSet rs = ps.executeQuery();) {
 
 			while (rs.next()) {
 				students.add(prepareStatement(rs));
@@ -54,11 +54,11 @@ public class StudentService {
 	}
 
 	public boolean deleteStudentById(int id) {
+		Connection conn = DBConnection.getConnection();
 
 		boolean isDeleted = false;
 
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement("delete from student where id=" + id + "");) {
+		try (PreparedStatement ps = conn.prepareStatement("delete from student where id=" + id + "");) {
 
 			int res = ps.executeUpdate();
 			if (res >= 1)
