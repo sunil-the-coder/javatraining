@@ -916,6 +916,87 @@ mysql> delete from student where id=4;
 
 
 
+---------------------------------------------------
+
+*** Design Patterns ****
+
+	X -> p1 -> problem 1 -> sol
+	  -> p2 -> problem 2 -> sol
+	
+	Y -> p1 -> problem 1 -> sol
+
+Some set of commmon problems in industry with similar patterns while architecting or solving technical issues which leads to have design patterns which will applied using some common guildlines or techniques.
+
+
+Resources:
+	File, Database Connection, Registry, Socket COnnection etcc......
+
+
+Singleton design pattern:
+	Only one object of class.
+
+Proxy design patterns:
+
+Observable design pattern:
+	publish-subcribe
+
+
+3 types of design patterns:
+
+1) Creational 
+	singleton, builder, factory, prototype
+
+2) Structural 
+	proxy, adapter,facade, decorator
+	
+3) Behaviour
+	Strategy, Observable, Command, Chain of responsibilty
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		(proxy)
+user1	-> -> -> | 	facebook
+	 <-	 |	youtube
+
+
+	(proxy)
+client  ->  |   target object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
