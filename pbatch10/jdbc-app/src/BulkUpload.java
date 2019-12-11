@@ -10,8 +10,14 @@ public class BulkUpload {
 
 		Connection conn = DBConnection.getConnection();
 
+			
+		
 		try {
 
+			//Disable default commit from jdbc
+			conn.setAutoCommit(false);
+			
+			
 			// Instant startTime = Instant.now();
 			long startTime = System.currentTimeMillis();
 
@@ -26,6 +32,9 @@ public class BulkUpload {
 
 			psInsert.executeBatch();
 			
+			//After success
+			conn.commit();
+			
 			// Instant endTime = Instant.now();
 			long endTime = System.currentTimeMillis();
 			System.out.println("Total time :" + (endTime - startTime) + " ms");
@@ -36,7 +45,22 @@ public class BulkUpload {
 			conn.close();
 
 		} catch (SQLException e) {
+			try {
+				//Rolled back everything if anything fails
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
