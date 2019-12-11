@@ -971,28 +971,19 @@ Guildlines:
 3) static reference to your class itself.
 
 
+select * from student where id=?
 
 
+SQL injection:
+	
+
+---------------------------------------------------------------
 
 
+Bulk Insertion of data:
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
 
 

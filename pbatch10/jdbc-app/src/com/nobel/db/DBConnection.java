@@ -12,7 +12,10 @@ public class DBConnection {
 		try {
 			if (conn == null) {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobel", "sunil", "sunil@123");
+				conn = DriverManager.
+						getConnection("jdbc:mysql://localhost:3306/nobel?rewriteBatchedStatements=true", 
+								"sunil", 
+								"sunil@123");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

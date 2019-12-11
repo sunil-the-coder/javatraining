@@ -16,6 +16,13 @@ public class StudentServiceClient {
 //		System.out.println(conn3);
 		
 		
+		Runtime runtime1 = Runtime.getRuntime();
+		Runtime runtime2 = Runtime.getRuntime();
+		Runtime runtime3 = Runtime.getRuntime();
+		
+		System.out.println(runtime1);
+		System.out.println(runtime2);
+		System.out.println(runtime3);
 		
 		StudentService studentService = new StudentService();
 		Student student = studentService.getStudentById(1);
