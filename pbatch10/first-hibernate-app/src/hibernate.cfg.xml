@@ -7,7 +7,8 @@
   	<property name="connection.username">sunil</property>
   	<property name="connection.password">sunil@123</property>
   	<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-  	<property name="hibernate.hbm2ddl.auto">update</property>
+  	<property name="hibernate.hbm2ddl.auto">create</property>
+  	<property name="hibernate.show_sql">true</property>
   	<mapping resource="hibernate.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

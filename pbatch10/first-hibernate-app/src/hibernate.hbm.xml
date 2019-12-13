@@ -2,7 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
 	<class name="com.nobel.hibernate.model.Student" table="student">
-		<id name="studentId" column="id" type="java.lang.Integer"></id>
+		<id name="studentId" column="id" type="java.lang.Integer">
+			<generator class="increment"></generator>
+		</id>
 		<property name="name" column="name" type="java.lang.String"></property>
 		<property name="phone" column="contact" type="java.lang.String"></property>
 	</class>

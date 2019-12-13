@@ -3,7 +3,6 @@ package com.nobel.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import com.nobel.hibernate.model.Student;
 import com.nobel.hibernate.util.HibernateUtil;
@@ -18,7 +17,7 @@ public class HibernateTest {
 
 		Transaction txn = session.beginTransaction();
 
-		Student stud = new Student(2, "Anil", "82962896");
+		Student stud = new Student(100, "Anil", "82962896");
 
 		session.save(stud);
 
