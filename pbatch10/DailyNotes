@@ -985,6 +985,243 @@ Bulk Insertion of data:
 
 	
 
+------------------ Hibernate ----------------
+
+Advantage of hibernate:
+
+  1) overcome the disAdv of jdbc with hibernate 
+	a. Connection pooling
+	b. Mapping file / annotation based mappers
+	c. Removed boilterplate code
+
+  2) Support for inheritance + relationship(1-M,M-1,M-M)
+  3) Caching Support (1st & 2nd level cache)
+  4) Fast Searching across different tables
+  5) Automatic schema(tables) creation.
+  6) Without writing queries data can be updated/saved.
+  7) Support for HQL queries ( Java Object level queries )
+  8) Data validation before insertion using validator framework
+	
+
+
+@Size(max=15, min=6)
+private String username;
+
+
+username:  min 6 & max 15
+sunil@gmail.com, 825829682
+
+
+XML -> Extensible Markup Language
+
+
+Data Exchange:
+
+Flipkart					HDFC
+						
+<acno>444</acno>
+<name>SunilPatil</name>
+<phone>4567892</phone>
+<cardType>Credit</cardType>
+<amount>1125</amount>
+
+
+
+		HTML				XML
+	Predefined Tags			Write your tags	
+
+	<b><font><i><p>			
+				<accountNo><phone><cvv>
+
+	Representation			Data Exchange
+
+
+
+
+<b><i>This is sunil</i></b>
+
+
+
+Basic rules:
+	1) <acno> </acno>
+	2) <?xml version='1.0'>
+	3) <acno>  </Acno>
+	4) spl characters are nto allowed
+
+
+
+1) Well formed XML
+	Any xml which follows basic rules of xml 
+
+2) Valid XML
+	Well formed XML + Also need to follow rules defined by DTD/XML Schema files.
+
+
+DTD/X-Schemas:
+	Rules of orderning of data, frequency of data or option parameters etc...
+
+DTD: Document Type Defination
+
+(.dtd or .x... )
+
+
+Hibernate is lightweight framwork which some set of required jar files to work with databases.
+
+	1) Console
+	2) Web
+	3) GUI based
+
+
+PreRequisites:
+
+1) Core Java
+2) Hibernate Jars
+3) Configuration & Mapping file ( Optional: We can use Annotation )
+
+
+
+hibernate.org
+
+
+----------------- Maven ---------------
+
+Maven Repository:
+	Collections of different set of jar files from different organization.
+
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.2.2.RELEASE</version>
+</dependency>
+
+
+1) Installation & with path setup
+2) How to work with maven ?
+
+
+
+
+
+Steps for hibernate application:
+
+
+Step1: One time setup.
+
+1. Add configuration & mapping file in eclipse.
+
+	Window -> Preferences -> Search( XML Catlog ) -> user specified entry -> 
+
+	Add entry for mapping & config file with File system path + Key + URL.
+
+
+2) Create Java Project & Add required hibernate jars to build path including mysql connector jar.
+
+3) Prepare Java Object which will map to database table.
+
+4) Prepare mapping xml file(src folder) based on hibernate mapping dtd for map object to table.
+
+5) Prepare hibernate configuration file based on hibernate dtd.
+	(driver,url,uname,pwd, ddl, location of mapping file etccc)
+
+	SessionFactory
+	
+	dialect -> convertion between java data types to database data types.
+	
+	hbm2ddl -> create/validate
+
+
+validate: validate the schema, makes no changes to the database.
+update: update the schema.
+create: creates the schema, destroying previous data.
+create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+
+
+
+6) 
+
+
+	int		number
+			int
+			long
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
