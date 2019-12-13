@@ -9,9 +9,8 @@ public class Student {
 	public Student() {
 	}
 
-	public Student(int studentId, String name, String phone) {
+	public Student(String name, String phone) {
 		super();
-		this.studentId = studentId;
 		this.name = name;
 		this.phone = phone;
 	}
