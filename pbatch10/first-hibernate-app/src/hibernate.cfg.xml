@@ -9,6 +9,8 @@
   	<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   	<property name="hibernate.hbm2ddl.auto">update</property>
   	<property name="hibernate.show_sql">true</property>
-  	<mapping resource="hibernate.hbm.xml"/>
+  	<!-- <mapping resource="hibernate.hbm.xml"/> -->
+  	
+  	<mapping class="com.nobel.hibernate.model.Student"/>
   </session-factory>
 </hibernate-configuration>

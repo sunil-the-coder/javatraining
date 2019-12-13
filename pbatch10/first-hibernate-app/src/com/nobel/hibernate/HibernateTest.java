@@ -17,7 +17,7 @@ public class HibernateTest {
 
 		Transaction txn = session.beginTransaction();
 
-		Student stud = new Student("Satish", "9844564323");
+		Student stud = new Student("Amar", "2785925");
 		session.save(stud);
 
 		txn.commit();
