@@ -20,11 +20,20 @@ public class HibernateTest {
 		//select * from student
 		//Query query = session.createQuery("from Student");
 		
-		Query query = session.createQuery("select OBJECT(s) from Student s");
+		//Query query = session.createQuery("select OBJECT(s) from Student s where phone=?");
+		//query.setString(0, "2785925");
 		
-		List<Student> students = (List<Student>) query.list();
-		for(Student stud : students)
-			System.out.println(stud);
+		//Named Parameters Binding
+		//Query query = session.createQuery("select OBJECT(s) from Student s where phone=:contact");
+		//query.setParameter("contact", args[0]);
+		
+		Query query = session.createQuery("select name,phone from Student s where phone=:myContact");
+		query.setParameter("myContact", "2785925");
+		
+		
+		List<Object[]> students = (List<Object[]>) query.list();
+		for(Object[] stud : students)
+			System.out.println(stud[0]+"\t"+stud[1]);
 		
 		
 		
