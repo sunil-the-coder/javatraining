@@ -20,11 +20,8 @@ public class HibernateTest {
 		Student stud = (Student) session.get(Student.class, 1);
 		
 		System.out.println(stud);
-		
-		stud.setPhone("8055812181");
-		
-		//Updating existing object or save new object
-		session.saveOrUpdate(stud);
+
+		session.delete(stud);
 
 		txn.commit();
 
