@@ -1001,7 +1001,8 @@ Advantage of hibernate:
   6) Without writing queries data can be updated/saved.
   7) Support for HQL queries ( Java Object level queries )
   8) Data validation before insertion using validator framework
-	
+  9) All exception are unchecked exception. So don't have to write
+	 anywhere try-catch block.
 
 
 @Size(max=15, min=6)
