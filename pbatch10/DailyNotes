@@ -1157,6 +1157,42 @@ if given id object not found.
 
 
 
+Different Ways to Query the Data in hibernate:
+
+1. Using standard session API ( save(), load(), delete(), update())
+	- only works with single object.
+
+
+2. HQL - Hibernate Query Language
+
+	- It uses java class & its properties name for quering data as compared to sql where table name + column names are used for query.
+	- Main adv is changes to db column doesn't affect actual query. Just update @Column mapping.
+
+
+3. NamedQuery & NamedNativeQuery
+	- A long/short query with some meaningful name which will be used at multiple place in project.
+	- native query -> SQL query
+
+4. Criteria API
+	- More of Object Oriented Way of writing Queries.
+	- Mostly helps in writing complex query
+	- Lot of customization + paging support.
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
 
 
 
