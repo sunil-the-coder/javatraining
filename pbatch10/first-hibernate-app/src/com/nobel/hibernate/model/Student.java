@@ -55,4 +55,11 @@ public class Student {
 		this.phone = phone;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", name=" + name + ", phone=" + phone + "]";
+	}
+	
+	
+
 }

@@ -1141,6 +1141,25 @@ create-drop: drop the schema when the SessionFactory is closed explicitly, typic
 
 
 
+update student set contact='528952' where id=1;
+
+
+
+Retrieve single object using unique id from database using session:
+
+
+
+load					get
+
+1.ObjectNotFoundException		Return null object if given 						identifier obj not found
+if given id object not found.
+
+
+
+
+
+
+
 
 
 

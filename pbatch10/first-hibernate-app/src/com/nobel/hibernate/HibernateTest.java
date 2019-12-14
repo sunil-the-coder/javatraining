@@ -16,13 +16,17 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 
 		Transaction txn = session.beginTransaction();
-
-		Student stud = new Student("Amar", "2785925");
-		session.save(stud);
+		
+		Student stud = (Student) session.get(Student.class, 1);
+		
+		System.out.println(stud);
+		
+		stud.setPhone("8055812181");
+		
+		//Updating existing object or save new object
+		session.saveOrUpdate(stud);
 
 		txn.commit();
-
-		System.out.println("Student Object is Saved.");
 
 		session.close();
 
