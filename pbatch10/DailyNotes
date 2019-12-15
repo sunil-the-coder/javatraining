@@ -1181,6 +1181,10 @@ Different Ways to Query the Data in hibernate:
 
 
 
+@NamedQueries -> multiple
+
+@NamedQuery -> single
+
 
 
 	
