@@ -1,36 +1,37 @@
 package com.nobel.hibernate.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="student")
-@NamedQueries(value = {
-		@NamedQuery(name = "getAllStudents",query = "from Student"),
-		@NamedQuery(name = "getStudInfo",query = "select name,phone from Student"),
-})
-@NamedNativeQueries(value = {
-		@NamedNativeQuery(name = "fetchAllStudents",query = "select * from student",resultClass = Student.class)
-})
+@Table(name = "student")
 public class Student {
 
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int studentId;
-	
+
 	private String name;
-	
-	@Column(name="contact")
+
+	@Column(name = "contact")
 	private String phone;
+
+	@Embedded
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public Student() {
 	}
@@ -57,7 +58,7 @@ public class Student {
 		this.name = name;
 	}
 
-	//@Column(name="contact")
+	// @Column(name="contact")
 	public String getPhone() {
 		return phone;
 	}
@@ -70,7 +71,5 @@ public class Student {
 	public String toString() {
 		return "Student [studentId=" + studentId + ", name=" + name + ", phone=" + phone + "]";
 	}
-	
-	
 
 }

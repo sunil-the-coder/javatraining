@@ -1201,6 +1201,38 @@ Pagination:
 	
 
 
+@Embeddable & @Embedded:
+	Reusing some set of common properties of entity.
+
+@Embeddable 
+class Address
+
+
+class Student
+{
+	@Embedded
+	private Address address;
+}
+
+
+Composite Key:
+	The Key with multiple columns.
+
+	//Composite Key
+	@EmbeddedId
+	private StudentID studentID;
+
+
+Employee:
+	pid  mobile email
+
+
+
+Primary Key: Single column key
+
+
+	
+
 
 
 
