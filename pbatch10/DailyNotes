@@ -1177,7 +1177,7 @@ Different Ways to Query the Data in hibernate:
 4. Criteria API
 	- More of Object Oriented Way of writing Queries.
 	- Mostly helps in writing complex query
-	- Lot of customization + paging support.
+	- Lot of customization + paging(pagination) support.
 
 
 
@@ -1187,8 +1187,18 @@ Different Ways to Query the Data in hibernate:
 
 
 
-	
+HTML + JavaScript + CSS + jQuery
 
+BootStrap & Foundation -> CSS Frameworks
+Angular + React -> Javascript Frameworks
+
+
+Full Stack Developer = UI + Java
+Backend Developer -> Java
+
+
+Pagination:
+	
 
 
 

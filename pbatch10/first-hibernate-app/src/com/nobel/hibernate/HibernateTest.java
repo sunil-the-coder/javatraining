@@ -26,9 +26,15 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 
 		Criteria criteria = session.createCriteria(Student.class); //from Student
+		
+		criteria.setMaxResults(3);
+		
+		criteria.setFirstResult(2);
+		
+		
 	//	criteria.add(Restrictions.like("phone", "%26"));
 	//	criteria.add(Restrictions.like("name", "p%"));
-		criteria.addOrder(Order.desc("name"));
+	//	criteria.addOrder(Order.desc("name"));
 	//	criteria.add(Restrictions.between("publishedDate",d1 , d2));
 		
 		//Restrictions.
