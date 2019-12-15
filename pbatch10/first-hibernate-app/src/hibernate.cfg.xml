@@ -11,6 +11,6 @@
   	<property name="hibernate.show_sql">true</property>
   	<!-- <mapping resource="hibernate.hbm.xml"/> -->
   	
-  	<mapping class="com.nobel.hibernate.model.Student"/>
+  	<mapping class="com.nobel.hibernate.model.Person"/>
   </session-factory>
 </hibernate-configuration>

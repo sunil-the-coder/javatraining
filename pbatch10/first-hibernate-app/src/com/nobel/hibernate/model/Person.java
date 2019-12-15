@@ -1,16 +1,22 @@
 package com.nobel.hibernate.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "person")
+public class Person {
 
 	@Id
 	@Column(name = "id")
@@ -23,20 +29,22 @@ public class Student {
 	private String phone;
 
 	@Embedded
-	private Address address;
+	@ElementCollection
+	@JoinTable(name = "person_address",joinColumns = @JoinColumn(name="person_id"))
+	private List<Address> addresses = new ArrayList<Address>();
 
-	public Address getAddress() {
-		return address;
+	public List<Address> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
-	public Student() {
+	public Person() {
 	}
 
-	public Student(String name, String phone) {
+	public Person(String name, String phone) {
 		super();
 		this.name = name;
 		this.phone = phone;
