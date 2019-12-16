@@ -26,6 +26,10 @@ public class Person {
 	@OneToOne
 	@JoinColumn(name="vehicle_id")
 	private Vehicle vehicle;
+	
+	/*
+	 * @OneToOne private Laptop laptop;
+	 */
 
 	public Vehicle getVehicle() {
 		return vehicle;

@@ -19,7 +19,9 @@ public class HibernateTest {
 		Person stud = new Person("Akash", "5252626");
 		Vehicle veh = new Vehicle("Unicorn");
 
+		//Most Imp Step - Bidirection 
 		stud.setVehicle(veh);
+		veh.setPerson(stud);
 		
 		session.save(stud);
 		session.save(veh);
