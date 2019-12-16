@@ -16,15 +16,20 @@ public class HibernateTest {
 
 		session.beginTransaction();
 
-		Person stud = new Person("Akash", "5252626");
-		Vehicle veh = new Vehicle("Unicorn");
-
-		//Most Imp Step - Bidirection 
-		stud.setVehicle(veh);
-		veh.setPerson(stud);
+		Person person = new Person("Akash", "5252626");
+		Vehicle veh1 = new Vehicle("Unicorn");
+		Vehicle veh2 = new Vehicle("BMW");
 		
-		session.save(stud);
-		session.save(veh);
+		//Most Imp Step - Bidirection 
+		
+		person.getVehicles().add(veh1);
+		person.getVehicles().add(veh2);
+
+		
+		session.save(veh1);
+		session.save(veh2);
+		
+		session.save(person);
 
 		session.getTransaction().commit();
 

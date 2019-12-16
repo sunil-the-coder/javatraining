@@ -1244,12 +1244,80 @@ Vehicle
 
 
 Mapping:
+
+1) One to One:
+
 	1) Unidirection ( Parent -> Child )
+
+
+
+mysql> select * from person;
++----+-------+---------+------------+
+| id | name  | contact | vehicle_id |
++----+-------+---------+------------+
+|  1 | Akash | 5252626 |          1 |
++----+-------+---------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++------------+---------+
+| vehicle_id | name    |
++------------+---------+
+|          1 | Unicorn |
++------------+---------+
+
+
+
 	2) Bidirection  ( Parent->Child, child->Parent )
 
 
+mysql> select * from vehicle;
++------------+---------+-----------+
+| vehicle_id | name    | person_id |
++------------+---------+-----------+
+|          1 | Unicorn |         1 |
++------------+---------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from person;
++----+-------+---------+------------+
+| id | name  | contact | vehicle_id |
++----+-------+---------+------------+
+|  1 | Akash | 5252626 |          1 |
++----+-------+---------+------------+
 
 
+
+
+2) OneToMany:
+	3rd table created with id's of different entities which are in relationship.
+
+
+mysql> select * from person;
++----+-------+---------+
+| id | name  | contact |
++----+-------+---------+
+|  1 | Akash | 5252626 |
++----+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++------------+---------+
+| vehicle_id | name    |
++------------+---------+
+|          1 | Unicorn |
+|          2 | BMW     |
++------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person_vehicle;
++-----------+---------------------+
+| person_id | vehicles_vehicle_id |
++-----------+---------------------+
+|         1 |                   1 |
+|         1 |                   2 |
++-----------+---------------------+
+2 rows in set (0.00 sec)
 
 
 
