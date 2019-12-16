@@ -25,6 +25,8 @@ public class HibernateTest {
 		person.getVehicles().add(veh1);
 		person.getVehicles().add(veh2);
 
+		veh1.setPerson(person);
+		veh2.setPerson(person);
 		
 		session.save(veh1);
 		session.save(veh2);

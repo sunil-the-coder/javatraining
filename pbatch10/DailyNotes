@@ -1287,7 +1287,7 @@ mysql> select * from person;
 +----+-------+---------+------------+
 
 
-
+	
 
 2) OneToMany:
 	3rd table created with id's of different entities which are in relationship.
@@ -1320,6 +1320,43 @@ mysql> select * from person_vehicle;
 2 rows in set (0.00 sec)
 
 
+
+3) OneToMany + ManyToOne
+
++--------------------+
+| Tables_in_pbatch10 |
++--------------------+
+| person             |
+| person_vehicle     |
+| vehicle            |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from person;
++----+-------+---------+
+| id | name  | contact |
++----+-------+---------+
+|  1 | Akash | 5252626 |
++----+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++------------+---------+-----------+
+| vehicle_id | name    | person_id |
++------------+---------+-----------+
+|          1 | Unicorn |         1 |
+|          2 | BMW     |         1 |
++------------+---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person_vehicle;
++-----------+---------------------+
+| person_id | vehicles_vehicle_id |
++-----------+---------------------+
+|         1 |                   1 |
+|         1 |                   2 |
++-----------+---------------------+
+2 rows in set (0.01 sec)
 
 
 

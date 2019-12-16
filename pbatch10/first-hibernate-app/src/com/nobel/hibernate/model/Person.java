@@ -26,7 +26,7 @@ public class Person {
 	@Column(name = "contact")
 	private String phone;
 
-	@OneToMany
+	@OneToMany(mappedBy = "person")
 	// @JoinColumn(name="vehicle_id")
 	private List<Vehicle> vehicles = new ArrayList<>();
 
