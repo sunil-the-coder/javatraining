@@ -1231,6 +1231,30 @@ Employee:
 Primary Key: Single column key
 
 
+
+RelationShip between entities:
+
+1) 1-1, 1-M, M-1, 
+
+
+Person
+	
+
+Vehicle
+
+
+Mapping:
+	1) Unidirection ( Parent -> Child )
+	2) Bidirection  ( Parent->Child, child->Parent )
+
+
+
+
+
+
+
+
+
 	
 
 

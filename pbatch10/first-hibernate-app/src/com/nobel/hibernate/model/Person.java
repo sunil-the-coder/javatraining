@@ -1,17 +1,12 @@
 package com.nobel.hibernate.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,17 +23,16 @@ public class Person {
 	@Column(name = "contact")
 	private String phone;
 
-	@Embedded
-	@ElementCollection
-	@JoinTable(name = "person_address",joinColumns = @JoinColumn(name="person_id"))
-	private List<Address> addresses = new ArrayList<Address>();
+	@OneToOne
+	@JoinColumn(name="vehicle_id")
+	private Vehicle vehicle;
 
-	public List<Address> getAddresses() {
-		return addresses;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
 	public Person() {

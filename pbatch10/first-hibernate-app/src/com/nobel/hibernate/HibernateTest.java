@@ -3,8 +3,8 @@ package com.nobel.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.nobel.hibernate.model.Address;
 import com.nobel.hibernate.model.Person;
+import com.nobel.hibernate.model.Vehicle;
 import com.nobel.hibernate.util.HibernateUtil;
 
 public class HibernateTest {
@@ -16,14 +16,13 @@ public class HibernateTest {
 
 		session.beginTransaction();
 
-		Address homeAddr = new Address(411033, "wakad", "datta mandir", "pune");
-		Address officeAddr = new Address(411055, "Kharadi", "Aiport", "pune");
-
 		Person stud = new Person("Akash", "5252626");
-		stud.getAddresses().add(homeAddr);
-		stud.getAddresses().add(officeAddr);
+		Vehicle veh = new Vehicle("Unicorn");
 
+		stud.setVehicle(veh);
+		
 		session.save(stud);
+		session.save(veh);
 
 		session.getTransaction().commit();
 
