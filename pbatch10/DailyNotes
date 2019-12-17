@@ -1319,7 +1319,7 @@ mysql> select * from person_vehicle;
 +-----------+---------------------+
 2 rows in set (0.00 sec)
 
-
+ 
 
 3) OneToMany + ManyToOne
 

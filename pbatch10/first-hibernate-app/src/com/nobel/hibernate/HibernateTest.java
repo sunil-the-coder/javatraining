@@ -35,7 +35,7 @@ public class HibernateTest {
 
 		session.getTransaction().commit();
 
-		System.out.println("Student Saved.");
+		System.out.println("Person Saved.");
 
 		session.close();
 		HibernateUtil.shutdown();
