@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,7 +27,7 @@ public class Person {
 	@Column(name = "contact")
 	private String phone;
 
-	@OneToMany(mappedBy = "person")
+	@ManyToMany
 	// @JoinColumn(name="vehicle_id")
 	private List<Vehicle> vehicles = new ArrayList<>();
 

@@ -1,11 +1,14 @@
 package com.nobel.hibernate.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +22,8 @@ public class Vehicle {
 
 	private String name;
 
-	@ManyToOne
-	private Person person;
+	@ManyToMany
+	private List<Person> persons = new ArrayList<>();
 
 	public int getId() {
 		return id;
@@ -30,12 +33,12 @@ public class Vehicle {
 		this.id = id;
 	}
 
-	public Person getPerson() {
-		return person;
+	public List<Person> getPersons() {
+		return persons;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setPersons(List<Person> persons) {
+		this.persons = persons;
 	}
 
 	public Vehicle() {

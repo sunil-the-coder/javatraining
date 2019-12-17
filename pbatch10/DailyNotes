@@ -1360,6 +1360,51 @@ mysql> select * from person_vehicle;
 
 
 
+4) manytomany
+
+
+mysql> select * from person;
++----+-------+---------+
+| id | name  | contact |
++----+-------+---------+
+|  1 | Akash | 5252626 |
++----+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from vehicle;
++------------+---------+
+| vehicle_id | name    |
++------------+---------+
+|          1 | Unicorn |
+|          2 | BMW     |
++------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person_vehicle;
++-----------+---------------------+
+| person_id | vehicles_vehicle_id |
++-----------+---------------------+
+|         1 |                   1 |
+|         1 |                   2 |
++-----------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from vehicle_vehicle;
+ERROR 1146 (42S02): Table 'pbatch10.vehicle_vehicle' doesn't exist
+mysql> select * from vehicle_person;
++--------------------+------------+
+| vehicle_vehicle_id | persons_id |
++--------------------+------------+
+|                  1 |          1 |
+|                  2 |          1 |
++--------------------+------------+
+
+
+2 separate table created from both way of mapping.
+
+
+
+
 	
 
 
