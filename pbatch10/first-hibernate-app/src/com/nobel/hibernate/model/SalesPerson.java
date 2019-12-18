@@ -7,6 +7,10 @@ public class SalesPerson extends Person {
 
 	private int commission;
 
+	public SalesPerson() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public SalesPerson(String name, String phone, int salary) {
 		super(name, phone);
 		this.commission = salary;

@@ -11,12 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
 
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 
 	private String name;
