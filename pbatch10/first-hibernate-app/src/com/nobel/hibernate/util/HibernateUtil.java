@@ -15,7 +15,7 @@ public class HibernateUtil {
 		// 1. Load the configuration file.
 		Configuration config = new Configuration();
 		config.addAnnotatedClass(Person.class);
-		config.addAnnotatedClass(Vehicle.class);
+		//config.addAnnotatedClass(Vehicle.class);
 		
 		config.setProperty("connection.driver_name", "com.mysql.cj.jdbc.Driver");
 		config.setProperty("connection.url", "jdbc:mysql://localhost:3306/pbatch10");

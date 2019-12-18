@@ -32,7 +32,7 @@ public class StudentService {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		Person stud = new Person();
-		stud.setStudentId(id);
+		stud.setId(id);
 		session.delete(stud);
 		session.close();
 

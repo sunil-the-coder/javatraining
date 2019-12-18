@@ -12,6 +12,8 @@
   	<!-- <mapping resource="hibernate.hbm.xml"/> -->
   	
   	<mapping class="com.nobel.hibernate.model.Person"/>
-  	<mapping class="com.nobel.hibernate.model.Vehicle"/>
+  	<mapping class="com.nobel.hibernate.model.Employee"/>
+  	<mapping class="com.nobel.hibernate.model.SalesPerson"/>
+  	<!-- <mapping class="com.nobel.hibernate.model.Vehicle"/> -->
   </session-factory>
 </hibernate-configuration>

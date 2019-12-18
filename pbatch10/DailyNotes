@@ -1405,6 +1405,76 @@ mysql> select * from vehicle_person;
 
 
 
+
+### Inheritance in hibernate ###
+
+
+	    Person(id,name)
+
+Employee		SalesPerson
+(salary)		(commission)
+
+
+Emp e1= new Emp(10,'sunil',50000);
+Sp e2= new Sp(11,'akash',500);
+
+
+
+1) Single table ( Default )
+
+	Multiple null values & need to maintain type of entity with separate column.
+
+2) Separate table per class
+	Common properties are repeated in each entity table.
+
+3) Joined table strategy
+	Common props maintained at parent table & each entity will maintain its own props along with foregin key from parent table.
+
+
+
+empType | id | name | salary | commision
+
+EMP    10    sunil      50000		NULL
+SP     11    akash      NULL		500
+
+
+2) Separate table per class.
+
+Employee
+
+id | name | salary
+
+
+SP
+
+id | name | commision
+
+
+3) Joined table strategy
+
+person
+
+id | name
+
+Employee
+
+id | salary
+
+SP
+id | commission
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 

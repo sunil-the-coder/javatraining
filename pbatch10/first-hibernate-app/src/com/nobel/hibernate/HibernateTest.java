@@ -3,8 +3,9 @@ package com.nobel.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.nobel.hibernate.model.Employee;
 import com.nobel.hibernate.model.Person;
-import com.nobel.hibernate.model.Vehicle;
+import com.nobel.hibernate.model.SalesPerson;
 import com.nobel.hibernate.util.HibernateUtil;
 
 public class HibernateTest {
@@ -16,24 +17,13 @@ public class HibernateTest {
 
 		session.beginTransaction();
 
-		Person person1 = new Person("Akash", "5252626");
-		
-		Vehicle veh1 = new Vehicle("Unicorn");
-		Vehicle veh2 = new Vehicle("BMW");
-		
-		
-		//Most Imp Step - Bidirection 
-		
-		person1.getVehicles().add(veh1);
-		person1.getVehicles().add(veh2);
+		Person person1 = new Person("Akash", "52905210");
+		Employee emp1 = new Employee("Pradip", "5252626", 50000);
+		SalesPerson sp1 = new SalesPerson("Mandal", "909205", 40000);
 
-		veh1.getPersons().add(person1);
-		veh2.getPersons().add(person1);
-		
-		session.save(veh1);
-		session.save(veh2);
-		
 		session.save(person1);
+		session.save(emp1);
+		session.save(sp1);
 
 		session.getTransaction().commit();
 

@@ -1,16 +1,10 @@
 package com.nobel.hibernate.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,24 +14,12 @@ public class Person {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int studentId;
+	private int id;
 
 	private String name;
 
 	@Column(name = "contact")
 	private String phone;
-
-	@ManyToMany
-	// @JoinColumn(name="vehicle_id")
-	private List<Vehicle> vehicles = new ArrayList<>();
-
-	public List<Vehicle> getVehicles() {
-		return vehicles;
-	}
-
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
-	}
 
 	public Person() {
 	}
@@ -48,12 +30,12 @@ public class Person {
 		this.phone = phone;
 	}
 
-	public int getStudentId() {
-		return studentId;
+	public int getId() {
+		return id;
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -75,7 +57,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", name=" + name + ", phone=" + phone + "]";
+		return "Student [id=" + id + ", name=" + name + ", phone=" + phone + "]";
 	}
 
 }

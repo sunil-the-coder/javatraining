@@ -22,9 +22,9 @@ public class Vehicle {
 
 	private String name;
 
-	@ManyToMany
-	private List<Person> persons = new ArrayList<>();
-
+	/*
+	 * @ManyToMany private List<Person> persons = new ArrayList<>();
+	 */
 	public int getId() {
 		return id;
 	}
@@ -33,14 +33,11 @@ public class Vehicle {
 		this.id = id;
 	}
 
-	public List<Person> getPersons() {
-		return persons;
-	}
-
-	public void setPersons(List<Person> persons) {
-		this.persons = persons;
-	}
-
+	/*
+	 * public List<Person> getPersons() { return persons; }
+	 * 
+	 * public void setPersons(List<Person> persons) { this.persons = persons; }
+	 */
 	public Vehicle() {
 	}
 
