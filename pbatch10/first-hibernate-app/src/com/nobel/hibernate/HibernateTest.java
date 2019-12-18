@@ -20,11 +20,13 @@ public class HibernateTest {
 		Person person1 = new Person("Akash", "52905210");
 		Employee emp1 = new Employee("Pradip", "5252626", 50000);
 		SalesPerson sp1 = new SalesPerson("Mandal", "909205", 40000);
-
+		SalesPerson sp2 = new SalesPerson("Raju", "920525", 60000);
+		
 		session.save(person1);
 		session.save(emp1);
 		session.save(sp1);
-
+		session.save(sp2);
+		
 		session.getTransaction().commit();
 
 		System.out.println("Person Saved.");
