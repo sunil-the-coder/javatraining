@@ -15,23 +15,25 @@ public class HibernateTest {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 
-		session.beginTransaction();
+		Person person = (Person) session.get(Person.class, 1);
+		System.out.println(person);
 
-		Person person1 = new Person("Akash", "52905210");
-		Employee emp1 = new Employee("Pradip", "5252626", 50000);
-		SalesPerson sp1 = new SalesPerson("Mandal", "909205", 40000);
-		SalesPerson sp2 = new SalesPerson("Raju", "920525", 60000);
+		Person person2 = (Person) session.get(Person.class, 1);
+		System.out.println(person2);
 		
-		session.save(person1);
-		session.save(emp1);
-		session.save(sp1);
-		session.save(sp2);
+		Person person3 = (Person) session.get(Person.class, 2);
+		System.out.println(person3);
 		
-		session.getTransaction().commit();
-
-		System.out.println("Person Saved.");
-
 		session.close();
+		
+		Session session2 = sessionFactory.openSession();
+		
+		Person person4 = (Person) session2.get(Person.class, 1);
+		System.out.println(person4);
+		
+		session2.close();
+
+		
 		HibernateUtil.shutdown();
 	}
 }

@@ -1467,6 +1467,80 @@ id | commission
 
 
 
+Caching in Hibernate:
+
+
+What is Cache ?
+
+The in-memory storage for most frequent object/data.
+
+Adv:
+	Same object/data request will be served faster from in-memory cache.
+
+
+
+
+	
+
+
+			(Memory)
+User	1		Java	-> select  ->		DB
+
+
+User2  1		Java		-> select -> 
+
+
+1) 1st level cache 
+	- Bydefault enabled.
+	- Session level cache. 
+	- 
+
+2) 2nd level cache	
+	- Not enabled by default
+	- session factory level cache.
+
+Vendors who support 2nd level cache:
+	a. Sworm
+	b. JBoss Cache
+	c. EhCache 
+	
+
+Steps for adding 2nd level cache:
+
+
+1. Add enable properties in cfg.xml including factory implemention class of vendor.
+
+2. Add cache configuration file for your objects & define your cache settings as required. (ehcache.xml)
+
+3.  
+
+
+
+
+
+
+Without Hibernate Cache:
+
+1) caffeine 
+2) hazelcast - distributed caching support
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
