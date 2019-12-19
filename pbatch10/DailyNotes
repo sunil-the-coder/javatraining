@@ -1512,8 +1512,7 @@ Steps for adding 2nd level cache:
 
 2. Add cache configuration file for your objects & define your cache settings as required. (ehcache.xml)
 
-3.  
-
+3.  Add @Cache on the top of entity classes which you wish to store into your created region cache.
 
 
 
