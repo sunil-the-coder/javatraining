@@ -15,8 +15,14 @@ public class HibernateTest {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 
+		
+		Person p = new Person("test", "63643");
+		
+		
+		
 		Person person = (Person) session.get(Person.class, 1);
 		System.out.println(person);
+		
 
 		Person person2 = (Person) session.get(Person.class, 1);
 		System.out.println(person2);

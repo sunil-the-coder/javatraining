@@ -1507,14 +1507,11 @@ Vendors who support 2nd level cache:
 
 Steps for adding 2nd level cache:
 
-
 1. Add enable properties in cfg.xml including factory implemention class of vendor.
 
 2. Add cache configuration file for your objects & define your cache settings as required. (ehcache.xml)
 
-3.  Add @Cache on the top of entity classes which you wish to store into your created region cache.
-
-
+3. Add @Cache on the top of entity classes which you wish to store into your created region cache.
 
 
 
@@ -1522,6 +1519,54 @@ Without Hibernate Cache:
 
 1) caffeine 
 2) hazelcast - distributed caching support
+
+
+eviction: 
+	Remove explicitely cached object from cache.
+
+session.evict(Person.class)
+
+States of an Object in Hibernate:
+
+	
+
+
+------------------------------------------------------------------
+
+
+
+
+static website:
+	Only static content - No business logic
+	No server processing for dynamic content.
+	
+	(HTML+CSS+Javascript)
+
+We only need http Web Server which can handle or server http request for different resources like html,css, images, video etc..
+
+Apache Server ->  Http Web Server
+
+
+
+dynamic website:
+
+	We need to write some business logic before content can be served + static content.
+
+Java:
+	Servlets, JSP, Thymlyfe(template engine)
+
+
+Prequisite for web dev in java:
+
+1. Core Java ( JDK )
+2. Web Container
+	Apache Tomcat
+	( Web server + servlet + jsp engine )
+
+	
+
+
+	
 
 
 
