@@ -1566,6 +1566,105 @@ Prequisite for web dev in java:
 	
 
 
+
+
+Apache Tomcat web server:
+
+1) Integrate tomcat with eclipse.
+
+2) Understand web application structure ( WAR file )
+
+3) Understand servlet 
+
+4) create sample application & deploy into tomcat container.
+
+5) Test it.
+
+
+
+Application control flow -> Developer
+
+
+Spring:
+	IoC container.
+
+
+Inversion of control: ( IoC )
+
+	The flow of an application is not managed by developer but its by framework.
+
+
+
+Control flow to framework or web server from developer.
+
+
+Client ( browser )
+
+Server ( tomcat web server + web application )
+
+
+Servlet:
+	Serverside Scriptlet
+
+It is piece of java code which resides on server, execute on server & generate the output in html format back to client.
+
+
+WebApp Structure:
+
+flipkart
+
+html, css, javascript, images, videos
+configuration files, xml, properties, .class files
+
+JAR File:
+	java Archieve -> Collection of .class files or .properties etc.
+
+
+META-INF/Manifest.mf
+
+
+WAR file:
+	Web Archieve -> Collection of all resources for web application. 
+
+	Resource -> images/html/css/properties/class etccccccc
+
+
+
+Http status codes:
+
+https://www.restapitutorial.com/httpstatuscodes.html
+
+
+
+Hot Reload:
+	
+
+
+
+
+
+
+
+
+Assignments:
+
+
+1. Create website form for accepting student details & display registration status.
+
+Or login page.
+
+
+
+
+
+
+
+ 
+
+
+
+
+
 	
 
 
