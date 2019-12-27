@@ -1685,13 +1685,23 @@ Mapping -> xml or annotation
 
 
 
-http://192.168.0.15:8080/firstweb
+http://192.168.0.15:8080/oshop
 
 
 
 
 
 
+Redirect client to another page/url from server:
+
+1. response.sendRedirect(url)
+
+2. RequestDispatcher ( url )
+	forward(req,resp)
+
+
+
+Integration of hibernate with serlvet:
 
 
 
