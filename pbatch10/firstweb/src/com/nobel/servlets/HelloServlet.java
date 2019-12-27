@@ -23,6 +23,11 @@ public class HelloServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
+		
+		String remoteIp = request.getRemoteAddr();
+		
+		System.out.println("Request coming from :"+remoteIp);
+		
 		out.println("<html><body><h2>Hello, Welcome to Servlets</h2></body></html>");
 		
 		out.close();

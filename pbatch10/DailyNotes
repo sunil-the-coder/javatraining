@@ -1658,6 +1658,49 @@ Or login page.
 
 
 
+1. Annotation based mapping
+
+2. Login application without database & with database.
+
+3. Start online shopping project.
+
+
+
+
+web.xml -> Deployment descriptor
+
+Mapping -> xml or annotation
+
+
+<servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>com.nobel.servlets.HelloServlet</servlet-class>
+ </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+
+
+http://192.168.0.15:8080/firstweb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 
