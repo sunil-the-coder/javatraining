@@ -1,8 +1,6 @@
 package com.nobel.oshop.servlets;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nobel.oshop.cart.ShoppingCart;
 import com.nobel.oshop.model.CartProduct;
 
 /**
@@ -34,12 +33,12 @@ public class AddToCartServlet extends HttpServlet {
 
 		CartProduct cartProduct = new CartProduct(pid, name, price, qty);
 
-		List<CartProduct> cart = (List<CartProduct>) context.getAttribute("cart");
+		ShoppingCart cart = (ShoppingCart) context.getAttribute("cart");
 		if (cart == null) {
-			cart = new LinkedList<>();
+			cart = new ShoppingCart();
 		}
 
-		cart.add(cartProduct);
+		cart.addProduct(cartProduct);
 
 		context.setAttribute("cart", cart);
 

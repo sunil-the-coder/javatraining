@@ -2,7 +2,7 @@ package com.nobel.oshop.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.Iterator;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nobel.oshop.cart.ShoppingCart;
 import com.nobel.oshop.model.CartProduct;
 
 @WebServlet("/listCart")
@@ -24,7 +25,7 @@ public class ListCartItemsServlet extends HttpServlet {
 
 		ServletContext context = getServletContext();
 
-		List<CartProduct> cart = (List<CartProduct>) context.getAttribute("cart");
+		ShoppingCart cart = (ShoppingCart) context.getAttribute("cart");
 
 		PrintWriter out = response.getWriter();
 
@@ -32,20 +33,19 @@ public class ListCartItemsServlet extends HttpServlet {
 			out.println("<html><body> <h2> Your shopping cart </h2> <table border=1>");
 			out.println("<tr><th>Name</th><th>Price</th><th> Qty</th><th>Action</th> </tr>");
 
-			int total = 0;
-			for (CartProduct prod : cart) {
+			Iterator<CartProduct> itr = cart.listItr();
+			while (itr.hasNext()) {
+				CartProduct prod = itr.next();
 				out.println("<tr>");
 				out.println("<td>" + prod.getProdName() + "</td>");
 				out.println("<td>" + prod.getPrice() + "</td>");
 				out.println("<td>" + prod.getQty() + "</td>");
 				out.println("<td><a href='removeFromCart?pid=" + prod.getPid() + "'>Remove</a></td>");
 				out.println("</tr>");
-
-				total += prod.getQty() * prod.getPrice();
 			}
 
 			out.println("</table>");
-			out.println("<h3> Total:" + total + "</h3>");
+			out.println("<h3> Total:" + cart.getTotal() + "</h3>");
 			out.println("<h2><a href='categories'>Continue Shopping</a></h2>");
 			out.println("<h2><a href='placeOrder'>Place Order</a></h2>");
 			out.println("<h2><a href='logout'>Logout</a></h2>");
