@@ -1688,7 +1688,8 @@ Mapping -> xml or annotation
 http://192.168.0.15:8080/oshop
 
 
-
+Query String:
+	?catId=1&name=sunil&city=pune
 
 
 
@@ -1712,6 +1713,30 @@ Integration of hibernate with servlet:
 
 4) 
 
+
+
+
+mysql> select * from categories;
++----+---------+---------------------------------+-------------+
+| id | catName | catDesc                         | catImgUrl   |
++----+---------+---------------------------------+-------------+
+|  1 | shoes   | must wear shoes for sporty look | shoes.jpg   |
+|  2 | Printer | take the printouts              | printer.png |
+|  3 | Watch   | Must wear watches               | watch.jpg   |
++----+---------+---------------------------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from products;
++-----+-------+---------------+------------------------+-----------+-------------------+------+
+| pid | catId | prodName      | prodDesc               | prodPrice | prodImgUrl        | qty  |
++-----+-------+---------------+------------------------+-----------+-------------------+------+
+|   1 |     1 | Adidas Shoes  | Must wear adidas shoes |      2500 | adidas.jpg        |   30 |
+|   2 |     1 | Sparx Shoes   | sparx shoes            |      4000 | sparx.jpg         |   23 |
+|   3 |     2 | HP Printer    | fastest hp printer     |     14000 | hp_printer.jpg    |    5 |
+|   4 |     2 | Canon Printer | canon printer          |     12000 | canon_printer.jpg |   10 |
+|   5 |     3 | Rolex Watch   | Stylish Watch          |     12000 | rolex.jpg         |   40 |
+|   6 |     3 | Titan Watch   | cool titan watch       |     11000 | titan.jpg         |    6 |
++-----+-------+---------------+------------------------+-----------+-------------------+------+
 
 
 
