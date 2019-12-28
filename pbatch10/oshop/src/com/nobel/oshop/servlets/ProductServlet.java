@@ -44,13 +44,13 @@ public class ProductServlet extends HttpServlet {
 		out.println("<html><body><table border=1>");
 		out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th> </tr>");
 
-		for (Product product : products) {
+		for (Product prod : products) {
 			out.println("<tr>");
-			out.println("<td>" + product.getProdName() + "</td>");
-			out.println("<td>" + product.getProdDesc() + "</td>");
-			out.println("<td>" + product.getPrice() + "</td>");
-			out.println("<td><img src='images/" + product.getProdImgUrl() + "' width='50%' height='50%'/></td>");
-			out.println("<td><a href='addToCart'>AddToCart</a></td>");
+			out.println("<td>" + prod.getProdName() + "</td>");
+			out.println("<td>" + prod.getProdDesc() + "</td>");
+			out.println("<td>" + prod.getPrice() + "</td>");
+			out.println("<td><img src='images/" + prod.getProdImgUrl() + "' width='50%' height='50%'/></td>");
+			out.println("<td><a href='addToCart?pid="+prod.getPid()+"&prodName="+prod.getProdName()+"&price="+prod.getPrice()+"&qty=1'>AddToCart</a></td>");
 			out.println("</tr>");
 		}
 

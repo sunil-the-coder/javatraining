@@ -1751,7 +1751,8 @@ mysql> select * from products;
 
 
 
-
+Query query = session.createQuery("select OBJECT(p) from Product p where catId=?");
+		query.setParameter(0, catId);
 	
 
 
