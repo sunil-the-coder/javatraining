@@ -1758,6 +1758,8 @@ Query query = session.createQuery("select OBJECT(p) from Product p where catId=?
 
 
 
+SRP -> Single Responsiblity Principle
+
 
 
 

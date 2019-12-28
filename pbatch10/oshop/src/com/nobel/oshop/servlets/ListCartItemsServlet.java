@@ -27,6 +27,7 @@ public class ListCartItemsServlet extends HttpServlet {
 
 		ShoppingCart cart = (ShoppingCart) context.getAttribute("cart");
 
+		
 		PrintWriter out = response.getWriter();
 
 		if (cart != null) {
