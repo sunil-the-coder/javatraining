@@ -1701,7 +1701,16 @@ Redirect client to another page/url from server:
 
 
 
-Integration of hibernate with serlvet:
+Integration of hibernate with servlet:
+
+
+1) Copy all hibernate jar into lib folder.
+
+2) Prepare cfg.xml into src folder of dynamic web project.
+
+3) Copy HibernateUtil class into src folder with package.
+
+4) 
 
 
 
