@@ -1,5 +1,6 @@
 package com.nobel.oshop.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class Product {
 	private String prodName;
 	private String prodDesc;
 	private String prodImgUrl;
+	@Column(name = "prodPrice")
 	private int price;
 	private int qty;
 

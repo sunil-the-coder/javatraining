@@ -10,5 +10,6 @@
   	<property name="hibernate.hbm2ddl.auto">update</property>
   	<property name="hibernate.show_sql">true</property>  
   	<mapping class="com.nobel.oshop.model.Category"/>
+  		<mapping class="com.nobel.oshop.model.Product"/>
   </session-factory>
 </hibernate-configuration>

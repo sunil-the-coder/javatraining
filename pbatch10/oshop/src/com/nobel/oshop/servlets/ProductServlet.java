@@ -10,15 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
-import com.nobel.oshop.model.Category;
+import com.nobel.oshop.model.Product;
 import com.nobel.shop.hibernate.util.HibernateUtil;
 
-@WebServlet("/categories")
-public class CategoryServlet extends HttpServlet {
+@WebServlet("/products")
+public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,22 +29,28 @@ public class CategoryServlet extends HttpServlet {
 
 		// Display categories..
 
+		int catId = Integer.parseInt(request.getParameter("catId"));
+
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
 		Session session = sessionFactory.openSession();
 
-		Query query = session.createQuery("from Category");
+		Criteria criteria = session.createCriteria(Product.class);
+		criteria.add(Restrictions.eq("catId", catId));
 
-		List<Category> categories = (List<Category>) query.list();
+		List<Product> products = (List<Product>) criteria.list();
+		System.out.println("products:"+products);
 
 		out.println("<html><body><table border=1>");
-		out.println("<tr><th>Name</th><th>Description</th><th> Image </th> </tr>");
+		out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th> </tr>");
 
-		for (Category category : categories) {
+		for (Product product : products) {
 			out.println("<tr>");
-			out.println("<td>" + category.getCatName() + "</td>");
-			out.println("<td>" + category.getCatDesc() + "</td>");
-			out.println("<td><a href='products?catId="+category.getId()+"'><img src='images/" + category.getCatImgUrl() + "' width='50%' height='50%'/></a></td>");
+			out.println("<td>" + product.getProdName() + "</td>");
+			out.println("<td>" + product.getProdDesc() + "</td>");
+			out.println("<td>" + product.getPrice() + "</td>");
+			out.println("<td><img src='images/" + product.getProdImgUrl() + "' width='50%' height='50%'/></td>");
+			out.println("<td><a href='addToCart'>AddToCart</a></td>");
 			out.println("</tr>");
 		}
 
@@ -51,6 +58,7 @@ public class CategoryServlet extends HttpServlet {
 
 		session.close();
 		
+
 		out.close();
 
 	}
