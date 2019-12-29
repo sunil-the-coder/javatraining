@@ -1742,25 +1742,67 @@ mysql> select * from products;
 
 
 
-
-
-
-
- 
-
-
-
-
 Query query = session.createQuery("select OBJECT(p) from Product p where catId=?");
 		query.setParameter(0, catId);
 	
 
-
-
-
 SRP -> Single Responsiblity Principle
 
 
+Session & Cookies:
+
+
+Cookie:
+	It's basic text file which has set of key|value pairs.
+	Size limited.
+	Stored at client side & can be deleted by user.
+
+
+Session:
+	It's used for identifying same client requests for the server.	
+	Store at server side.
+	No limitation of data & type of data.
+
+
+
+&nbsp;  -> Non breaking space
+&lt;
+	
+
+Cookie(key/value)
+
+
+Non-Persistent Cookie:
+	The life of cookie depends on browser. If browser closes, the cookie will be destroyed immediately.
+
+
+Persistent Cookie:
+	Don't depeneds on browser. It expires when its maxAge value is expire.
+
+
+JSESSIONID=25FD7FC45CEA38CF54781C6FAEFED66B
+
+
+This cookie is created by tomcat container for each browser request.
+
+The browser is responsible for to send this cookie to server for each request to same application like ( oshop, flipkart, amazon etc...)
+
+
+
+
+
+
+Ubuntu Chrome Cookies location:
+
+$HOME/.config/google-chrome/Default/Cookies
+
+
+
+
+	
+	 
+	
+	
 
 
 
