@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nobel.oshop.cart.ShoppingCart;
 import com.nobel.oshop.model.CartProduct;
@@ -24,26 +25,33 @@ public class AddToCartServlet extends HttpServlet {
 
 		// addToCart?pid=5&prodName=Rolex%20Watch&price=12000&qty=1
 
-		ServletContext context = getServletContext();
+		HttpSession httpSession = request.getSession(false);
 
-		int pid = Integer.parseInt(request.getParameter("pid"));
-		int price = Integer.parseInt(request.getParameter("price"));
-		int qty = Integer.parseInt(request.getParameter("qty"));
-		String name = request.getParameter("prodName");
+		if (httpSession == null) {
+			response.sendRedirect("index.html");
+		} else {
 
-		CartProduct cartProduct = new CartProduct(pid, name, price, qty);
+			//ServletContext context = getServletContext();
 
-		ShoppingCart cart = (ShoppingCart) context.getAttribute("cart");
-		if (cart == null) {
-			cart = new ShoppingCart();
+			int pid = Integer.parseInt(request.getParameter("pid"));
+			int price = Integer.parseInt(request.getParameter("price"));
+			int qty = Integer.parseInt(request.getParameter("qty"));
+			String name = request.getParameter("prodName");
+
+			CartProduct cartProduct = new CartProduct(pid, name, price, qty);
+
+			ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("cart");
+			if (cart == null) {
+				cart = new ShoppingCart();
+			}
+
+			cart.addProduct(cartProduct);
+
+			httpSession.setAttribute("cart", cart);
+
+			response.sendRedirect("listCart");
+
 		}
-
-		cart.addProduct(cartProduct);
-
-		context.setAttribute("cart", cart);
-
-		response.sendRedirect("listCart");
-
 	}
 
 }

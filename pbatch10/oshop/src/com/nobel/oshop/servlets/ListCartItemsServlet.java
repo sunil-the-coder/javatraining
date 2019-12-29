@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nobel.oshop.cart.ShoppingCart;
 import com.nobel.oshop.model.CartProduct;
@@ -22,35 +23,42 @@ public class ListCartItemsServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// How to access cart here ?
+		HttpSession httpSession = request.getSession(false);
 
-		ServletContext context = getServletContext();
+		if (httpSession == null) {
+			response.sendRedirect("index.html");
+		} else {
 
-		ShoppingCart cart = (ShoppingCart) context.getAttribute("cart");
+			//ServletContext context = getServletContext();
 
-		
-		PrintWriter out = response.getWriter();
+			ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("cart");
 
-		if (cart != null) {
-			out.println("<html><body> <h2> Your shopping cart </h2> <table border=1>");
-			out.println("<tr><th>Name</th><th>Price</th><th> Qty</th><th>Action</th> </tr>");
+			PrintWriter out = response.getWriter();
 
-			Iterator<CartProduct> itr = cart.listItr();
-			while (itr.hasNext()) {
-				CartProduct prod = itr.next();
-				out.println("<tr>");
-				out.println("<td>" + prod.getProdName() + "</td>");
-				out.println("<td>" + prod.getPrice() + "</td>");
-				out.println("<td>" + prod.getQty() + "</td>");
-				out.println("<td><a href='removeFromCart?pid=" + prod.getPid() + "'>Remove</a></td>");
-				out.println("</tr>");
+			if (cart != null) {
+				out.println("<html><body>");
+				out.println("<h2> Welcome, "+httpSession.getAttribute("currentUser")+"</h2>");
+				out.println("<h2> Your shopping cart </h2> <table border=1>");
+				out.println("<tr><th>Name</th><th>Price</th><th> Qty</th><th>Action</th> </tr>");
+
+				Iterator<CartProduct> itr = cart.listItr();
+				while (itr.hasNext()) {
+					CartProduct prod = itr.next();
+					out.println("<tr>");
+					out.println("<td>" + prod.getProdName() + "</td>");
+					out.println("<td>" + prod.getPrice() + "</td>");
+					out.println("<td>" + prod.getQty() + "</td>");
+					out.println("<td><a href='removeFromCart?pid=" + prod.getPid() + "'>Remove</a></td>");
+					out.println("</tr>");
+				}
+
+				out.println("</table>");
+				out.println("<h3> Total:" + cart.getTotal() + "</h3>");
+				out.println("<h2><a href='categories'>Continue Shopping</a></h2>");
+				out.println("<h2><a href='placeOrder'>Place Order</a></h2>");
+				out.println("<h2><a href='logout'>Logout</a></h2>");
+				out.println("</body></html>");
 			}
-
-			out.println("</table>");
-			out.println("<h3> Total:" + cart.getTotal() + "</h3>");
-			out.println("<h2><a href='categories'>Continue Shopping</a></h2>");
-			out.println("<h2><a href='placeOrder'>Place Order</a></h2>");
-			out.println("<h2><a href='logout'>Logout</a></h2>");
-			out.println("</body></html>");
 		}
 	}
 

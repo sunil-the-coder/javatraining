@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class AuthenticateUserServlet extends HttpServlet {
@@ -41,6 +42,10 @@ public class AuthenticateUserServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("currentUser", uname);
+				
 				response.sendRedirect("categories");
 
 			} else {

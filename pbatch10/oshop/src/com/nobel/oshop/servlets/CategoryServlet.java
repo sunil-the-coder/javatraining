@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -24,35 +25,43 @@ public class CategoryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
+		HttpSession httpSession = request.getSession(false);
 
-		// Display categories..
+		if (httpSession  == null) {
+			response.sendRedirect("index.html");
+		} else {
+			PrintWriter out = response.getWriter();
 
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			// Display categories..
 
-		Session session = sessionFactory.openSession();
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-		Query query = session.createQuery("from Category");
+			Session session = sessionFactory.openSession();
 
-		List<Category> categories = (List<Category>) query.list();
+			Query query = session.createQuery("from Category");
 
-		out.println("<html><body><table border=1>");
-		out.println("<tr><th>Name</th><th>Description</th><th> Image </th> </tr>");
+			List<Category> categories = (List<Category>) query.list();
 
-		for (Category category : categories) {
-			out.println("<tr>");
-			out.println("<td>" + category.getCatName() + "</td>");
-			out.println("<td>" + category.getCatDesc() + "</td>");
-			out.println("<td><a href='products?catId="+category.getId()+"'><img src='images/" + category.getCatImgUrl() + "' width='50%' height='50%'/></a></td>");
-			out.println("</tr>");
+			out.println("<html><body>");
+			out.println("<h2> Welcome, "+httpSession.getAttribute("currentUser")+"</h2>");
+			out.println("<table border=1>");
+			out.println("<tr><th>Name</th><th>Description</th><th> Image </th> </tr>");
+
+			for (Category category : categories) {
+				out.println("<tr>");
+				out.println("<td>" + category.getCatName() + "</td>");
+				out.println("<td>" + category.getCatDesc() + "</td>");
+				out.println("<td><a href='products?catId=" + category.getId() + "'><img src='images/"
+						+ category.getCatImgUrl() + "' width='50%' height='50%'/></a></td>");
+				out.println("</tr>");
+			}
+
+			out.println("</table></body></html>");
+
+			session.close();
+
+			out.close();
 		}
-
-		out.println("</table></body></html>");
-
-		session.close();
-		
-		out.close();
-
 	}
 
 }

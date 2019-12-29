@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -25,42 +26,51 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
+		HttpSession httpSession = request.getSession(false);
 
-		// Display categories..
+		if (httpSession == null) {
+			response.sendRedirect("index.html");
+		} else {
 
-		int catId = Integer.parseInt(request.getParameter("catId"));
+			PrintWriter out = response.getWriter();
 
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			// Display categories..
 
-		Session session = sessionFactory.openSession();
+			int catId = Integer.parseInt(request.getParameter("catId"));
 
-		Criteria criteria = session.createCriteria(Product.class);
-		criteria.add(Restrictions.eq("catId", catId));
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-		List<Product> products = (List<Product>) criteria.list();
-		System.out.println("products:"+products);
+			Session session = sessionFactory.openSession();
 
-		out.println("<html><body><table border=1>");
-		out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th> </tr>");
+			Criteria criteria = session.createCriteria(Product.class);
+			criteria.add(Restrictions.eq("catId", catId));
 
-		for (Product prod : products) {
-			out.println("<tr>");
-			out.println("<td>" + prod.getProdName() + "</td>");
-			out.println("<td>" + prod.getProdDesc() + "</td>");
-			out.println("<td>" + prod.getPrice() + "</td>");
-			out.println("<td><img src='images/" + prod.getProdImgUrl() + "' width='50%' height='50%'/></td>");
-			out.println("<td><a href='addToCart?pid="+prod.getPid()+"&prodName="+prod.getProdName()+"&price="+prod.getPrice()+"&qty=1'>AddToCart</a></td>");
-			out.println("</tr>");
+			List<Product> products = (List<Product>) criteria.list();
+			System.out.println("products:" + products);
+
+			out.println("<html><body>");
+			out.println("<h2> Welcome, "+httpSession.getAttribute("currentUser")+"</h2>");
+			out.println("<table border=1>");
+			out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th> </tr>");
+
+			for (Product prod : products) {
+				out.println("<tr>");
+				out.println("<td>" + prod.getProdName() + "</td>");
+				out.println("<td>" + prod.getProdDesc() + "</td>");
+				out.println("<td>" + prod.getPrice() + "</td>");
+				out.println("<td><img src='images/" + prod.getProdImgUrl() + "' width='50%' height='50%'/></td>");
+				out.println("<td><a href='addToCart?pid=" + prod.getPid() + "&prodName=" + prod.getProdName()
+						+ "&price=" + prod.getPrice() + "&qty=1'>AddToCart</a></td>");
+				out.println("</tr>");
+			}
+
+			out.println("</table></body></html>");
+
+			session.close();
+
+			out.close();
+
 		}
-
-		out.println("</table></body></html>");
-
-		session.close();
-		
-
-		out.close();
-
 	}
 
 }

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nobel.oshop.cart.ShoppingCart;
 
@@ -20,17 +21,22 @@ public class DeleteProductFromCart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		int pid = Integer.parseInt(request.getParameter("pid"));
-		
-		ServletContext context = getServletContext();
-		ShoppingCart cart = (ShoppingCart) context.getAttribute("cart");
 
-		cart.delete(pid);
-		
-		response.sendRedirect("listCart");
-		
-		
+		HttpSession httpSession = request.getSession(false);
+
+		if (httpSession == null) {
+			response.sendRedirect("index.html");
+		} else {
+			int pid = Integer.parseInt(request.getParameter("pid"));
+
+			//ServletContext context = getServletContext();
+			ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("cart");
+
+			cart.delete(pid);
+
+			response.sendRedirect("listCart");
+
+		}
 	}
 
 }
