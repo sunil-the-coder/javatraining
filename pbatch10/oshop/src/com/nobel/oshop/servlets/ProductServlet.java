@@ -18,7 +18,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 import com.nobel.oshop.model.Product;
-import com.nobel.shop.hibernate.util.HibernateUtil;
 
 @WebServlet("/products")
 public class ProductServlet extends HttpServlet {
