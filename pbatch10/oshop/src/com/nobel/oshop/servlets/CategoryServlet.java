@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +34,9 @@ public class CategoryServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 
 			// Display categories..
-
-			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			
+			ServletContext context = getServletContext();
+			SessionFactory sessionFactory = (SessionFactory) context.getAttribute("sessionFactory");
 
 			Session session = sessionFactory.openSession();
 

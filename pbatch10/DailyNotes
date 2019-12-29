@@ -1788,13 +1788,11 @@ This cookie is created by tomcat container for each browser request.
 The browser is responsible for to send this cookie to server for each request to same application like ( oshop, flipkart, amazon etc...)
 
 
-
-
-
-
 Ubuntu Chrome Cookies location:
 
 $HOME/.config/google-chrome/Default/Cookies
+
+
 
 
 

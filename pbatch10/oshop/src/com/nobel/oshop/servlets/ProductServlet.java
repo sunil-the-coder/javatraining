@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +39,8 @@ public class ProductServlet extends HttpServlet {
 
 			int catId = Integer.parseInt(request.getParameter("catId"));
 
-			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			ServletContext context = getServletContext();
+			SessionFactory sessionFactory = (SessionFactory) context.getAttribute("sessionFactory");
 
 			Session session = sessionFactory.openSession();
 
@@ -49,7 +51,7 @@ public class ProductServlet extends HttpServlet {
 			System.out.println("products:" + products);
 
 			out.println("<html><body>");
-			out.println("<h2> Welcome, "+httpSession.getAttribute("currentUser")+"</h2>");
+			out.println("<h2> Welcome, " + httpSession.getAttribute("currentUser") + "</h2>");
 			out.println("<table border=1>");
 			out.println("<tr><th>Name</th><th>Description</th><th>Price</th><th> Image </th><th>Action</th> </tr>");
 
