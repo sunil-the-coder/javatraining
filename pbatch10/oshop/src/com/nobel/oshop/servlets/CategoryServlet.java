@@ -17,7 +17,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.nobel.oshop.model.Category;
-import com.nobel.shop.hibernate.util.HibernateUtil;
 
 @WebServlet("/categories")
 public class CategoryServlet extends HttpServlet {
