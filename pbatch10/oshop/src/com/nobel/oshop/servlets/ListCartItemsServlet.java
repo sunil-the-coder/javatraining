@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +33,7 @@ public class ListCartItemsServlet extends HttpServlet {
 			ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("cart");
 
 			PrintWriter out = response.getWriter();
+			
 
 			if (cart != null) {
 				out.println("<html><body>");

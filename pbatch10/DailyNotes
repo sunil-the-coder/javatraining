@@ -1792,9 +1792,48 @@ Ubuntu Chrome Cookies location:
 
 $HOME/.config/google-chrome/Default/Cookies
 
+100 - 3-4%
+
+97% -> Spring + Spring Boot + REST Service + Hibernate
 
 
+Core java:
+	AWT & Swing => GUI Programming =>  Desktop based application
 
+	JFX -> 
+
+
+Servlet 3.x
+
+1. Event Handling
+
+	Listeners ->  ( Internally they are only interfaces )
+
+	ServletContext:
+
+		a. ServletContextListener
+			contextInitialized()
+			contextDestroyed()
+		b. ServletContextAttributeListener
+			attributeAdded()
+			attributeRemoved()
+			attributeReplaced()
+
+	Session:
+		a. HttpSessionListener
+			sessionCreated()
+			sessionDestroyed()
+
+		b. HttpSessionAttributeListener
+			attributeAdded()
+			attributeRemoved()
+			attributeReplaced()
+
+2. Web fragment
+
+3. Annotation File upload 
+
+4. Annotation based mapping
 
 
 	

@@ -13,9 +13,9 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>initHibernate</servlet-name>
 		<servlet-class>com.nobel.oshop.servlets.InitializeHibernate</servlet-class>
 		<load-on-startup>1</load-on-startup>
-	</servlet>
+	</servlet> -->
 </web-app>
