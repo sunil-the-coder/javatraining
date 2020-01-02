@@ -1,0 +1,161 @@
+JSP -> Jsp is simple view of servlets (Server Side Technology)
+
+1) Syntax:- 
+
+1) Directive:-
+	A directive is an instruction provide to the web engine that defines as to how the current jsp page will be processed
+	by jsp engine.
+	This instruction will be helpfull while converting the jsp documents into servlets for execution.
+	
+	A) <%@ page %>
+		The page directive comprises of  various attributes that decribe about the processing of page such as
+		I) language -> default value is java & should be recstricted to java itself. Initially was introduced for
+				supporting multiple languages however the draft did not go through we are still using java.
+
+		II) contentType -> Identifies the output that has been generated & rendered via this jsp page.
+				   Default value is "text/html".
+
+		III) autoFlush -> Default value true.
+				 Identifies the wheather the buffer used by the JspWriter should be automatically flushed or will it be explicetly flush by the programmer.
+
+		IV) buffer -> Specifies the Size of buffer that has to be used for the JspWriter.  Default is 8kb.
+
+		V) errorPage -> Specifies the URL that should be called whenever an unhandled exception takes place on the current page.
+		
+		VI) isErrorPage -> Defines wheather the current page is An errorPage & makes the implicit exception object avalibale on this page.
+
+		VII) extends->Specifies the base class to be used for the servlet class being generated to an jsp page.
+
+		VIII) import ->  Specify the list of classes that should be imported by the current jsp documents.
+
+		IX) info -> Extra information to be associated with the page which can be accessible via the getServletInfo()
+
+		X) isElIgnored -> Default value is false.Specifies wheather or not to ignore the Expression language.
+		
+		XI) isThreadSafe -> Default value is true. Identfies the wheather any synchronization issues will be managed by the programmer or will it be the responsibility of the Web Engine.
+					The true value indicated the responsibility of the programmer to take care about any synchronization issues.
+
+		XII) session-> Default value is true.Identifies the if the implicit object session may be available on the current jsp page.
+
+
+	B) <%@ taglib %>
+		The taglib directive is used for specifying the third party tag libraries to be used by the current jsp documents.
+		It has the attribute the URI & prefix.
+			URI -> It identifies the a unique name through which this taglib wil be recongnizable .
+			prefix -> And the prefix is like a namespace for all this tags
+		
+		
+	C) <%@ include %>
+		It is used to include the contents of another jsp of html documents. Statically at the time of translation to the current jsp document. (Phys)
+		(eg> Headers and Footer are same for any web page in my application. Only at one side)
+
+2) Declaration Block -  Data member of class.
+	-> <%! %>
+		The declaration is used for defining the page level variables or functions that can be accessed throghout 
+		the jsp document.
+
+3) Scriptlet:- <%  %>
+		A scriptlets is a block of java code that would be embedded within the current jsp documents and would be executed on server side.
+		Any Code define within the scriptlet would be replaced within the service method for the generated servlet.
+		
+			
+4) Expression - It should contain the statements which return the value.
+		 <%=  %>
+		An expression is a single statement that generates an output which would be delivered to the client. It can only contain only one statement not terminating semicolon.
+
+5) EL or Expression Language (jsp 2.0) -> Accessing lot of data.
+		-> ${} or #{} -> Own Syntax of pattern is different.
+		-> It is convinience syntax introduced for Web Desinger & Programmers to access various implic objects on the current jsp page.
+
+6) Comments.
+
+//single line
+
+/*
+	// multi line
+*/
+
+/**
+*
+*	//Documentation comment
+*/
+
+
+	<!-- 
+		//JSP/html page comment
+	-->
+	
+2) Implicit Objects - Will be used only in scriptlets & expression.
+
+	These are objects bydefault available within an scriptlets or an expression.
+
+
+a) request -> HttpServletRequest
+b) response -> HttpServletResponse
+c) config -> ServletConfig
+e) application -> ServletContext
+f) session -> HttpSession
+g) exception -> Throwable -> Identifies the the exception that has been raised on previous page.
+h) page ->  Object -> refer the current object
+i) out -> JspWriter
+	It is type of JspWriter which uses a buffering mechanism to store the output generated and only once the buffer is full, the contens will be flushed to client steram.
+
+j) pageContext -> PageContext -> Wrapper for all above objects. (Can be used to pass as parameter to function & u will get the all the object all)
+	
+	It is wrapper object containing all the eight implicit objects within itself.
+
+
+3) Jsp Taglib/ Jsp Actions (JSTL)
+
+a) <jsp:useBean> scope="page/session/application"> - Populate the bean -> Automatically call the methods internally -> Code behind logic (Dont expose the business logic at jsp side) 
+
+	It is used to instantiate or use Javabeans of POJO Objects on the current jsp dcouments.
+
+b) <jsp:setProperty> 
+	Allow us set the datamembers of this bean using this tag.
+
+c) <jsp:getProperty>
+	Allow me to retrive the value of property of bean.
+
+d) <jsp:include> -> include the other html code into your code. 
+	Dynamically includes a process server side code on the current jsp document.
+	(It will execute the next URL & also display the current page output + next page output)
+
+e) <jsp:forward> -> 
+	It allows me to forward the request to another URL on server side.
+	(It will execute the next URL & only display  next page output)	
+
+f) <jsp:plugin> -> It allows us add the plugins as Applet,flash,windows media player etc on the current jsp docuement.
+
+	 <jsp:fallback>
+	 <jsp:param>
+
+	
+
+lifecyle method of jsp:
+
+  _jspInit() {}
+	
+  _jspDestroy() {}
+
+  _jspService(request, response) {}
+
+
+Generated Jsp location:
+
+/<workspace>/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/work/Catalina/localhost/<appName>/org/apache/jsp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
