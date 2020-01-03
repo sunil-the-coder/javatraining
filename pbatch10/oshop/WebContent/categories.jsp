@@ -1,5 +1,6 @@
 <%@page import="com.nobel.oshop.model.Category"%>
 <%@page import="java.util.List"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +9,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<%-- <c:forEach items="categories" var="category">
+	<c:out value="category.catName"></c:out>
+</c:forEach>
+ --%>
+ 
+ 
 <body>
 	<table border=1>
 		<tr>

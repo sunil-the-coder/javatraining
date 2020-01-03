@@ -1890,6 +1890,27 @@ be displayed
 
 
 
+Classification of The JSTL Tags
+The JSTL tags can be classified, according to their functions, into the following JSTL tag library groups that can be used when creating a JSP page −
+
+Core Tags
+
+Formatting tags
+
+SQL tags
+
+XML tags
+
+JSTL Functions
+
+
+
+
+
+
+
+
+
 
 	
 
