@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ import com.nobel.oshop.model.Category;
 public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		HttpSession httpSession = request.getSession(false);
@@ -43,21 +44,28 @@ public class CategoryServlet extends HttpServlet {
 
 			List<Category> categories = (List<Category>) query.list();
 
-			out.println("<html><body>");
-			out.println("<h2> Welcome, "+httpSession.getAttribute("currentUser")+"</h2>");
-			out.println("<table border=1>");
-			out.println("<tr><th>Name</th><th>Description</th><th> Image </th> </tr>");
+			//response.sendRedirect("categories.jsp");
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("categories.jsp");
+			request.setAttribute("categories", categories);
+			dispatcher.forward(request, response);
+		
 
-			for (Category category : categories) {
-				out.println("<tr>");
-				out.println("<td>" + category.getCatName() + "</td>");
-				out.println("<td>" + category.getCatDesc() + "</td>");
-				out.println("<td><a href='products?catId=" + category.getId() + "'><img src='images/"
-						+ category.getCatImgUrl() + "' width='50%' height='50%'/></a></td>");
-				out.println("</tr>");
-			}
-
-			out.println("</table></body></html>");
+//			out.println("<html><body>");
+//			out.println("<h2> Welcome, "+httpSession.getAttribute("currentUser")+"</h2>");
+//			out.println("<table border=1>");
+//			out.println("<tr><th>Name</th><th>Description</th><th> Image </th> </tr>");
+//
+//			for (Category category : categories) {
+//				out.println("<tr>");
+//				out.println("<td>" + category.getCatName() + "</td>");
+//				out.println("<td>" + category.getCatDesc() + "</td>");
+//				out.println("<td><a href='products?catId=" + category.getId() + "'><img src='images/"
+//						+ category.getCatImgUrl() + "' width='50%' height='50%'/></a></td>");
+//				out.println("</tr>");
+//			}
+//
+//			out.println("</table></body></html>");
 
 			session.close();
 

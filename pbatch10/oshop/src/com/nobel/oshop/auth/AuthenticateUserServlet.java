@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +47,10 @@ public class AuthenticateUserServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("currentUser", uname);
 				
-				response.sendRedirect("categories");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("categories");
+				dispatcher.forward(request, response);
+			
+				//response.sendRedirect("categories");
 
 			} else {
 				// out.println("Login Failed.");

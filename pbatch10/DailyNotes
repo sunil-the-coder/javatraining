@@ -1838,6 +1838,63 @@ Servlet 3.x
 
 	
 	 
+JSP:
+	Refer jsp notes for content.
+
+
+
+Application:
+	Servlet -> fetch 
+
+
+categories -> products
+
+sendRedirect -> New request send from browser.
+
+
+
+sendRedirect					requestDispatcher
+
+1. client side forwarding		1. server side forward
+2. There is extra round trip from 	2. Direct forwards on 						server.
+server to client to initiate
+new request.
+
+3. All old request data will be lost	3. You can retrieve old 					request data.
+
+4. cross domain forwarding is 		4. Only within single domain
+supported.
+(eg. flipkart.com to hdfc.com )
+
+
+5. Slow bcs of extra round trip		5. fast ( no extra round 							trip)
+
+
+
+
+
+
+forward					include
+
+1. current page output will be		1. Current page + next page
+destroyed & new page output will         output is combined & then 						display
+be displayed 
+
+
+
+
+<jsp:forward>
+<jsp:include>
+
+
+
+
+
+
+	
+
+
+
 	
 	
 

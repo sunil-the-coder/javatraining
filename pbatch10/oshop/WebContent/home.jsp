@@ -1,5 +1,6 @@
+<%@page import="com.nobel.oshop.cart.ShoppingCart"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.time.LocalDateTime"%>
+    pageEncoding="UTF-8" buffer="8kb" import="java.time.LocalDateTime"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%! int data=100; %>
 
 <%
+	
+	application.setAttribute("cart", new ShoppingCart());
+
 	LocalDateTime time = LocalDateTime.now();
 %>
 
