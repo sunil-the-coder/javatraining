@@ -23,7 +23,7 @@
 		<tr>
 			<td><%=category.getCatName()%></td>
 			<td><%=category.getCatDesc()%></td>
-			<td><%=category.getCatImgUrl()%></td>
+			<td><a href='products?catId=<%=category.getId()%>'><img src='images/<%=category.getCatImgUrl() %>' width='50%' height='50%'/></td>
 		</tr>
 		<%
 			}
