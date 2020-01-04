@@ -3,7 +3,7 @@ package com.nobel.test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.nobel.model.Engine;
+import com.nobel.model.Plane;
 
 public class SpringTest {
 
@@ -11,9 +11,18 @@ public class SpringTest {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-		Engine engine = context.getBean("engine", Engine.class);
+		Plane plane = context.getBean("plane", Plane.class);
 
-		engine.startEngine();
-		engine.stopEngine();
+		try {
+			plane.fly();
+
+			Thread.sleep(1000);
+
+			plane.takeOff();
+			
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
