@@ -14,6 +14,7 @@ public class Category {
 		super();
 		this.catName = catName;
 		this.catDesc = catDesc;
+		System.out.println("param ctr called...");
 	}
 
 	public String getCatName() {

@@ -5,13 +5,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="category" class="com.nobel.model.Category">
+	<bean id="category" class="com.nobel.model.Category" scope="prototype">
 		<!-- <property name="catName" value="Watch"></property>
 		<property name="catDesc" value="Must wear watch"></property> -->
 		
 		<constructor-arg name="catName" value="Shoes"></constructor-arg>
 		<constructor-arg name="catDesc" value="Must have shoes"></constructor-arg>
 	</bean>
-
+	
+	
+	<bean id="categoryTest" class="com.nobel.model.Category">
+		<constructor-arg name="catName" value="Watch"></constructor-arg>
+		<constructor-arg name="catDesc" value="Must have watch"></constructor-arg>
+	</bean>
 </beans>
 

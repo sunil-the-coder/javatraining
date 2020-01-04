@@ -13,11 +13,16 @@ public class SpringEntry {
 		
 		System.out.println("Retrieving object from container...");
 		
-		Category category = context.getBean("category",Category.class);
+		Category category1 = context.getBean("category",Category.class);
+		Category category2 = context.getBean("category",Category.class);
+		Category category3 = context.getBean("category",Category.class);
 		
-		//category.setCatName("Watch");
-	//	category.setCatDesc("Must wear watch");
+		Category categoryTest1 = context.getBean("categoryTest",Category.class);
+		Category categoryTest2 = context.getBean("categoryTest",Category.class);
 		
-		System.out.println(category);
+		System.out.println(category1);
+		System.out.println(category2);
+		
+		
 	}
 }
