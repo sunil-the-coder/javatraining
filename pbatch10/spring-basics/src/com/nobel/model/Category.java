@@ -2,8 +2,8 @@ package com.nobel.model;
 
 public class Category {
 
-	private String catName = "Shoes";
-	private String catDesc = "Must wear shoes";
+	private String catName;
+	private String catDesc;
 
 	public Category() {
 		System.out.println("ctr called...");
@@ -24,12 +24,16 @@ public class Category {
 		this.catName = catName;
 	}
 
-	public String getCatDesc() {
-		return catDesc;
-	}
-
 	public void setCatDesc(String catDesc) {
 		this.catDesc = catDesc;
+	}
+
+	public void setFirstName(String firstName) {
+		System.out.println("Setting firstName as " + firstName);
+	}
+
+	public String getCatDesc() {
+		return catDesc;
 	}
 
 	@Override
