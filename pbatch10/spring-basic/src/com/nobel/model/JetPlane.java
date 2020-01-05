@@ -10,6 +10,7 @@ public class JetPlane implements Plane {
 	}
 
 	public void setEngine(Engine engine) {
+		System.out.println("Setting engine");
 		this.engine = engine;
 	}
 
