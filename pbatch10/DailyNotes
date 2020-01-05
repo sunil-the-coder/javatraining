@@ -1914,10 +1914,23 @@ JSTL Functions
 Autowiring:
 	1) byName -> inject bean dependencies by finding beans with their id names.
 
-	2) byType-> 
+	2) byType-> Search bean by type of depedent object.
 			
 	3) constructor -> 
-	
+		It first uses byName if not found then search byType.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

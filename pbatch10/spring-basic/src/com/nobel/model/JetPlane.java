@@ -5,12 +5,8 @@ public class JetPlane implements Plane {
 	// Tight coupling
 	private Engine engine;
 
-	public Engine getEngine() {
-		return engine;
-	}
-
-	public void setEngine(Engine engine) {
-		System.out.println("Setting engine");
+	public JetPlane(Engine engine) {
+		super();
 		this.engine = engine;
 	}
 

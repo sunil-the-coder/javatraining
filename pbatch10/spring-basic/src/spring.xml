@@ -5,12 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="jetEngine" class="com.nobel.model.JetEngine">
+	<bean id="sunil" class="com.nobel.model.JetEngine">
 		<property name="fuelType" value="Anaconda"></property>
 	</bean>
 	
-	<bean id="plane" class="com.nobel.model.JetPlane" autowire="byType" >
-		<!-- <property name="engine" ref="jetEngine"></property> -->
+	<bean id="plane" class="com.nobel.model.JetPlane" autowire="constructor" >
 	</bean>
 
 </beans>
