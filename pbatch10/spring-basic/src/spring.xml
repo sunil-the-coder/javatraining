@@ -9,13 +9,22 @@
 		<property name="fuelType" value="Anaconda"></property>
 	</bean>
 	
+	<bean id="p1" class="com.nobel.model.Passenger">
+		<property name="name" value="Sunil"></property>
+		<property name="mobile" value="8055812181"></property>
+	</bean>
+	
+	<bean id="p2" class="com.nobel.model.Passenger">
+		<property name="name" value="Amol"></property>
+		<property name="mobile" value="8855842141"></property>
+	</bean>
+	
 	<bean id="plane" class="com.nobel.model.JetPlane">
 		<property name="engine" ref="engine"></property>
 		<property name="passengerNames">
 			<list>
-				<value>Amol</value>
-				<value>Sunil</value>
-				<value>Ganesh</value>
+				<ref bean="p1"/>
+				<ref bean="p2"/>
 			</list>
 		</property>
 	</bean>

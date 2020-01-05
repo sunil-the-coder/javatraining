@@ -7,7 +7,7 @@ public class JetPlane implements Plane {
 	// Tight coupling
 	private Engine engine;
 
-	private List<String> passengerNames;
+	private List<Passenger> passengerNames;
 
 	public Engine getEngine() {
 		return engine;
@@ -17,17 +17,17 @@ public class JetPlane implements Plane {
 		this.engine = engine;
 	}
 
-	public List<String> getPassengerNames() {
+	public List<Passenger> getPassengerNames() {
 		return passengerNames;
 	}
 
-	public void setPassengerNames(List<String> passengerNames) {
+	public void setPassengerNames(List<Passenger> passengerNames) {
 		this.passengerNames = passengerNames;
 	}
 
 	public JetPlane() {
 	}
-	
+
 	public JetPlane(Engine engine) {
 		super();
 		this.engine = engine;
@@ -36,7 +36,7 @@ public class JetPlane implements Plane {
 	@Override
 	public void fly() {
 		engine.startEngine();
-		System.out.println("Plane is flying to america with these passagers "+passengerNames);
+		System.out.println("Plane is flying to america with these passagers " + passengerNames);
 	}
 
 	@Override
