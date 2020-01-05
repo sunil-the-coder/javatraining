@@ -14,6 +14,7 @@ public class JetPlane implements Plane {
 	}
 
 	public void setEngine(Engine engine) {
+		System.out.println("Setting Engine");
 		this.engine = engine;
 	}
 
@@ -22,6 +23,7 @@ public class JetPlane implements Plane {
 	}
 
 	public void setPassengerNames(List<Passenger> passengerNames) {
+		System.out.println("Setting Passengers");
 		this.passengerNames = passengerNames;
 	}
 
@@ -31,6 +33,10 @@ public class JetPlane implements Plane {
 	public JetPlane(Engine engine) {
 		super();
 		this.engine = engine;
+	}
+	
+	public void setupInstructions() {
+		System.out.println("Setting up instruction in flight....");
 	}
 
 	@Override

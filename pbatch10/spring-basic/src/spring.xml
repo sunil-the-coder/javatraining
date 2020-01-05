@@ -19,7 +19,7 @@
 		<property name="mobile" value="8855842141"></property>
 	</bean>
 	
-	<bean id="plane" class="com.nobel.model.JetPlane">
+	<bean id="plane" class="com.nobel.model.JetPlane" lazy-init="true" init-method="setupInstructions" destroy-method="removeAllSeatBelts">
 		<property name="engine" ref="engine"></property>
 		<property name="passengerNames">
 			<list>

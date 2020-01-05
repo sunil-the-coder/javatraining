@@ -1922,6 +1922,11 @@ Autowiring:
 
 
 
+Eager -> On App start create beans object 
+
+Lazy -> On request from container, create the bean.
+
+
 
 
 
