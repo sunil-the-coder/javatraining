@@ -1911,7 +1911,13 @@ JSTL Functions
 ================================ Spring =========================
 
 
+Autowiring:
+	1) byName -> inject bean dependencies by finding beans with their id names.
 
+	2) byType-> 
+			
+	3) constructor -> 
+	
 
 
 
