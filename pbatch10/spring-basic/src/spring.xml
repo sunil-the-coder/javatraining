@@ -26,6 +26,10 @@
 				<ref bean="p1"/>
 				<ref bean="p2"/>
 			</list>
+			
+			<!-- <map>
+				<entry key="p1" value-ref="p1"></entry>
+			</map> -->
 		</property>
 	</bean>
 
