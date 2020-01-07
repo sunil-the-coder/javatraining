@@ -5,15 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="category" class="com.nobel.model.Category" scope="prototype">
+	<bean id="category" class="com.spatil.runner.model.Category" scope="prototype">
 		<constructor-arg name="catName" value="Shoes"></constructor-arg>
 		<constructor-arg name="catDesc" value="Must have shoes"></constructor-arg>
 	</bean>
 	
 	
-	<bean id="categoryTest" class="com.nobel.model.Category">
-		<constructor-arg name="catName" value="Watch"></constructor-arg>
-		<constructor-arg name="catDesc" value="Must have watch"></constructor-arg>
-	</bean>
 </beans>
 

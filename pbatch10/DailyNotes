@@ -1927,6 +1927,95 @@ Eager -> On App start create beans object
 Lazy -> On request from container, create the bean.
 
 
+------------------------------------------------------------------
+
+
+		AOP - Aspect Oriented Programming
+
+
+Example:
+
+
+class LoggingAspect
+{
+	
+	logDetailsofAccountAdvice() {
+		//log
+	}
+
+	checkUserRoles() {
+			
+	}
+}
+
+
+class AccountService {
+
+	public void transact(int from, int to, int amount) {
+
+		//Logging to details...12425...52362.1000
+
+		//logic to transfer
+		{
+			//core logic
+		}
+
+//		log		
+	}
+}
+
+
+
+AOP Configuration:
+	1. XML
+	2. Annotation ( AspectJ Programming )
+	
+
+
+Cross Cutting Concern:
+	1. Security
+	2. Logging
+	3. Caching
+	4. Transaction management etc.....
+
+	AOP : 
+
+
+1. Aspect : 
+	It is class which represent concern and has defined diff advices.
+
+2. Advice: Actual concern to be executed base on expression defined using pointcut.
+
+	a. After
+	b. Before
+	c. Around
+	d. After returning
+	e. After throwing	
+
+3. POintcut :
+	Its expression which defines as where advice can be applied in an project. 
+	eg. package level, class level, method level etc....
+
+	It uses Perl Expression.
+
+4. JoinPoint:
+	Its combination of multiple pointcuts which maitains info about target object, source object and other method level info.
+
+
+5. Target Object:
+	Actual object on which advice needs to be applied. 
+
+6. Weaving Process:
+	It is processof combining bytecodes of advices and target object.
+	a. compile time
+	b. class loading time
+	c. runtime ( spring Supports this ) which uses proxy design pattern.
+
+
+
+
+
+
 
 
 
