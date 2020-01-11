@@ -1,15 +1,17 @@
 package com.spatil.demo.controller;
 
-import java.util.Arrays;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spatil.demo.model.Product;
-import com.spatil.demo.model.UserRating;
+import com.spatil.demo.service.ProductService;
 
 @RestController
 public class ProductController {
+	
+	@Autowired
+	private ProductService productService;
 
 	@GetMapping(path = "/hello")
 	public String sayHello() {
@@ -18,8 +20,6 @@ public class ProductController {
 
 	@GetMapping("/product")
 	public Product getProduct() {
-		Product prod = new Product(10, 1, "Adidas Shoes", "Must wear shoes", "adidas.jpg", 5000, 2);
-		prod.setReviews(Arrays.asList(new UserRating("Sunil", 5),new UserRating("Ganesh", 4)));
-		return prod;
+		return productService.getProduct();
 	}
 }
