@@ -2015,6 +2015,116 @@ Cross Cutting Concern:
 
 
 
+------------------------ Spring Boot -------------------------
+
+Spring 1.x, 1.5, 2.2
+
+1. Basics
+2. How to create MVC application ?
+3. REST Services + With Hibernate
+4. Actuator
+
+
+Why Spring Boot:
+
+starter-web
+starter-data-jpa
+starter-rest
+
+	starter dependencies:
+		Hibernate
+
+		context, beans, el, core,validator
+		
+
+h2 -> In memory database
+mysql -> Datasource 
+
+
+	Cloud based application -> Microserices
+
+Monolithic -> 
+	
+
+Customization:
+	application.properties | yaml
+	
+	application-dev.properties | yaml
+
+
+	Profiles -> dev, test, uat, prod
+
+
+Main dep of spring Boot:
+
+	spring-boot-starter-parent
+
+spring-boot-starter-web
+spring-boot-starter-test
+spring-boot-starter-data-jpa
+
+
+
+
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=root
+spring.datasource.password=admin
+spring.datasource.initialize=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+i18n -> Internationalization
+l10n -> Localization
+
+
+
+MongoDB:
+	
+
+Oracle/MySql			Mongo
+
+SQL				No-SQL
+
+Schema				Schema less
+
+
+	
+
+
+JSON:
+
+{
+	"pid": 10,
+	"catId": 1,
+	"prodName": "Adidas Shoes",
+	"prodDesc": "Must wear shoes",
+	"prodImgUrl": "adidas.jpg",
+	"price": 5000,
+	"qty": 2
+}
+
+
+
+jackson library -> 
+	Java object to JSON object
+	   JSON to Java object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
