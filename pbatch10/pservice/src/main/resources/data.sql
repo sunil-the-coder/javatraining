@@ -1,0 +1,2 @@
+insert into product(prodName, prodDesc,price,qty) values('Oneplus 7T','Super Fast Model',50000,5);
+insert into product(prodName, prodDesc,price,qty) values('Oneplus 5T','Super Model with best Camera',35000,10);

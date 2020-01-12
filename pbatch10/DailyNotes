@@ -2106,12 +2106,90 @@ JSON:
 }
 
 
-
 jackson library -> 
 	Java object to JSON object
 	   JSON to Java object
 
 
+<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+
+Hikari CP -> DB Connection Pooling Library 
+
+Bydefault used by Spring Boot for creating db connection library.
+
+
+
+
+
+h2 console:
+
+http://localhost:8080/h2-console/
+
+http://localhost:8080/swagger-ui.html#/
+
+
+https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
+
+
+
+Web Service ?
+	
+
+Defining URL in REST:
+
+products
+
+Parent Resources:
+
+1) GET /products  -> Get all products
+2) POST /products -> Insert/Add new product
+3) GET /products/{id} -> Get product by given id
+4) DELETE /products/{id} -> delete product by given id
+5) PUT /products/{id} -> Update product by given id.
+
+Nested Resources:
+
+1) GET /products/reviews -> Get all products with their reviews
+2) GET /products/{id}/reviews -> Get all reviews of the product for given id.
+3) GET /products/{prodId}/reviews/{reviewId} -> Get review by id for perticular product by id.
+
+
+Http Status Codes: ( 10 )	
+
+	404
+	500
+
+Rest Service Testing:
+	1) Use client tools
+		a. Postman
+		b. "Advanced Rest Client" plugin from browser
+
+	2) Use Swagger 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2172,7 +2250,11 @@ jackson library ->
 
 
 
+Local Repository: /home/sunil/.m2
 
+		C:\\Users\\sunil\\.m2
+
+/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.2.2.RELEASE/spring-boot-starter-data-jpa-2.2.2.RELEASE.jar
 
 
 
@@ -2182,6 +2264,7 @@ jackson library ->
 
 
 	
+
 
 
 
