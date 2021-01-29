@@ -35,7 +35,7 @@ public class ProductController {
 		productService.deleteProductById(id);
 	}
 	
-	@PostMapping("/products")
+	@PostMapping("/products/add")
 	public Product save(@RequestBody Product product) {
 		return productService.saveOrUpdate(product);
 	}
